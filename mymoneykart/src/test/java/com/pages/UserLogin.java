@@ -56,7 +56,7 @@ public class UserLogin
 			//driver.switchTo().defaultContent();
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("divLoader")));
 			Assert.assertEquals("Narendra Rajput", usersname.getText());
-			TakeScreenshot.takeScreen("hello", true);
+			//TakeScreenshot.takeScreen("hello", true);
 			System.out.println("User Log in success");
 			
 		}

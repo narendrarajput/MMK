@@ -12,6 +12,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.pages.ContactUsPage;
+import com.pages.InviteFriends;
 import com.pages.UserLogin;
 
 import pom.utils.TakeScreenshot;
@@ -36,22 +37,19 @@ public class ExecuteTest
 		driver.get("http://www.mymoneykart.com/mmkweb/");
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	}
-	@Test(priority = 2)
+	
+	@Test(enabled=false)
 	public  void submitFeedback()
 	{
 		
 		ContactUsPage conpage = new ContactUsPage(driver);
 		
 		WebDriverWait wait = new WebDriverWait(driver, 60);
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("divLoader")));
-		
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("divLoader")));		
 		conpage.contactUsLink.click();
-		conpage.submitContactUsForm();
+		conpage.submitContactUsForm(TestDataComman.fName, TestDataComman.fEmail, TestDataComman.fMobile, TestDataComman.fType, TestDataComman.fMessage);
 		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='result-content']/i")));
 		
-		System.out.println(conpage.NotificationMessage.getText());
-		TakeScreenshot.takeScreen("hello", true);
 
 	}
 	@Test(priority = 1)
@@ -59,7 +57,15 @@ public class ExecuteTest
 	{
 		UserLogin login = new UserLogin(driver);
 		login.doLogin(TestDataComman.username, TestDataComman.password);
+		
 	}
 	
+	@Test(priority = 2)
+	public void inviteFriend()
+	{
+		InviteFriends invitefriend = new InviteFriends(driver);
+		invitefriend.inviteFriend();
+		
+	}
 
 }
