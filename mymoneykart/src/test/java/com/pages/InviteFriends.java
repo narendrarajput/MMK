@@ -1,5 +1,7 @@
 package com.pages;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -21,7 +23,7 @@ public class InviteFriends
 	public WebElement loader;
 	
 	@FindBy(xpath = "//input[@placeholder='Friend Name']")
-	public WebElement friendName;
+	public List<WebElement> friendName;
 	
 	@FindBy(xpath = "//input[@placeholder='Mobile Number']")
 	public WebElement friendNumber;
@@ -42,7 +44,14 @@ public class InviteFriends
 		// The link is directly not clickable so need to click using javascriptExecuter
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", inviteFriendsLink);
-		friendName.sendKeys("My");
+	//	friendName.sendKeys("My");
 		friendNumber.sendKeys("8866225511");
+	}
+	
+	public void myTest()
+	{
+		List<WebElement> element = friendName;
+		
+		element.forEach((val)->System.out.println(val.getText()));
 	}
 }

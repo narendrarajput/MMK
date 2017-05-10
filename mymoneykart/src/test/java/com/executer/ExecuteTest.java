@@ -28,11 +28,10 @@ public class ExecuteTest
 	public void setup()
 	{
 		// Intitilize driver
-		System.setProperty("webdriver.chrome.driver", "D:\\Application\\chromedriver.exe");
-				
-		ChromeOptions option = new ChromeOptions();
-		option.addArguments("disable-infobars");
-		driver = new ChromeDriver();
+		System.setProperty("webdriver.chrome.driver", "D:\\Application\\chromedriver.exe");	
+		ChromeOptions options = new ChromeOptions(); 
+		options.addArguments("disable-infobars"); 
+		driver = new ChromeDriver(options);
 		driver.manage().window().maximize();
 		driver.get("http://www.mymoneykart.com/mmkweb/");
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -65,6 +64,7 @@ public class ExecuteTest
 	{
 		InviteFriends invitefriend = new InviteFriends(driver);
 		invitefriend.inviteFriend();
+		invitefriend.myTest();
 		
 	}
 
