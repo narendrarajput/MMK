@@ -48,10 +48,4 @@ public class InviteFriends
 		friendNumber.sendKeys("8866225511");
 	}
 	
-	public void myTest()
-	{
-		List<WebElement> element = friendName;
-		
-		element.forEach((val)->System.out.println(val.getText()));
-	}
 }

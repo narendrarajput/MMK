@@ -27,7 +27,7 @@ public class ExecuteTest
 	public void setup()
 	{
 		// Intitilize driver
-		System.setProperty("webdriver.chrome.driver", "D:\\Application\\chromedriver.exe");	
+		System.setProperty("webdriver.chrome.driver", "N:\\chromedriver.exe");	
 		ChromeOptions options = new ChromeOptions(); 
 		options.addArguments("disable-infobars"); 
 		driver = new ChromeDriver(options);
@@ -36,7 +36,7 @@ public class ExecuteTest
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	}
 	
-	@Test(enabled=false)
+	@Test(priority=2)
 	public  void submitFeedback()
 	{
 		
@@ -58,12 +58,12 @@ public class ExecuteTest
 		
 	}
 	
-	@Test(priority = 2)
+	@Test(priority = 3)
 	public void inviteFriend()
 	{
 		InviteFriends invitefriend = new InviteFriends(driver);
 		invitefriend.inviteFriend();
-		invitefriend.myTest();
+		
 		
 	}
 
