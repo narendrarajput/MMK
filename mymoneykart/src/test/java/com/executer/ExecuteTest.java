@@ -11,12 +11,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import pom.utils.TestDataComman;
+
 import com.pages.ContactUsPage;
 import com.pages.InviteFriends;
 import com.pages.UserLogin;
-
-import pom.utils.TakeScreenshot;
-import pom.utils.TestDataComman;
 
 public class ExecuteTest 
 {
