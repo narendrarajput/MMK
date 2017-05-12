@@ -24,7 +24,7 @@ public class ExecuteTest extends DriverSetup
 	//WebDriver driver = new DriverSetup().getDriver();
 
 	@Test(priority=2)
-	public  void submitFeedback()
+	public  void submitFeedback() throws InterruptedException
 	{
 		
 		ContactUsPage conpage = new ContactUsPage(driver);

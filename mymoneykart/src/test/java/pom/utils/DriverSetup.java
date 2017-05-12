@@ -1,5 +1,7 @@
 package pom.utils;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
@@ -34,7 +36,15 @@ public class DriverSetup
 						System.out.println("Starting chrome........");
 						System.setProperty("webdriver.chrome.driver","D:/Application/chromedriver.exe");
 						ChromeOptions options = new ChromeOptions(); 
+						
+						// To disable  "chrome controlled by automates software" infor bar
 						options.addArguments("disable-infobars"); 
+						
+						// To hide "save password dislog"
+						Map<String, Object> prefs = new HashMap<String, Object>();
+					    prefs.put("credentials_enable_service", false);
+					    prefs.put("profile.password_manager_enabled", false);
+					    options.setExperimentalOption("prefs", prefs);
 						driver = new ChromeDriver(options);	
 						driver.manage().window().maximize();
 						driver.get(TestDataComman.baseURL);
@@ -45,13 +55,13 @@ public class DriverSetup
 					case "firefox":
 						System.out.println("Starting Firefox........");
 						System.setProperty("webdriver.gecko.driver","D:/Application/geckodriver.exe");
-						ProfilesIni allProfiles = new ProfilesIni();
-						FirefoxProfile profile = allProfiles.getProfile("AutoTest");
-						driver = new FirefoxDriver(profile);		
+						//ProfilesIni allProfiles = new ProfilesIni();
+						//FirefoxProfile profile = allProfiles.getProfile("AutoTest");
+						driver = new FirefoxDriver();		
 						driver.manage().window().maximize();
 						driver.get(TestDataComman.baseURL);				
 						driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
-						TakeScreenshot.takeScreen("hello", true);
+						//TakeScreenshot.takeScreen("hello", true);
 					break;
 					
 					case "ie":

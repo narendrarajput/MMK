@@ -54,13 +54,14 @@ public class ContactUsPage
 		this.driver=driver;
 	}
 	
-	public void submitContactUsForm(String name, String email, String mobile, String type, String msg)
+	public void submitContactUsForm(String name, String email, String mobile, String type, String msg) throws InterruptedException
 	{
 		personName.sendKeys(name);
 		personEmail.sendKeys(email);
 		personMobileNo.sendKeys(mobile);
 		new Select(FeedbackType).selectByVisibleText(type);
 		message.sendKeys(msg);
+		Thread.sleep(2000);
 		sendButton.click();
 		new WebDriverWait(driver, 60).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='result-content']/i")));		
 		System.out.println(NotificationMessage.getText());
