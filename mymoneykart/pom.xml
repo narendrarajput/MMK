@@ -6,7 +6,7 @@
  <build>
          <plugins>   
          
-         <!-- Following plugin executes the testng tests -->
+         <!-- Following plugin executes mmk the testng tests  -->
             <plugin>
                <groupId>org.apache.maven.plugins</groupId>
                <artifactId>maven-surefire-plugin</artifactId>
@@ -17,6 +17,8 @@
                   		 <suiteXmlFile>testng.xml</suiteXmlFile>
                   	 </suiteXmlFiles>
                	   </configuration>
+               	     
+  
             </plugin> 
                    
               <plugin>
