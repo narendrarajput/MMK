@@ -11,33 +11,20 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import pom.utils.DriverSetup;
 import pom.utils.TestDataComman;
 
 import com.pages.ContactUsPage;
 import com.pages.InviteFriends;
 import com.pages.UserLogin;
 
-public class ExecuteTest 
+public class ExecuteTest extends DriverSetup
 {
 	
-	public static WebDriver driver = null;
-	
-	
-	@BeforeClass
-	public void setup()
-	{
-		// Intitilize driver
-		System.setProperty("webdriver.chrome.driver", "N:\\chromedriver.exe");	
-		ChromeOptions options = new ChromeOptions(); 
-		options.addArguments("disable-infobars"); 
-		driver = new ChromeDriver(options);
-		driver.manage().window().maximize();
-		driver.get("http://www.mymoneykart.com/mmkweb/");
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-	}
-	
+	//WebDriver driver = new DriverSetup().getDriver();
+
 	@Test(priority=2)
-	public  void submitFeedback()
+	public  void submitFeedback() throws InterruptedException
 	{
 		
 		ContactUsPage conpage = new ContactUsPage(driver);

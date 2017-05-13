@@ -18,7 +18,7 @@ public class TakeScreenshot
 	public static void takeScreen(String text, Boolean addReport) 
 	{
             // set file name and destination for screen shot
-            File scrFile = ((TakesScreenshot) ExecuteTest.driver).getScreenshotAs(OutputType.FILE);
+            File scrFile = ((TakesScreenshot) DriverSetup.driver).getScreenshotAs(OutputType.FILE);
             DateFormat dateFormat = new SimpleDateFormat("dd_MMM_yyyy__hh_mm_ssaa");
             String destDir = "./surefire-reports/html/screenshots/";
             new File(destDir).mkdirs();
