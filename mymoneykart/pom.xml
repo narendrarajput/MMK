@@ -39,7 +39,7 @@
         <dependency>				
             <groupId>org.testng</groupId>								
             <artifactId>testng</artifactId>								
-            <version>6.9.5</version>								
+            <version>6.8.7</version>								
             <scope>test</scope>							  			
         </dependency>
        <!-- https://mvnrepository.com/artifact/javax.mail/mail -->
