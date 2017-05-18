@@ -1,58 +1,44 @@
 package pom.utils;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Iterator;
 
+import org.apache.poi.ss.formula.FormulaParseException;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.Comment;
+import org.apache.poi.ss.usermodel.Hyperlink;
+import org.apache.poi.ss.usermodel.RichTextString;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ReadExcel 
-
 {
-
-		public static void main(String args[]) throws IOException
-		{
-				FileInputStream fis = new FileInputStream(new File("D://Automation//ITASM_TestData.xlsx"));
-				XSSFWorkbook workbook = new XSSFWorkbook(fis);
-				XSSFSheet sheet = workbook.getSheetAt(0);
-				
-				 Iterator<Row> rowIterator = sheet.iterator();
-		           
-		            // Traversing over each row of XLSX file
-		            while (rowIterator.hasNext())
-		            {
-		                Row row = rowIterator.next();
-		           
-		                if(row.getRowNum()!=0)
-		                {
-		                   Iterator  cellIterator = row.cellIterator();
-		               
-		                   while (cellIterator.hasNext())
-			                {
-			                	
-			                   Cell cell = (Cell) cellIterator.next();
-
-			                   System.out.print(cell.getStringCellValue() + "\t");
-			                   
-			                   if(cell.getColumnIndex()!=0)
-			                   {
-			                	   System.out.println("Hi");
-			                   }
-			                   else
-			                   {
-			                	   System.out.println("Hello");
-			                   }
-			                 
-			                }
-			                
-			                	System.out.println("\n");
-		                }
-		            }
-
-			}
+		FileInputStream fis;
+		XSSFWorkbook workbook;
+		XSSFSheet sheet;
 		
+		public ReadExcel() throws IOException
+		{
+			// Read Excel File
+			fis = new FileInputStream(new File("src/test/resources/SiteTestData.xlsx"));
+			workbook = new XSSFWorkbook(fis);
+			
+			// To get Sheet 1
+			sheet = workbook.getSheetAt(0);
+
+		}
+		
+		public String getCellData(int rowNum, int colNum)
+		{
+			return sheet.getRow(rowNum).getCell(colNum).getStringCellValue();
+		}
 }
 

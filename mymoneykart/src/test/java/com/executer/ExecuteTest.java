@@ -1,5 +1,6 @@
 package com.executer;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -12,6 +13,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import pom.utils.DriverSetup;
+import pom.utils.ReadExcel;
 import pom.utils.TestDataComman;
 
 import com.pages.ContactUsPage;
@@ -38,10 +40,13 @@ public class ExecuteTest extends DriverSetup
 
 	}
 	@Test(priority = 1)
-	public void login()
+	public void login() throws IOException
 	{
 		UserLogin login = new UserLogin(driver);
-		login.doLogin(TestDataComman.username, TestDataComman.password);
+		ReadExcel read = new ReadExcel();
+		String uname = read.getCellData(1, 0);
+		String passwd = read.getCellData(1, 1);
+		login.doLogin(uname, passwd);
 		
 	}
 	
