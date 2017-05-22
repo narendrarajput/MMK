@@ -15,11 +15,11 @@ import pom.utils.Comman;
 
 public class BusSearchFromHomePage 
 {
-	/*@FindBy(id = "divLoader")
-	WebElement loader;*/
+	@FindBy(id = "divLoader")
+	WebElement loader;
 	
-	/*@FindBy(id = "ResultBox")
-	WebElement NotificationMessage;*/
+	@FindBy(id = "ResultBox")
+	WebElement NotificationMessage;
 	
 	@FindBy(id = "btnCloseModal")
 	WebElement loginPopupCloseButton;
@@ -64,7 +64,7 @@ public class BusSearchFromHomePage
 			{		
 					Comman.jsExecuter.executeScript("arguments[0].click();", loginPopupCloseButton);
 					driver.switchTo().defaultContent();
-
+					Thread.sleep(1400);	
 			}
 			catch(Exception e)
 			{
@@ -76,8 +76,8 @@ public class BusSearchFromHomePage
 			journeyDate.sendKeys(date);
 			searchButton.click();
 
-			Comman.wait.until(ExpectedConditions.invisibilityOf(Comman.mainloader));
-			if(Comman.notificationMessage.getText().isEmpty())
+			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
+			if(NotificationMessage.getText().isEmpty())
 			{
 				//System.out.println("if"+NotificationMessage.getText());
 				Comman.wait.until(ExpectedConditions.invisibilityOf(gridLoader));
