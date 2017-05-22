@@ -11,13 +11,15 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import pom.utils.Comman;
+
 public class BusSearchFromHomePage 
 {
-	@FindBy(id = "divLoader")
-	WebElement loader;
+	/*@FindBy(id = "divLoader")
+	WebElement loader;*/
 	
-	@FindBy(id = "ResultBox")
-	WebElement NotificationMessage;
+	/*@FindBy(id = "ResultBox")
+	WebElement NotificationMessage;*/
 	
 	@FindBy(id = "btnCloseModal")
 	WebElement loginPopupCloseButton;
@@ -51,16 +53,16 @@ public class BusSearchFromHomePage
 		public void doBusSearch(String sourcecityName, String destinationcityName, String date)
 		{
 			
-			WebDriverWait wait = new WebDriverWait(driver, 60);
-			wait.until(ExpectedConditions.invisibilityOf(loader));
+
+			Comman.wait.until(ExpectedConditions.invisibilityOf(Comman.mainloader));
 			
 			driver.switchTo().frame(0);
-			wait.until(ExpectedConditions.visibilityOf(loginPopupCloseButton));
+			Comman.wait.until(ExpectedConditions.visibilityOf(loginPopupCloseButton));
 			
-			JavascriptExecutor js = (JavascriptExecutor)driver;
+			
 			try
 			{		
-					js.executeScript("arguments[0].click();", loginPopupCloseButton);
+					Comman.jsExecuter.executeScript("arguments[0].click();", loginPopupCloseButton);
 					driver.switchTo().defaultContent();
 
 			}
@@ -74,11 +76,11 @@ public class BusSearchFromHomePage
 			journeyDate.sendKeys(date);
 			searchButton.click();
 
-			wait.until(ExpectedConditions.invisibilityOf(loader));
-			if(NotificationMessage.getText().isEmpty())
+			Comman.wait.until(ExpectedConditions.invisibilityOf(Comman.mainloader));
+			if(Comman.notificationMessage.getText().isEmpty())
 			{
 				//System.out.println("if"+NotificationMessage.getText());
-				wait.until(ExpectedConditions.invisibilityOf(gridLoader));
+				Comman.wait.until(ExpectedConditions.invisibilityOf(gridLoader));
 				String currentURL = driver.getCurrentUrl();
 				if(currentURL.contains("bus.mymoneykart.com"))
 
@@ -93,7 +95,7 @@ public class BusSearchFromHomePage
 			}
 			else
 			{
-				System.out.println(NotificationMessage.getText());
+				System.out.println(Comman.notificationMessage.getText());
 			}		
 		}
 }
