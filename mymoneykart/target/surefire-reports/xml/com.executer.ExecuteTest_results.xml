@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="EndUserLogingEnqueryInvite"
+           tests="3"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="34.861">
+  <properties />
+  
+  
+            <testcase name="login" time="13.845" classname="com.executer.ExecuteTest" />
+                <testcase name="submitFeedback" time="14.968" classname="com.executer.ExecuteTest" />
+                <testcase name="inviteFriend" time="6.048" classname="com.executer.ExecuteTest" />
+      
+</testsuite>

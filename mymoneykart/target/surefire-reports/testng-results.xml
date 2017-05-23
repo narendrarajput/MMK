@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="MyMoneyKart" duration-ms="61915" started-at="2017-05-18T08:24:09Z" finished-at="2017-05-18T08:25:11Z">
+    <groups>
+    </groups>
+    <test name="EndUserLogingEnqueryInvite" duration-ms="61915" started-at="2017-05-18T08:24:09Z" finished-at="2017-05-18T08:25:11Z">
+      <class name="com.executer.ExecuteTest">
+        <test-method status="PASS" signature="login()[pri:0, instance:com.executer.ExecuteTest@2d928643]" name="login" duration-ms="13845" started-at="2017-05-18T13:54:36Z" finished-at="2017-05-18T13:54:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method status="PASS" signature="submitFeedback()[pri:0, instance:com.executer.ExecuteTest@2d928643]" name="submitFeedback" duration-ms="14968" started-at="2017-05-18T13:54:50Z" finished-at="2017-05-18T13:55:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- submitFeedback -->
+        <test-method status="PASS" signature="inviteFriend()[pri:0, instance:com.executer.ExecuteTest@2d928643]" name="inviteFriend" duration-ms="6048" started-at="2017-05-18T13:55:05Z" finished-at="2017-05-18T13:55:11Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- inviteFriend -->
+      </class> <!-- com.executer.ExecuteTest -->
+      <class name="pom.utils.DriverSetup">
+        <test-method status="PASS" signature="setUp(java.lang.String)[pri:0, instance:pom.utils.DriverSetup@73846619]" name="setUp" is-config="true" duration-ms="26962" started-at="2017-05-18T13:54:09Z" finished-at="2017-05-18T13:54:36Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+      </class> <!-- pom.utils.DriverSetup -->
+    </test> <!-- EndUserLogingEnqueryInvite -->
+  </suite> <!-- MyMoneyKart -->
+</testng-results>

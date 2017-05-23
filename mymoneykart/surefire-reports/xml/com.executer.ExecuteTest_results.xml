@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="SampleTest"
-           tests="2"
+<testsuite name="EndUserLogingEnqueryInvite"
+           tests="3"
            failures="0"
            errors="0"
            skipped="0"
-           time="26.743">
+           time="51.258">
   <properties />
   
   
-            <testcase name="login" time="12.184" classname="com.executer.ExecuteTest" />
-                <testcase name="submitFeedback" time="14.559" classname="com.executer.ExecuteTest" />
+            <testcase name="login" time="25.110" classname="com.executer.ExecuteTest" />
+                <testcase name="inviteFriend" time="6.019" classname="com.executer.ExecuteTest" />
+                <testcase name="submitFeedback" time="20.129" classname="com.executer.ExecuteTest" />
       
 </testsuite>
