@@ -35,12 +35,10 @@ public class ExecuteTest extends DriverSetup
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("divLoader")));		
 		conpage.contactUsLink.click();
 		conpage.submitContactUsForm(TestDataComman.fName, TestDataComman.fEmail, TestDataComman.fMobile, TestDataComman.fType, TestDataComman.fMessage);
-		
-		
 
 	}
 	@Test(priority = 1)
-	public void login() throws IOException
+	public void login() throws IOException, InterruptedException
 	{
 		UserLogin login = new UserLogin(driver);
 		ReadExcel read = new ReadExcel();

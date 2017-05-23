@@ -1,6 +1,4 @@
 package com.pages;
-
-import org.testng.AssertJUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,8 +6,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.AssertJUnit;
 
-import pom.utils.TakeScreenshot;
+import pom.utils.TestDataComman;
 
 public class UserLogin 
 {
@@ -42,10 +41,13 @@ public class UserLogin
 			this.driver=driver;
 		}
 		
-		public void doLogin(String username, String pasword)
+		public void doLogin(String username, String pasword) throws InterruptedException
 		{
 			WebDriverWait wait = new WebDriverWait(driver, 60);
-			driver.switchTo().frame(0);
+			//Comman.wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(iframe));
+
+			Thread.sleep(2000);
+			driver.switchTo().frame(iframe);
 			mobileNumber.sendKeys(username);
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("divLoader")));
 			loginButton.click();		
@@ -54,7 +56,7 @@ public class UserLogin
 			submitButton.click();			
 			driver.switchTo().defaultContent();
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("divLoader")));
-			AssertJUnit.assertEquals("Narendra Rajput", usersname.getText());
+			AssertJUnit.assertEquals(TestDataComman.usersname, usersname.getText());
 			//TakeScreenshot.takeScreen("hello", true);
 			System.out.println("User Log in success");
 			

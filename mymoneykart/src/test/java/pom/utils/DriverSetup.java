@@ -26,7 +26,7 @@ public class DriverSetup
 	{
 		try
 		{
-			switch(browser)
+			switch(browser.toLowerCase())
 			{
 					case "chrome":
 					

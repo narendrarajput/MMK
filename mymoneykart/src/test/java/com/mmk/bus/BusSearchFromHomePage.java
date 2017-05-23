@@ -2,6 +2,7 @@ package com.mmk.bus;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -10,8 +11,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import pom.utils.Comman;
+import pom.utils.TestDataComman;
 
 public class BusSearchFromHomePage 
 {
@@ -40,28 +43,26 @@ public class BusSearchFromHomePage
 	List<WebElement> busList;
 	
 	@FindBy(id = "dvListLoader")
-	 WebElement gridLoader;
+	WebElement gridLoader;
 
 	WebDriver driver;
 	
-	public BusSearchFromHomePage(WebDriver driver) 
-	{
-		PageFactory.initElements(driver, this);
-		this.driver=driver;
-	}
+		public BusSearchFromHomePage(WebDriver driver) 
+		{
+			PageFactory.initElements(driver, this);
+			this.driver=driver;
+		}
 	
 		public void doBusSearch(String sourcecityName, String destinationcityName, String date)
-		{
-			
-
-			Comman.wait.until(ExpectedConditions.invisibilityOf(Comman.mainloader));
-			
-			driver.switchTo().frame(0);
-			Comman.wait.until(ExpectedConditions.visibilityOf(loginPopupCloseButton));
-			
+		{			
+			driver.navigate().to(TestDataComman.baseURL);
+			Comman.wait.until(ExpectedConditions.invisibilityOf(Comman.mainloader));	
 			
 			try
-			{		
+			{
+					driver.switchTo().frame(0);
+					Comman.wait.until(ExpectedConditions.visibilityOf(loginPopupCloseButton));
+		
 					Comman.jsExecuter.executeScript("arguments[0].click();", loginPopupCloseButton);
 					driver.switchTo().defaultContent();
 					Thread.sleep(1400);	
@@ -76,8 +77,11 @@ public class BusSearchFromHomePage
 			journeyDate.sendKeys(date);
 			searchButton.click();
 
+			/* Comman.wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("ResultBox")));
+			System.out.println(NotificationMessage.getText()); */
+			
 			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
-			if(NotificationMessage.getText().isEmpty())
+			if(!(driver.getCurrentUrl().equals("http://bus.mymoneykart.com/")))
 			{
 				//System.out.println("if"+NotificationMessage.getText());
 				Comman.wait.until(ExpectedConditions.invisibilityOf(gridLoader));
@@ -95,7 +99,8 @@ public class BusSearchFromHomePage
 			}
 			else
 			{
-				System.out.println(Comman.notificationMessage.getText());
+				//System.out.println(Comman.notificationMessage.getText());
+				System.out.println("No buses found for this search");
 			}		
 		}
 }

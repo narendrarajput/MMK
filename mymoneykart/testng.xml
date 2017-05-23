@@ -6,11 +6,11 @@
        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
   </listeners>
   <test name="EndUserLogingEnqueryInvite">
-  <parameter name="browser" value="firefox" />
+  <parameter name="browser" value="firefoX" />
  		 <classes>  	
- 					 <class name="pom.utils.DriverSetup"/>	 		
- 		 			<!--   <class name="com.executer.ExecuteTest"/> -->
- 		 			  <class name="com.executer.BusSuitExecuter"/>
+ 						<class name="pom.utils.DriverSetup"/>	 		
+ 		 			    <class name="com.executer.ExecuteTest"/>  
+ 		 			  	<class name="com.executer.BusSuitExecuter"/>
          </classes> 
   </test>
 </suite>
