@@ -15,11 +15,11 @@ import pom.utils.Comman;
 
 public class BusSearchFromHomePage 
 {
-	/*@FindBy(id = "divLoader")
-	WebElement loader;*/
+	@FindBy(id = "divLoader")
+	WebElement loader;
 	
-	/*@FindBy(id = "ResultBox")
-	WebElement NotificationMessage;*/
+	@FindBy(id = "ResultBox")
+	WebElement NotificationMessage;
 	
 	@FindBy(id = "btnCloseModal")
 	WebElement loginPopupCloseButton;
@@ -64,11 +64,12 @@ public class BusSearchFromHomePage
 			{		
 					Comman.jsExecuter.executeScript("arguments[0].click();", loginPopupCloseButton);
 					driver.switchTo().defaultContent();
+					Thread.sleep(1500);
 
 			}
 			catch(Exception e)
 			{
-				System.out.println("There is no element for popup " + e);
+				System.out.println("There is no popup element " + e);
 			}
 			
 			sourceCity.sendKeys(sourcecityName);
@@ -77,7 +78,7 @@ public class BusSearchFromHomePage
 			searchButton.click();
 
 			Comman.wait.until(ExpectedConditions.invisibilityOf(Comman.mainloader));
-			if(Comman.notificationMessage.getText().isEmpty())
+			if(NotificationMessage.getText().isEmpty())
 			{
 				//System.out.println("if"+NotificationMessage.getText());
 				Comman.wait.until(ExpectedConditions.invisibilityOf(gridLoader));
