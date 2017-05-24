@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.AssertJUnit;
 
+import pom.utils.Comman;
 import pom.utils.TestDataComman;
 
 public class UserLogin 
@@ -44,10 +45,10 @@ public class UserLogin
 		public void doLogin(String username, String pasword) throws InterruptedException
 		{
 			WebDriverWait wait = new WebDriverWait(driver, 60);
-			//Comman.wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(iframe));
+			Comman.wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(iframe));
 
-			Thread.sleep(2000);
-			driver.switchTo().frame(iframe);
+			//Thread.sleep(3000);
+			//driver.switchTo().frame(iframe);
 			mobileNumber.sendKeys(username);
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("divLoader")));
 			loginButton.click();		

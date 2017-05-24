@@ -3,13 +3,19 @@
            tests="3"
            failures="0"
            errors="0"
-           skipped="0"
-           time="27.446">
+           skipped="3"
+           time="0.000">
   <properties />
   
+            <testcase name="login" time="0.0" classname="com.executer.ExecuteTest">
+          <skipped />
+    </testcase>
+            <testcase name="submitFeedback" time="0.0" classname="com.executer.ExecuteTest">
+          <skipped />
+    </testcase>
+            <testcase name="inviteFriend" time="0.0" classname="com.executer.ExecuteTest">
+          <skipped />
+    </testcase>
   
-            <testcase name="submitFeedback" time="11.456" classname="com.executer.ExecuteTest" />
-                <testcase name="login" time="13.323" classname="com.executer.ExecuteTest" />
-                <testcase name="inviteFriend" time="2.667" classname="com.executer.ExecuteTest" />
-      
+  
 </testsuite>

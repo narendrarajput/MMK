@@ -12,9 +12,9 @@ public class TestDataComman
 	public static String baseURL = "http://www.mymoneykart.com/mmkweb/";
 	
 	// User credential Details
-	public static String username = "9422307801";
+	public static String username = "8866691628";
 	public static String password = "123456";
-	public static String usersname = "Narendra Rajput";
+	public static String usersname = "Jainish Kapadia";
 	// Feedback Form 
 	
 	public static String fName = "dummy User";
@@ -29,4 +29,14 @@ public class TestDataComman
 	public static String destinationCity = "Hyderabad";
 	public static String journecyDate = jDate;
 	
+	
+	//Passenger Details
+	
+	public static String pFirstName = "Narendra";
+	public static String pLastName = "Kishore";
+	public static String pGender = "Male";
+	public static String pAge = "25";
+	public static String pID = "Passport";
+	public static String pIDNumber = "PAS55454AS510";
+			
 }

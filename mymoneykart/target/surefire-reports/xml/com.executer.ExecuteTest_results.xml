@@ -4,12 +4,12 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="34.861">
+           time="48.707">
   <properties />
   
   
-            <testcase name="login" time="13.845" classname="com.executer.ExecuteTest" />
-                <testcase name="submitFeedback" time="14.968" classname="com.executer.ExecuteTest" />
-                <testcase name="inviteFriend" time="6.048" classname="com.executer.ExecuteTest" />
+            <testcase name="submitFeedback" time="15.335" classname="com.executer.ExecuteTest" />
+                <testcase name="inviteFriend" time="3.060" classname="com.executer.ExecuteTest" />
+                <testcase name="login" time="30.312" classname="com.executer.ExecuteTest" />
       
 </testsuite>

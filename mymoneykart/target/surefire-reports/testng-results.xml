@@ -2,30 +2,16 @@
 <testng-results skipped="0" failed="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="MyMoneyKart" duration-ms="61915" started-at="2017-05-18T08:24:09Z" finished-at="2017-05-18T08:25:11Z">
+  <suite name="MyMoneyKart" duration-ms="160084" started-at="2017-05-24T07:57:51Z" finished-at="2017-05-24T08:00:31Z">
     <groups>
     </groups>
-    <test name="EndUserLogingEnqueryInvite" duration-ms="61915" started-at="2017-05-18T08:24:09Z" finished-at="2017-05-18T08:25:11Z">
-      <class name="com.executer.ExecuteTest">
-        <test-method status="PASS" signature="login()[pri:0, instance:com.executer.ExecuteTest@2d928643]" name="login" duration-ms="13845" started-at="2017-05-18T13:54:36Z" finished-at="2017-05-18T13:54:50Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- login -->
-        <test-method status="PASS" signature="submitFeedback()[pri:0, instance:com.executer.ExecuteTest@2d928643]" name="submitFeedback" duration-ms="14968" started-at="2017-05-18T13:54:50Z" finished-at="2017-05-18T13:55:05Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- submitFeedback -->
-        <test-method status="PASS" signature="inviteFriend()[pri:0, instance:com.executer.ExecuteTest@2d928643]" name="inviteFriend" duration-ms="6048" started-at="2017-05-18T13:55:05Z" finished-at="2017-05-18T13:55:11Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- inviteFriend -->
-      </class> <!-- com.executer.ExecuteTest -->
+    <test name="EndUserLogingEnqueryInvite" duration-ms="160084" started-at="2017-05-24T07:57:51Z" finished-at="2017-05-24T08:00:31Z">
       <class name="pom.utils.DriverSetup">
-        <test-method status="PASS" signature="setUp(java.lang.String)[pri:0, instance:pom.utils.DriverSetup@73846619]" name="setUp" is-config="true" duration-ms="26962" started-at="2017-05-18T13:54:09Z" finished-at="2017-05-18T13:54:36Z">
+        <test-method status="PASS" signature="setUp(java.lang.String)[pri:0, instance:pom.utils.DriverSetup@73846619]" name="setUp" is-config="true" duration-ms="71434" started-at="2017-05-24T13:27:51Z" finished-at="2017-05-24T13:29:03Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[firefox]]>
+                <![CDATA[chrome]]>
               </value>
             </param>
           </params>
@@ -33,6 +19,20 @@
           </reporter-output>
         </test-method> <!-- setUp -->
       </class> <!-- pom.utils.DriverSetup -->
+      <class name="com.executer.BusSuitExecuter">
+        <test-method status="PASS" signature="busSearch()[pri:0, instance:com.executer.BusSuitExecuter@2d928643]" name="busSearch" duration-ms="20193" started-at="2017-05-24T13:29:03Z" finished-at="2017-05-24T13:29:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- busSearch -->
+        <test-method status="PASS" signature="busListPageLogin()[pri:0, instance:com.executer.BusSuitExecuter@2d928643]" name="busListPageLogin" duration-ms="65762" started-at="2017-05-24T13:29:23Z" finished-at="2017-05-24T13:30:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- busListPageLogin -->
+        <test-method status="PASS" signature="selectABusSeat()[pri:0, instance:com.executer.BusSuitExecuter@2d928643]" name="selectABusSeat" duration-ms="2685" started-at="2017-05-24T13:30:29Z" finished-at="2017-05-24T13:30:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- selectABusSeat -->
+      </class> <!-- com.executer.BusSuitExecuter -->
     </test> <!-- EndUserLogingEnqueryInvite -->
   </suite> <!-- MyMoneyKart -->
 </testng-results>
