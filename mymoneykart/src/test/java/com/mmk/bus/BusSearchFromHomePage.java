@@ -56,7 +56,7 @@ public class BusSearchFromHomePage
 		public void doBusSearch(String sourcecityName, String destinationcityName, String date)
 		{			
 			driver.navigate().to(TestDataComman.baseURL);
-			Comman.wait.until(ExpectedConditions.invisibilityOf(Comman.mainloader));	
+			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));	
 			
 			try
 			{

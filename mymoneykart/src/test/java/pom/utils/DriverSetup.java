@@ -31,8 +31,8 @@ public class DriverSetup
 					case "chrome":
 					
 						System.out.println("Starting chrome........");
-						System.setProperty("webdriver.chrome.driver","src/test/resources/chromedriver.exe");
-						
+						System.setProperty("webdriver.chrome.driver","src/test/resources/chromedriver.exe");	
+						LogWriter.log("Driver Started");
 						ChromeOptions options = new ChromeOptions(); 
 						
 						// To disable  "chrome controlled by automates software" infor bar
