@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import pom.utils.Comman;
+import pom.utils.LogWriter;
 
 public class WalletCheckOutPage {
 
@@ -39,12 +40,21 @@ public class WalletCheckOutPage {
 	
 	public void doCheckout()
 	{
-		Comman.wait.until(ExpectedConditions.visibilityOf(walletAmount));
-		walletAmount.clear();
-		walletAmount.sendKeys(payableAmount.getText());
-		payButton.click();
-		Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
-		
+		try
+		{
+			Comman.wait.until(ExpectedConditions.visibilityOf(walletAmount));
+			walletAmount.clear();
+			walletAmount.sendKeys(payableAmount.getText());
+			LogWriter.log("Payment Amount has been selected");
+			payButton.click();
+			LogWriter.log("Wallet Payment Started.........");
+			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
+			LogWriter.log("Payment Done.");
+		}
+		catch(Exception e)
+		{
+			LogWriter.log(e.toString());
+		}
 	}
 	
 }

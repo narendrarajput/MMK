@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import pom.utils.Comman;
+import pom.utils.LogWriter;
 import pom.utils.TestDataComman;
 
 public class BusSearchFromHomePage 
@@ -54,28 +55,37 @@ public class BusSearchFromHomePage
 		}
 	
 		public void doBusSearch(String sourcecityName, String destinationcityName, String date)
-		{			
-			driver.navigate().to(TestDataComman.baseURL);
-			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));	
-			
+		{	
 			try
 			{
-					driver.switchTo().frame(0);
-					Comman.wait.until(ExpectedConditions.visibilityOf(loginPopupCloseButton));
+				driver.navigate().to(TestDataComman.baseURL);
+				LogWriter.log("Navigated To Main MMK Site");
+				Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
+				
+				/* If user  not log in then it opens login popup default below code will check	
+				 * If popup available then switch to popup and close it else do nothing because there 
+				 * is no popup if user already login
+				 */
+				driver.switchTo().frame(0);
+				Comman.wait.until(ExpectedConditions.visibilityOf(loginPopupCloseButton));
 		
-					Comman.jsExecuter.executeScript("arguments[0].click();", loginPopupCloseButton);
-					driver.switchTo().defaultContent();
-					Thread.sleep(1400);	
+				Comman.jsExecuter.executeScript("arguments[0].click();", loginPopupCloseButton);
+				LogWriter.log("Login Popup Closed ");
+				driver.switchTo().defaultContent();
+				Thread.sleep(1400);	
 			}
 			catch(Exception e)
 			{
-				System.out.println("There is no popup element " + e);
+				LogWriter.log(e.toString());
 			}
 			
 			sourceCity.sendKeys(sourcecityName);
 			destinationCity.sendKeys(destinationcityName);
 			journeyDate.sendKeys(date);
 			searchButton.click();
+			
+			LogWriter.log("Search Data entered and Search Buttom clicked from MMK HomePage");
+			
 
 			/* Comman.wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("ResultBox")));
 			System.out.println(NotificationMessage.getText()); */
@@ -87,12 +97,12 @@ public class BusSearchFromHomePage
 				Comman.wait.until(ExpectedConditions.invisibilityOf(gridLoader));
 				String currentURL = driver.getCurrentUrl();
 				if(currentURL.contains("bus.mymoneykart.com"))
-
 				{
-					System.out.println("Total------Found Buses-------"+busList.size());
+					
+					LogWriter.log("There are total : "+busList.size()+" : buses Found");
 					for(WebElement e : busList)
 					{
-						System.out.println(e.getText());
+						LogWriter.log(e.getText());
 					}
 				
 				}
@@ -100,7 +110,7 @@ public class BusSearchFromHomePage
 			else
 			{
 				//System.out.println(Comman.notificationMessage.getText());
-				System.out.println("No buses found for this search");
+				LogWriter.log("No buses are available for the search");
 			}		
 		}
 }

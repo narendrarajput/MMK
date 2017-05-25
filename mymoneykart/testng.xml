@@ -9,8 +9,8 @@
   <parameter name="browser" value="chrome" />
  		 <classes>  	
  					  <class name="pom.utils.DriverSetup"/>	 		
- 		 			  <class name="com.executer.ExecuteTest"/> 
- 		 			  <class name="com.executer.BusSuitExecuter"/>
+ 		 			<!--    <class name="com.mmk.testexecuter.MMKMainSuitExecuter"/> --> 
+ 		 			  <class name="com.mmk.testexecuter.BusSuitExecuter"/>
          </classes> 
   </test>
 </suite>

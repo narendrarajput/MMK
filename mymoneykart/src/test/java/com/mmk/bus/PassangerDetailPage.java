@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import pom.utils.Comman;
+import pom.utils.LogWriter;
 
 public class PassangerDetailPage 
 {
@@ -52,18 +53,26 @@ public class PassangerDetailPage
 	
 	public void fillPassengerDetailAndProceedToPay(String pFirstName, String pLastName, String pGender, String pAge, String pID, String pIDNo, String emgNo)
 	{
-		
-		Comman.wait.until(ExpectedConditions.visibilityOf(psgFirstName));
-		psgFirstName.sendKeys(pFirstName);
-		psgLastName.sendKeys(pLastName);
-		new Select(psgGender).selectByVisibleText(pGender);
-		psgAge.sendKeys(pAge);
-		new Select(psgIdProff).selectByVisibleText(pID);
-		psgIdProffnumber.sendKeys(pIDNo);
-		emergencyNumber.sendKeys(emgNo);
-		proceedButton.click();
-		Comman.wait.until(ExpectedConditions.visibilityOf(confirmation));
-		confirmation.click();
-		Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
+		try
+		{
+			Comman.wait.until(ExpectedConditions.visibilityOf(psgFirstName));
+			psgFirstName.sendKeys(pFirstName);
+			psgLastName.sendKeys(pLastName);
+			new Select(psgGender).selectByVisibleText(pGender);
+			psgAge.sendKeys(pAge);
+			new Select(psgIdProff).selectByVisibleText(pID);
+			psgIdProffnumber.sendKeys(pIDNo);
+			emergencyNumber.sendKeys(emgNo);
+			LogWriter.log("Passanger Details has been filled");
+			proceedButton.click();
+			Comman.wait.until(ExpectedConditions.visibilityOf(confirmation));
+			confirmation.click();
+			LogWriter.log("Confirmation accepted");
+			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
+		}
+		catch(Exception e)
+		{
+			LogWriter.log(e.toString());
+		}
 	}
 }

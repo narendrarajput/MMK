@@ -1,4 +1,4 @@
-package com.executer;
+package com.mmk.testexecuter;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -20,7 +20,7 @@ import com.pages.ContactUsPage;
 import com.pages.InviteFriends;
 import com.pages.UserLogin;
 
-public class ExecuteTest extends DriverSetup
+public class MMKMainSuitExecuter extends DriverSetup
 {
 	
 	//WebDriver driver = new DriverSetup().getDriver();

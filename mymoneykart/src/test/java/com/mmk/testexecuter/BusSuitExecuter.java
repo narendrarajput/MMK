@@ -1,4 +1,4 @@
-package com.executer;
+package com.mmk.testexecuter;
 
 import org.testng.annotations.Test;
  
@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 
 
-import com.mmk.bus.BusListingUserLogin;
+import com.mmk.bus.BusListingUserLoginAndSelectSeat;
 import com.mmk.bus.BusSearchFromHomePage;
 import com.mmk.bus.PassangerDetailPage;
 import com.mmk.bus.WalletCheckOutPage;
@@ -20,7 +20,7 @@ import pom.utils.TestDataComman;
 public class BusSuitExecuter extends DriverSetup
 {
 	
-	BusListingUserLogin buslist;
+	BusListingUserLoginAndSelectSeat buslist;
 	@Test(priority=1)
 	public void busSearch()
 	{
@@ -32,7 +32,7 @@ public class BusSuitExecuter extends DriverSetup
 	@Test(priority=2)
 	public void busListPageLogin() throws InterruptedException
 	{
-		buslist = new BusListingUserLogin(driver);
+		buslist = new BusListingUserLoginAndSelectSeat(driver);
 		buslist.listUserLogin();
 	}
 	@Test(priority=3)

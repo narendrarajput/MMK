@@ -10,11 +10,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import pom.utils.Comman;
+import pom.utils.LogWriter;
 import pom.utils.TestDataComman;
 
 import com.pages.UserLogin;
 
-public class BusListingUserLogin 
+public class BusListingUserLoginAndSelectSeat 
 {
 	@FindBy(xpath = "//div/button[contains(.,'Select Seats')]")
 	WebElement SelectSeatButton;
@@ -38,7 +39,7 @@ public class BusListingUserLogin
 	
 	WebDriver driver;
 	
-	public BusListingUserLogin(WebDriver driver) 
+	public BusListingUserLoginAndSelectSeat(WebDriver driver) 
 	{
 		PageFactory.initElements(driver, this);
 		this.driver=driver;
@@ -46,37 +47,41 @@ public class BusListingUserLogin
 	
 	public void listUserLogin() throws InterruptedException
 	{
-		
-		/* Click select seat button */
-		SelectSeatButton.click();
-		Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
-		
 		try
 		{
-		if(usersname.isDisplayed())
-		{
-			System.out.println("Already Login");
 		
-		}}
+			/* Click select seat button */		
+			SelectSeatButton.click();		
+			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
+			LogWriter.log("Select Seat button option selected");
+			
+			if(usersname.isDisplayed())
+			{
+				LogWriter.log("User is already Logged in the system");
+		
+			}
+		}
 		catch(Exception e)
 		{
 			/* user login from bus listing page by clicking Select Seat button */
 			new UserLogin(driver).doLogin(TestDataComman.username, TestDataComman.password);
+			LogWriter.log("Login Method called From Bus Listing Page - Select Seat");
 		}
 	}
 
-
 	public void selectSeat()
 	{
-		
+		try
+		{
 		Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
 		 
 		for(WebElement e:seats)
 		{
 			if(e.findElement(By.tagName("div")).getAttribute("class").equals("available seat"))
 			{
-				try{
-				Thread.sleep(2000);
+				try
+				{
+					Thread.sleep(2000);
 				}
 				catch(Exception err)
 				{
@@ -84,12 +89,19 @@ public class BusListingUserLogin
 				}
 				//Comman.jsExecuter.executeScript("arguments[0].click();", e);
 				e.click();
+				LogWriter.log("Available Seat Has been Selected");
 				break;
 			}
 		}
-		
-		new Select(boardingPoint).selectByIndex(1);
-		proceedButton.click();
+			new Select(boardingPoint).selectByIndex(1);
+			LogWriter.log("Boarding Point has been Selected");
+			proceedButton.click();
+			LogWriter.log("Proceed Button Clicked");
+		}
+		catch(Exception e)
+		{
+			 LogWriter.log(e.toString());
+		}
 	}
 
 }
