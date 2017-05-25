@@ -8,8 +8,9 @@
   <test name="EndUserLogingEnqueryInvite">
   <parameter name="browser" value="chrome" />
  		 <classes>  	
- 					  <class name="pom.utils.DriverSetup"/>	 		
- 		 			<!--    <class name="com.mmk.testexecuter.MMKMainSuitExecuter"/> --> 
+ 						 <class name="com.mmk.commonutils.LogWriter"/>
+ 						  <class name="com.mmk.commonutils.DriverSetup"/>	 		
+ 		 			   <class name="com.mmk.testexecuter.MMKMainSuitExecuter"/> 
  		 			  <class name="com.mmk.testexecuter.BusSuitExecuter"/>
          </classes> 
   </test>

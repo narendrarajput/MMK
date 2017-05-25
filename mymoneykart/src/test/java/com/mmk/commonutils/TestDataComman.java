@@ -1,4 +1,4 @@
-package pom.utils;
+package com.mmk.commonutils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

@@ -7,8 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
-import pom.utils.Comman;
-import pom.utils.LogWriter;
+import com.mmk.commonutils.Comman;
+import com.mmk.commonutils.LogWriter;
 
 public class PassangerDetailPage 
 {
@@ -63,16 +63,16 @@ public class PassangerDetailPage
 			new Select(psgIdProff).selectByVisibleText(pID);
 			psgIdProffnumber.sendKeys(pIDNo);
 			emergencyNumber.sendKeys(emgNo);
-			LogWriter.log("Passanger Details has been filled");
+			LogWriter.logger.info("Passanger Details has been filled");
 			proceedButton.click();
 			Comman.wait.until(ExpectedConditions.visibilityOf(confirmation));
 			confirmation.click();
-			LogWriter.log("Confirmation accepted");
+			LogWriter.logger.info("Confirmation accepted");
 			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
 		}
 		catch(Exception e)
 		{
-			LogWriter.log(e.toString());
+			LogWriter.logger.info(e.toString());
 		}
 	}
 }

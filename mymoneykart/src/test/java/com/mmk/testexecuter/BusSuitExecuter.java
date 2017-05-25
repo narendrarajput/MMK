@@ -9,13 +9,13 @@ import org.testng.annotations.Test;
 
 
 
+
 import com.mmk.bus.BusListingUserLoginAndSelectSeat;
 import com.mmk.bus.BusSearchFromHomePage;
 import com.mmk.bus.PassangerDetailPage;
 import com.mmk.bus.WalletCheckOutPage;
-
-import pom.utils.DriverSetup;
-import pom.utils.TestDataComman;
+import com.mmk.commonutils.DriverSetup;
+import com.mmk.commonutils.TestDataComman;
 
 public class BusSuitExecuter extends DriverSetup
 {

@@ -1,4 +1,4 @@
-package pom.utils;
+package com.mmk.commonutils;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -17,6 +17,8 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
+import com.sun.media.jfxmedia.logging.Logger;
+
 public class DriverSetup 
 {
 	public static WebDriver driver;
@@ -30,9 +32,8 @@ public class DriverSetup
 			{
 					case "chrome":
 					
-						System.out.println("Starting chrome........");
 						System.setProperty("webdriver.chrome.driver","src/test/resources/chromedriver.exe");	
-						LogWriter.log("Driver Started");
+						LogWriter.logger.info("Chrome Browser Started..");
 						ChromeOptions options = new ChromeOptions(); 
 						
 						// To disable  "chrome controlled by automates software" infor bar

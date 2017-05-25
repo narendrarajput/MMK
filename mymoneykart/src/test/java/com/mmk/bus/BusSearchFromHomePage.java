@@ -13,9 +13,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-import pom.utils.Comman;
-import pom.utils.LogWriter;
-import pom.utils.TestDataComman;
+import com.mmk.commonutils.Comman;
+import com.mmk.commonutils.LogWriter;
+import com.mmk.commonutils.TestDataComman;
 
 public class BusSearchFromHomePage 
 {
@@ -59,7 +59,7 @@ public class BusSearchFromHomePage
 			try
 			{
 				driver.navigate().to(TestDataComman.baseURL);
-				LogWriter.log("Navigated To Main MMK Site");
+				LogWriter.logger.info("Navigated To Main MMK Site");
 				Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
 				
 				/* If user  not log in then it opens login popup default below code will check	
@@ -70,13 +70,13 @@ public class BusSearchFromHomePage
 				Comman.wait.until(ExpectedConditions.visibilityOf(loginPopupCloseButton));
 		
 				Comman.jsExecuter.executeScript("arguments[0].click();", loginPopupCloseButton);
-				LogWriter.log("Login Popup Closed ");
+				LogWriter.logger.info("Login Popup Closed ");
 				driver.switchTo().defaultContent();
 				Thread.sleep(1400);	
 			}
 			catch(Exception e)
 			{
-				LogWriter.log(e.toString());
+				LogWriter.logger.info(e.toString());
 			}
 			
 			sourceCity.sendKeys(sourcecityName);
@@ -84,7 +84,7 @@ public class BusSearchFromHomePage
 			journeyDate.sendKeys(date);
 			searchButton.click();
 			
-			LogWriter.log("Search Data entered and Search Buttom clicked from MMK HomePage");
+			LogWriter.logger.info("Search Data entered and Search Buttom clicked from MMK HomePage");
 			
 
 			/* Comman.wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("ResultBox")));
@@ -99,10 +99,10 @@ public class BusSearchFromHomePage
 				if(currentURL.contains("bus.mymoneykart.com"))
 				{
 					
-					LogWriter.log("There are total : "+busList.size()+" : buses Found");
+					LogWriter.logger.info("There are total : "+busList.size()+" : buses Found");
 					for(WebElement e : busList)
 					{
-						LogWriter.log(e.getText());
+						LogWriter.logger.info(e.getText());
 					}
 				
 				}
@@ -110,7 +110,7 @@ public class BusSearchFromHomePage
 			else
 			{
 				//System.out.println(Comman.notificationMessage.getText());
-				LogWriter.log("No buses are available for the search");
+				LogWriter.logger.info("No buses are available for the search");
 			}		
 		}
 }

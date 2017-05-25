@@ -1,4 +1,4 @@
-package com.pages;
+package com.mmk.mainsite;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,8 +8,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.AssertJUnit;
 
-import pom.utils.Comman;
-import pom.utils.TestDataComman;
+import com.mmk.commonutils.Comman;
+import com.mmk.commonutils.LogWriter;
+import com.mmk.commonutils.TestDataComman;
 
 public class UserLogin 
 {
@@ -44,22 +45,24 @@ public class UserLogin
 		
 		public void doLogin(String username, String pasword) throws InterruptedException
 		{
-			WebDriverWait wait = new WebDriverWait(driver, 60);
+		//	WebDriverWait wait = new WebDriverWait(driver, 60);
+			// Switch into popup opens in iframe and do login
 			Comman.wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(iframe));
-
+			LogWriter.logger.info("On User Login Popup");
 			//Thread.sleep(3000);
 			//driver.switchTo().frame(iframe);
 			mobileNumber.sendKeys(username);
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("divLoader")));
+			Comman.wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("divLoader")));
 			loginButton.click();		
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("divLoader")));
+			Comman.wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("divLoader")));
 			password.sendKeys(pasword);
 			submitButton.click();			
 			driver.switchTo().defaultContent();
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("divLoader")));
+			Comman.wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("divLoader")));
 			AssertJUnit.assertEquals(TestDataComman.usersname, usersname.getText());
 			//TakeScreenshot.takeScreen("hello", true);
-			System.out.println("User Log in success");
+			//System.out.println("User Log in success");			
+			LogWriter.logger.info("User login success");
 			
 		}
 }

@@ -9,11 +9,10 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
-import pom.utils.Comman;
-import pom.utils.LogWriter;
-import pom.utils.TestDataComman;
-
-import com.pages.UserLogin;
+import com.mmk.commonutils.Comman;
+import com.mmk.commonutils.LogWriter;
+import com.mmk.commonutils.TestDataComman;
+import com.mmk.mainsite.UserLogin;
 
 public class BusListingUserLoginAndSelectSeat 
 {
@@ -53,11 +52,11 @@ public class BusListingUserLoginAndSelectSeat
 			/* Click select seat button */		
 			SelectSeatButton.click();		
 			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
-			LogWriter.log("Select Seat button option selected");
+			LogWriter.logger.info("Select Seat button option selected");
 			
 			if(usersname.isDisplayed())
 			{
-				LogWriter.log("User is already Logged in the system");
+				LogWriter.logger.info("User is already Logged in the system");
 		
 			}
 		}
@@ -65,7 +64,7 @@ public class BusListingUserLoginAndSelectSeat
 		{
 			/* user login from bus listing page by clicking Select Seat button */
 			new UserLogin(driver).doLogin(TestDataComman.username, TestDataComman.password);
-			LogWriter.log("Login Method called From Bus Listing Page - Select Seat");
+			LogWriter.logger.info("Login Method called From Bus Listing Page - Select Seat");
 		}
 	}
 
@@ -89,18 +88,18 @@ public class BusListingUserLoginAndSelectSeat
 				}
 				//Comman.jsExecuter.executeScript("arguments[0].click();", e);
 				e.click();
-				LogWriter.log("Available Seat Has been Selected");
+				LogWriter.logger.info("Available Seat Has been Selected");
 				break;
 			}
 		}
 			new Select(boardingPoint).selectByIndex(1);
-			LogWriter.log("Boarding Point has been Selected");
+			LogWriter.logger.info("Boarding Point has been Selected");
 			proceedButton.click();
-			LogWriter.log("Proceed Button Clicked");
+			LogWriter.logger.info("Proceed Button Clicked");
 		}
 		catch(Exception e)
 		{
-			 LogWriter.log(e.toString());
+			LogWriter.logger.info(e.toString());
 		}
 	}
 

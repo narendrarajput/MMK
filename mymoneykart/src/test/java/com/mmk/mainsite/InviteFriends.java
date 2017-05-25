@@ -1,4 +1,4 @@
-package com.pages;
+package com.mmk.mainsite;
 
 import java.util.List;
 

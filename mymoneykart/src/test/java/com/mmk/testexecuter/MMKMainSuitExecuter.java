@@ -12,13 +12,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import pom.utils.DriverSetup;
-import pom.utils.ReadExcel;
-import pom.utils.TestDataComman;
-
-import com.pages.ContactUsPage;
-import com.pages.InviteFriends;
-import com.pages.UserLogin;
+import com.mmk.commonutils.DriverSetup;
+import com.mmk.commonutils.ReadExcel;
+import com.mmk.commonutils.TestDataComman;
+import com.mmk.mainsite.ContactUsPage;
+import com.mmk.mainsite.InviteFriends;
+import com.mmk.mainsite.UserLogin;
 
 public class MMKMainSuitExecuter extends DriverSetup
 {
