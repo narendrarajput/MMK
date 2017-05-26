@@ -51,9 +51,10 @@ public class MMKMainSuitExecuter extends DriverSetup
 	public void inviteFriend()
 	{
 		InviteFriends invitefriend = new InviteFriends(driver);
-		invitefriend.inviteFriend();
+		invitefriend.inviteFriend(TestDataComman.friendName,TestDataComman.friendNumber);
+		
+
 		
 		
 	}
-
 }

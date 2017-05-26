@@ -1,7 +1,11 @@
 package com.mmk.commonutils;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class TestDataComman 
 {
@@ -39,4 +43,7 @@ public class TestDataComman
 	public static String pID = "Passport";
 	public static String pIDNumber = "PAS55454AS510";
 			
+	public static String friendName[]= {"One", "Two" , "Three"};
+	public static String friendNumber[]= {"9422300010", "9422300011" , "9422300012"};
+	
 }

@@ -29,6 +29,9 @@ public class WalletCheckOutPage {
 	@FindBy(id = "lblTotalAmount")
 	WebElement payableAmount;
 	
+	@FindBy(id = "ResultBox")
+	public WebElement NotificationMessage;
+	
 	WebDriver driver;
 	
 	public WalletCheckOutPage(WebDriver driver) 
@@ -49,6 +52,7 @@ public class WalletCheckOutPage {
 			payButton.click();
 			LogWriter.logger.info("Wallet Payment Started.........");
 			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
+			LogWriter.logger.info(NotificationMessage.getText());
 			LogWriter.logger.info("Payment Done.");
 		}
 		catch(Exception e)

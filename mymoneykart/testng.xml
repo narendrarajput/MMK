@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="MyMoneyKart">
+  
   <listeners>      
        <listener class-name="org.uncommons.reportng.HTMLReporter"/>
        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
   </listeners>
-  <test name="EndUserLogingEnqueryInvite">
-  <parameter name="browser" value="chrome" />
+  <test name="MyMoneyKart_Functional_Test">
+<parameter name="browser" value="chrome" />
  		 <classes>  	
- 						 <class name="com.mmk.commonutils.LogWriter"/>
- 						  <class name="com.mmk.commonutils.DriverSetup"/>	 		
- 		 			   <class name="com.mmk.testexecuter.MMKMainSuitExecuter"/> 
- 		 			  <class name="com.mmk.testexecuter.BusSuitExecuter"/>
+ 						<class name="com.mmk.commonutils.LogWriter"/>
+ 						<class name="com.mmk.commonutils.DriverSetup"/>	 		
+ 		 			  	<class name="com.mmk.testexecuter.MMKMainSuitExecuter"/> 
+ 
+         </classes> 
+  </test>
+  
+  <test name="BusBooking_Functional_Test">
+ 		 <classes>  	
+ 		 	  	<class name="com.mmk.testexecuter.BusSuitExecuter"/>
          </classes> 
   </test>
 </suite>

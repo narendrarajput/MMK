@@ -9,25 +9,31 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
-import com.gargoylesoftware.htmlunit.WebWindow;
-import com.gargoylesoftware.htmlunit.javascript.background.JavaScriptExecutor;
+import com.mmk.commonutils.Comman;
+import com.mmk.commonutils.LogWriter;
 
 public class InviteFriends 
 {
+	
+	@FindBy(id = "ResultBox")
+	public WebElement notificationMessage;
+	
 	@FindBy(xpath ="//li/a[normalize-space()='Invite Friends']")
 	public WebElement inviteFriendsLink;
 	
 	@FindBy(id = "divLoader")
 	public WebElement loader;
 	
-	@FindBy(xpath = "//input[@placeholder='Friend Name']")
+	@FindBy(xpath = "//input[@name='lstInviteFriendsModel[1].FriendName']")
 	public List<WebElement> friendName;
 	
-	@FindBy(xpath = "//input[@placeholder='Mobile Number']")
+	@FindBy(xpath = "//input[@name='lstInviteFriendsModel[1].FriendMobile']")
 	public WebElement friendNumber;
-
+	
+	@FindBy(id = "btnInvite")
+	public WebElement inviteButton; 
 	WebDriver driver;
 	
 	public InviteFriends(WebDriver driver)
@@ -36,16 +42,21 @@ public class InviteFriends
 		this.driver=driver;
 	}
 
-	public void inviteFriend()
+	public void inviteFriend(String []friendName, String []friendMobile)
 	{
-		//WebDriverWait wait = new WebDriverWait(driver, 60);
-		//wait.until(ExpectedConditions.elementToBeClickable(inviteFriendsLink));
-
+		
 		// The link is directly not clickable so need to click using javascriptExecuter
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", inviteFriendsLink);
-	//	friendName.sendKeys("My");
-		friendNumber.sendKeys("8866225511");
-	}
-	
+		LogWriter.logger.info("Invite Friend Tab Link Clicked");
+		for(int i=1;i<=3;i++)
+		{
+			driver.findElement(By.xpath("//input[@name='lstInviteFriendsModel["+i+"].FriendName']")).sendKeys(friendName[i-1]);
+			driver.findElement(By.xpath("//input[@name='lstInviteFriendsModel["+i+"].FriendMobile']")).sendKeys(friendMobile[i-1]);			
+		}
+		inviteButton.click();
+		Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
+		LogWriter.logger.info(notificationMessage.getText());
+		Assert.assertEquals(notificationMessage.getText(), "Your friends have been invited successfully");
+	}			
 }

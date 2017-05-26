@@ -91,7 +91,7 @@ public class DriverSetup
 		}
 		catch(Exception e)
 		{
-			System.out.println("Exception In : "+Thread.currentThread().getStackTrace()[1].getClassName()+"-->"+Thread.currentThread().getStackTrace()[1].getMethodName());
+			LogWriter.logger.info("Exception In : "+Thread.currentThread().getStackTrace()[1].getClassName()+"-->"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e);
 			TakeScreenshot.takeScreen("hello", true);		
 			System.out.println(e);
 		}

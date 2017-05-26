@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.google.inject.spi.Message;
+import com.mmk.commonutils.LogWriter;
 import com.mmk.commonutils.TakeScreenshot;
 
 public class ContactUsPage 
@@ -55,6 +56,7 @@ public class ContactUsPage
 	
 	public void submitContactUsForm(String name, String email, String mobile, String type, String msg) throws InterruptedException
 	{
+		LogWriter.logger.info("On Contact Us Page");
 		personName.sendKeys(name);
 		personEmail.sendKeys(email);
 		personMobileNo.sendKeys(mobile);
@@ -62,8 +64,9 @@ public class ContactUsPage
 		message.sendKeys(msg);
 		Thread.sleep(2000);
 		sendButton.click();
+		LogWriter.logger.info("Contact Form Detail Filled and Submit clicked");
 		new WebDriverWait(driver, 60).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='result-content']/i")));		
-		System.out.println(NotificationMessage.getText());
+		LogWriter.logger.info(NotificationMessage.getText());
 		TakeScreenshot.takeScreen("hello", true);
 	}
 }
