@@ -10,6 +10,8 @@ import org.testng.annotations.Test;
 
 
 
+
+import com.mmk.bus.BusBookingThankyouPage;
 import com.mmk.bus.BusListingUserLoginAndSelectSeat;
 import com.mmk.bus.BusSearchFromHomePage;
 import com.mmk.bus.PassangerDetailPage;
@@ -53,5 +55,20 @@ public class BusSuitExecuter extends DriverSetup
 	{
 		WalletCheckOutPage check = new WalletCheckOutPage(driver);
 		check.doCheckout();
+	}
+	
+	@Test(priority = 5)
+	public void ticketBookingStatus() 
+	{
+		BusBookingThankyouPage thankyou = new BusBookingThankyouPage(driver);
+		Boolean result = thankyou.checkBooking();
+		if(result==true)
+		{
+			thankyou.checkSMS();
+			thankyou.checkEmail();
+			thankyou.facebookSharingPage();
+			thankyou.twitterShareingPage();
+			thankyou.ratingOption();
+		}
 	}
 }

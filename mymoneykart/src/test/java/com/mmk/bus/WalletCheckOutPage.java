@@ -48,6 +48,7 @@ public class WalletCheckOutPage {
 			Comman.wait.until(ExpectedConditions.visibilityOf(walletAmount));
 			walletAmount.clear();
 			walletAmount.sendKeys(payableAmount.getText());
+			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
 			LogWriter.logger.info("Payment Amount has been selected");
 			payButton.click();
 			LogWriter.logger.info("Wallet Payment Started.........");
