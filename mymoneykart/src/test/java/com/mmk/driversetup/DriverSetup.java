@@ -1,4 +1,4 @@
-package com.mmk.commonutils;
+package com.mmk.driversetup;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -8,17 +8,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxProfile;
-import org.openqa.selenium.firefox.internal.ProfilesIni;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
-import com.sun.media.jfxmedia.logging.Logger;
+import com.mmk.commonutils.TakeScreenshot;
+import com.mmk.commonutils.TestDataComman;
+import com.mmk.reader.LogWriter;
 
 public class DriverSetup 
 {
@@ -98,6 +98,12 @@ public class DriverSetup
 			System.out.println(e);
 		}
 		
+	}
+	
+	@AfterSuite
+	public void tearDown()
+	{
+		driver.quit();
 	}
 	
 	public WebDriver getDriver()

@@ -5,12 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.AssertJUnit;
 
 import com.mmk.commonutils.Comman;
-import com.mmk.commonutils.LogWriter;
 import com.mmk.commonutils.TestDataComman;
+import com.mmk.reader.LogWriter;
 
 public class UserLogin 
 {
@@ -53,10 +52,13 @@ public class UserLogin
 			//driver.switchTo().frame(iframe);
 			mobileNumber.sendKeys(username);
 			Comman.wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("divLoader")));
-			loginButton.click();		
+			loginButton.click();
+			LogWriter.logger.info("Username Entered");
 			Comman.wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("divLoader")));
 			password.sendKeys(pasword);
-			submitButton.click();			
+			LogWriter.logger.info("Password Entered");
+			submitButton.click();	
+			LogWriter.logger.info("Login processing...");
 			driver.switchTo().defaultContent();
 			Comman.wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("divLoader")));
 			AssertJUnit.assertEquals(TestDataComman.usersname, usersname.getText());

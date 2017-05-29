@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 import com.mmk.commonutils.Comman;
-import com.mmk.commonutils.LogWriter;
+import com.mmk.reader.LogWriter;
 
 public class InviteFriends 
 {
@@ -50,11 +50,13 @@ public class InviteFriends
 			JavascriptExecutor js = (JavascriptExecutor)driver;
 			js.executeScript("arguments[0].click();", inviteFriendsLink);
 			LogWriter.logger.info("Invite Friend Tab Link Clicked");
+			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
 			for(int i=1;i<=3;i++)
 			{
 				driver.findElement(By.xpath("//input[@name='lstInviteFriendsModel["+i+"].FriendName']")).sendKeys(friendName[i-1]);
 				driver.findElement(By.xpath("//input[@name='lstInviteFriendsModel["+i+"].FriendMobile']")).sendKeys(friendMobile[i-1]);			
 			}
+			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
 			inviteButton.click();
 			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
 			LogWriter.logger.info(notificationMessage.getText());

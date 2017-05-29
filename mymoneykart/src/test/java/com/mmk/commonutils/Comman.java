@@ -5,6 +5,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.mmk.driversetup.DriverSetup;
+
 public class Comman extends DriverSetup
 {
 	public static WebElement mainloader = driver.findElement(By.id("divLoader"));

@@ -1,7 +1,6 @@
 package com.mmk.bussite;
 
 import java.util.List;
-import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.mmk.commonutils.Comman;
-import com.mmk.commonutils.LogWriter;
+import com.mmk.reader.LogWriter;
 
 public class BusBookingThankyouPage 
 {
@@ -174,6 +173,7 @@ public class BusBookingThankyouPage
 		try
 		{
 			skipLink.click();
+			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
 			LogWriter.logger.info("Skip Link Clicked");
 			Comman.wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(iframe));
 			LogWriter.logger.info("On Rating Popup");

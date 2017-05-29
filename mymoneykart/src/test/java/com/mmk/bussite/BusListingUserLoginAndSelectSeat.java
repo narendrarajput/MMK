@@ -10,9 +10,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import com.mmk.commonutils.Comman;
-import com.mmk.commonutils.LogWriter;
 import com.mmk.commonutils.TestDataComman;
 import com.mmk.mainsite.UserLogin;
+import com.mmk.reader.LogWriter;
 
 public class BusListingUserLoginAndSelectSeat 
 {

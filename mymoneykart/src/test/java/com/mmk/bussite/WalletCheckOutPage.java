@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.mmk.commonutils.Comman;
-import com.mmk.commonutils.LogWriter;
+import com.mmk.reader.LogWriter;
 
 public class WalletCheckOutPage {
 

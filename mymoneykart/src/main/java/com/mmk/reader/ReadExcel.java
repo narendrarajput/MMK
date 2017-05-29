@@ -1,4 +1,4 @@
-package com.mmk.commonutils;
+package com.mmk.reader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
