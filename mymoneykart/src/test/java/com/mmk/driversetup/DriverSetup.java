@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterSuite;
@@ -49,6 +50,7 @@ public class DriverSetup
 						driver = new ChromeDriver(options);	
 						driver.manage().window().maximize();
 						driver.get(TestDataComman.baseURL);
+						LogWriter.logger.info("Navigated To Site.....");
 						driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
 						TakeScreenshot.takeScreen("hello", true);
 						
@@ -61,7 +63,8 @@ public class DriverSetup
 						//FirefoxProfile profile = allProfiles.getProfile("AutoTest");
 						driver = new FirefoxDriver();		
 						driver.manage().window().maximize();
-						driver.get(TestDataComman.baseURL);				
+						driver.get(TestDataComman.baseURL);	
+						LogWriter.logger.info("Navigated To Site.....");
 						driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
 						//TakeScreenshot.takeScreen("hello", true);
 					break;
@@ -75,9 +78,22 @@ public class DriverSetup
 						driver = new InternetExplorerDriver(capabilities);		
 						driver.manage().window().maximize();
 						driver.get(TestDataComman.baseURL);
+						LogWriter.logger.info("Navigated To Site.....");
 						driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
 						//TakeScreenshot.takeScreen("hello", true);
-					break;	
+					break;
+					
+					case "phantomjs":
+						 
+						LogWriter.logger.info("PhantomJS driver Starting....");
+						System.setProperty("phantomjs.binary.path", "src/test/resources/phantomjs.exe");
+						driver = new PhantomJSDriver();	
+						driver.manage().window().maximize();
+						driver.get(TestDataComman.baseURL);
+						LogWriter.logger.info("Navigated To Site.....");
+						driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
+						//TakeScreenshot.takeScreen("hello", true);
+					break;
 						
 					default:
 						System.out.println("No parameter match found so Starting Firefox Browser Default.......");
@@ -85,6 +101,7 @@ public class DriverSetup
 						driver = new FirefoxDriver();		
 						driver.manage().window().maximize();
 						driver.get(TestDataComman.baseURL);
+						LogWriter.logger.info("Navigated To Site.....");
 						driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
 						TakeScreenshot.takeScreen("hello", true);
 					break;			

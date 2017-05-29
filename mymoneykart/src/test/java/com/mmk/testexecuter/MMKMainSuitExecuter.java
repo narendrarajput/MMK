@@ -11,6 +11,7 @@ import com.mmk.commonutils.TestDataComman;
 import com.mmk.driversetup.DriverSetup;
 import com.mmk.mainsite.ContactUsPage;
 import com.mmk.mainsite.InviteFriends;
+import com.mmk.mainsite.UserChangePassword;
 import com.mmk.mainsite.UserLogin;
 import com.mmk.reader.ReadExcel;
 
@@ -19,7 +20,7 @@ public class MMKMainSuitExecuter extends DriverSetup
 	
 	//WebDriver driver = new DriverSetup().getDriver();
 
-	@Test(priority=2)
+	//@Test(priority=2)
 	public  void submitFeedback() throws InterruptedException
 	{
 		
@@ -42,14 +43,19 @@ public class MMKMainSuitExecuter extends DriverSetup
 		
 	}
 	
-	@Test(priority = 3)
+	//@Test(priority = 3)
 	public void inviteFriend()
 	{
 		InviteFriends invitefriend = new InviteFriends(driver);
 		invitefriend.inviteFriend(TestDataComman.friendName,TestDataComman.friendNumber);
-		
-
-		
-		
+			
 	}
+	
+	@Test(priority = 4)
+	public void changePassword()
+	{
+		UserChangePassword changep = new UserChangePassword(driver);
+		changep.changePassword(TestDataComman.oldPass, TestDataComman.newPass);			
+	}
+	
 }

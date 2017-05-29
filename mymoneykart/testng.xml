@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="MyMoneyKart">
-  <parameter name="browser" value="firefox" />
+  <parameter name="browser" value="chrome" />
   <listeners>      
        <listener class-name="org.uncommons.reportng.HTMLReporter"/>
        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
@@ -16,7 +16,7 @@
   
   <test name="BusBooking_Functional_Test">
  	 <classes>  	
- 	 	<class name="com.mmk.testexecuter.MMKBusSuitExecuter"/> 
+ 	 <!--  	<class name="com.mmk.testexecuter.MMKBusSuitExecuter"/> -->
      </classes> 
   </test>
 

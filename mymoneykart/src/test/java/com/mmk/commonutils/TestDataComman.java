@@ -46,4 +46,8 @@ public class TestDataComman
 	public static String friendName[]= {"One", "Two" , "Three"};
 	public static String friendNumber[]= {"9422300010", "9422300011" , "9422300012"};
 	
+	//Password Details
+	
+	public static String oldPass = "123456";
+	public static String newPass = "123456";
 }
