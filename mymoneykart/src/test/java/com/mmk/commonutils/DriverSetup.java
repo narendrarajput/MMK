@@ -13,6 +13,7 @@ import org.openqa.selenium.firefox.internal.ProfilesIni;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
@@ -22,7 +23,8 @@ import com.sun.media.jfxmedia.logging.Logger;
 public class DriverSetup 
 {
 	public static WebDriver driver;
-	@BeforeTest
+	
+	@BeforeSuite
 	@Parameters("browser")
 	public void setUp( @Optional String browser) throws IOException
 	{
