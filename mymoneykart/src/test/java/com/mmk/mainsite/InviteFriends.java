@@ -44,19 +44,25 @@ public class InviteFriends
 
 	public void inviteFriend(String []friendName, String []friendMobile)
 	{
-		
-		// The link is directly not clickable so need to click using javascriptExecuter
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("arguments[0].click();", inviteFriendsLink);
-		LogWriter.logger.info("Invite Friend Tab Link Clicked");
-		for(int i=1;i<=3;i++)
+		try
 		{
-			driver.findElement(By.xpath("//input[@name='lstInviteFriendsModel["+i+"].FriendName']")).sendKeys(friendName[i-1]);
-			driver.findElement(By.xpath("//input[@name='lstInviteFriendsModel["+i+"].FriendMobile']")).sendKeys(friendMobile[i-1]);			
+			// The link is directly not clickable so need to click using javascriptExecuter
+			JavascriptExecutor js = (JavascriptExecutor)driver;
+			js.executeScript("arguments[0].click();", inviteFriendsLink);
+			LogWriter.logger.info("Invite Friend Tab Link Clicked");
+			for(int i=1;i<=3;i++)
+			{
+				driver.findElement(By.xpath("//input[@name='lstInviteFriendsModel["+i+"].FriendName']")).sendKeys(friendName[i-1]);
+				driver.findElement(By.xpath("//input[@name='lstInviteFriendsModel["+i+"].FriendMobile']")).sendKeys(friendMobile[i-1]);			
+			}
+			inviteButton.click();
+			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
+			LogWriter.logger.info(notificationMessage.getText());
+			Assert.assertEquals(notificationMessage.getText(), "Your friends have been invited successfully");
 		}
-		inviteButton.click();
-		Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
-		LogWriter.logger.info(notificationMessage.getText());
-		Assert.assertEquals(notificationMessage.getText(), "Your friends have been invited successfully");
+		catch(Exception e)
+		{
+			LogWriter.logger.info(e.toString());
+		}
 	}			
 }
