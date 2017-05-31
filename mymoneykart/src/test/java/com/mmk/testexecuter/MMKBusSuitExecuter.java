@@ -48,7 +48,7 @@ public class MMKBusSuitExecuter extends DriverSetup
 		check.doCheckout();
 	}
 	
-	@Test(priority = 5)
+	@Test(priority = 6)
 	public void ticketBookingStatus() 
 	{
 		BusBookingThankyouPage thankyou = new BusBookingThankyouPage(driver);

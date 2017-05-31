@@ -3,10 +3,12 @@
   <groupId>mymoneykart</groupId>
   <artifactId>mymoneykart</artifactId>
   <version>0.0.1-SNAPSHOT</version>
- <build>
+  <packaging>jar</packaging>
+ 	
+ 	<build>
          <plugins>   
          
-         <!-- Following plugin executes mmk the testng tests  -->
+        	 <!-- Following plugin executes mmk the testng tests  -->
             <plugin>
                <groupId>org.apache.maven.plugins</groupId>
                <artifactId>maven-surefire-plugin</artifactId>
@@ -17,38 +19,42 @@
                   		 <suiteXmlFile>testng.xml</suiteXmlFile>
                   	 </suiteXmlFiles>
                	   </configuration>
-               	     
-  
-            </plugin> 
-                   
+           	 </plugin>  
+           	            
               <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
-            </plugin>     
+            </plugin>   
+              
          </plugins>
       </build>
+      
  	<dependencies> 
+  		
   		<dependency>				
             <groupId>org.seleniumhq.selenium</groupId>								
             <artifactId>selenium-java</artifactId>								
             <version>3.4.0</version>								
-		</dependency>				
+		</dependency>
+						
         <dependency>				
             <groupId>org.testng</groupId>								
             <artifactId>testng</artifactId>								
             <version>6.8.7</version>								
-            <scope>test</scope>							  			
+            <scope>compile</scope>	          					  			
         </dependency>
-       <!-- https://mvnrepository.com/artifact/javax.mail/mail -->
+        
+       	<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
 		<dependency>
    				<groupId>javax.mail</groupId>
     			<artifactId>mail</artifactId>
     			<version>1.4</version>
 		</dependency>	
-	<!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
+		
+		<!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
 		<dependency>
     			<groupId>org.jsoup</groupId>
     			<artifactId>jsoup</artifactId>
@@ -57,7 +63,6 @@
 		
 		<!-- ReportNG jar files  -->
 		<dependency>
-
             <groupId>org.uncommons</groupId>
             <artifactId>reportng</artifactId>
             <version>1.1.4</version>
@@ -75,20 +80,25 @@
             <artifactId>guice</artifactId>
             <version>3.0</version> 
 		</dependency>  
-	        <dependency>
+	       
+	    <dependency>
             <groupId>velocity</groupId>
          	   <artifactId>velocity-dep</artifactId>
          	   <version>1.4</version>
          </dependency>
+       
          <dependency>
   				<groupId>org.apache.poi</groupId>
   				<artifactId>poi</artifactId>
  				 <version>3.9</version>
 		 </dependency>
+		
 		 <dependency>
 			  <groupId>org.apache.poi</groupId>
 			  <artifactId>poi-ooxml</artifactId>
 			  <version>3.9</version>
 		</dependency>
+ 	
  	</dependencies>		
+ 	
 </project>

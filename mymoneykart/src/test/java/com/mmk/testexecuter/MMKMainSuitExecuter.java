@@ -13,6 +13,7 @@ import com.mmk.mainsite.ContactUsPage;
 import com.mmk.mainsite.InviteFriends;
 import com.mmk.mainsite.UserChangePassword;
 import com.mmk.mainsite.UserLogin;
+import com.mmk.mainsite.WalletTransactionHistoryPage;
 import com.mmk.reader.ReadExcel;
 
 public class MMKMainSuitExecuter extends DriverSetup
@@ -20,7 +21,7 @@ public class MMKMainSuitExecuter extends DriverSetup
 	
 	//WebDriver driver = new DriverSetup().getDriver();
 
-	//@Test(priority=2)
+	// @Test(priority=2)
 	public  void submitFeedback() throws InterruptedException
 	{
 		
@@ -43,7 +44,7 @@ public class MMKMainSuitExecuter extends DriverSetup
 		
 	}
 	
-	//@Test(priority = 3)
+	// @Test(dependsOnMethods={"login"})
 	public void inviteFriend()
 	{
 		InviteFriends invitefriend = new InviteFriends(driver);
@@ -51,11 +52,18 @@ public class MMKMainSuitExecuter extends DriverSetup
 			
 	}
 	
-	@Test(priority = 4)
+//	@Test(dependsOnMethods={"login"})
 	public void changePassword()
 	{
 		UserChangePassword changep = new UserChangePassword(driver);
 		changep.changePassword(TestDataComman.oldPass, TestDataComman.newPass);			
+	}
+	
+	@Test(priority=3)
+	public void walletTransactionHistory()
+	{
+		WalletTransactionHistoryPage history = new WalletTransactionHistoryPage(driver);
+		history.getWalletUsageData();
 	}
 	
 }

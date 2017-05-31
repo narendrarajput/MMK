@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.mmk.driversetup.DriverSetup;
 
 public class Comman extends DriverSetup
+
 {
 	public static WebElement mainloader = driver.findElement(By.id("divLoader"));
 	public static WebElement notificationMessage = driver.findElement(By.id("ResultBox"));
