@@ -2,6 +2,7 @@ package com.mmk.mainsite;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -25,10 +26,15 @@ public class WalletTransactionHistoryPage
 	
 	@FindBy(xpath = "//ul[@class='sub-menu']/li/a[contains(.,'Wallet Usage')]")
 	public WebElement walletUsage;
-	 
-	@FindBy(xpath = "//tr/td")
+
+	@FindBy(xpath = "//table[@id='WalletStatusGrids']/tbody//tr")
 	public List<WebElement> gridData;
 	
+	@FindBy(xpath = "//li[@id='WalletStatusGrids_next']/a")
+	public WebElement nextButton;
+	
+	@FindBy(id = "WalletStatusGrids_next")
+	public WebElement nextLink;
 	
 	WebDriver driver;
 	
@@ -45,13 +51,32 @@ public class WalletTransactionHistoryPage
 		Actions action = new Actions(driver);
 		action.moveToElement(transactionList).clickAndHold(walletUsage).click().build().perform();
 		Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
-		//Comman.wait.until(ExpectedConditions.invisibilityOf(ProcessingLoader));
 		
-		for(WebElement e :gridData)
+		
+		do
 		{
-			System.out.println(e.getText());
+			//Comman.wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='WalletStatusGrids']/tbody/tr/td[1]")));
+			for(WebElement e :gridData)
+			{
+				List<WebElement> cellData= e.findElements(By.tagName("td"));
+				for(WebElement el :cellData)
+				{
+					System.out.print(el.getText()+"\t");
+		
+				}
+				System.out.println();
+			}
+		
+		nextButton.click();
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
 		
+		}
+		while(!nextLink.getAttribute("class").contains("disabled"));
 		
 	}
 	

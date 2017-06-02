@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="MyMoneyKart">
-  <parameter name="browser" value="chrome" />
+  <parameter name="browser" value="firefox" />
   <listeners>      
        <listener class-name="org.uncommons.reportng.HTMLReporter"/>
        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
