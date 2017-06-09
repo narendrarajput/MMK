@@ -23,7 +23,7 @@ public class DTHRecharge
 	@FindBy(id = "Subscriber")
 	public WebElement subscriberID; 	
 	
-	@FindBy(id = "OperatorCode")
+	@FindBy(xpath = "//form[@id='frmDTHSubmit']//select[@id='OperatorCode']")
 	public WebElement operatorCode; 	
 	
 	@FindBy(id = "dthAmount")
@@ -42,7 +42,7 @@ public class DTHRecharge
 	}
 	
 	
-	public void dthRecharge(String subscriberNo, String operator, String amount)
+	public void dthRecharge(String subscriberNo, String dthoperator, String amount)
 	{
 		try
 		{
@@ -54,8 +54,8 @@ public class DTHRecharge
 			
 			subscriberID.sendKeys(subscriberNo);
 			
-			Comman.wait.until(ExpectedConditions.elementToBeClickable(operatorCode));
-			new Select(operatorCode).selectByValue(operator);
+			//Comman.wait.until(ExpectedConditions.elementToBeClickable(operatorCode));
+			new Select(operatorCode).selectByVisibleText(dthoperator);
 			dthRechargeAmount.sendKeys(amount);
 			dthRechargeProceedButton.click();
 			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
