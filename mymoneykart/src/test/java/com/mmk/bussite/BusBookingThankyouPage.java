@@ -172,6 +172,7 @@ public class BusBookingThankyouPage
 	{
 		try
 		{
+			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
 			skipLink.click();
 			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
 			LogWriter.logger.info("Skip Link Clicked");

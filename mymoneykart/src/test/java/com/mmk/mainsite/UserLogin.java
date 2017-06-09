@@ -44,27 +44,33 @@ public class UserLogin
 		
 		public void doLogin(String username, String pasword) throws InterruptedException
 		{
-		//	WebDriverWait wait = new WebDriverWait(driver, 60);
-			// Switch into popup opens in iframe and do login
-			Comman.wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(iframe));
-			LogWriter.logger.info("On User Login Popup");
-			//Thread.sleep(3000);
-			//driver.switchTo().frame(iframe);
-			mobileNumber.sendKeys(username);
-			Comman.wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("divLoader")));
-			loginButton.click();
-			LogWriter.logger.info("Username Entered");
-			Comman.wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("divLoader")));
-			password.sendKeys(pasword);
-			LogWriter.logger.info("Password Entered");
-			submitButton.click();	
-			LogWriter.logger.info("Login processing...");
-			driver.switchTo().defaultContent();
-			Comman.wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("divLoader")));
-			AssertJUnit.assertEquals(TestDataComman.usersname, usersname.getText());
-			//TakeScreenshot.takeScreen("hello", true);
-			//System.out.println("User Log in success");			
-			LogWriter.logger.info("User login success");
-			
+			try
+			{
+				//	WebDriverWait wait = new WebDriverWait(driver, 60);
+				// Switch into popup opens in iframe and do login
+				Comman.wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(iframe));
+				LogWriter.logger.info("On User Login Popup");
+				//Thread.sleep(3000);
+				//driver.switchTo().frame(iframe);
+				mobileNumber.sendKeys(username);
+				Comman.wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("divLoader")));
+				loginButton.click();
+				LogWriter.logger.info("Username Entered");
+				Comman.wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("divLoader")));
+				password.sendKeys(pasword);
+				LogWriter.logger.info("Password Entered");
+				submitButton.click();	
+				LogWriter.logger.info("Login processing...");
+				driver.switchTo().defaultContent();
+				Comman.wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("divLoader")));
+				//AssertJUnit.assertEquals(TestDataComman.usersname, usersname.getText());
+				//TakeScreenshot.takeScreen("hello", true);
+				//System.out.println("User Log in success");			
+				LogWriter.logger.info("User login success");
+			}
+			catch(Exception e)
+			{
+				LogWriter.logger.info(e.toString());
+			}
 		}
 }

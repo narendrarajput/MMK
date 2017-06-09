@@ -41,6 +41,9 @@ public class BusSearchFromHomePage
 	@FindBy(id = "dvListLoader")
 	WebElement gridLoader;
 
+	@FindBy(className = "Popupiframe")
+	List<WebElement> iframe;
+	
 	WebDriver driver;
 	
 		public BusSearchFromHomePage(WebDriver driver) 
@@ -61,13 +64,16 @@ public class BusSearchFromHomePage
 				 * If popup available then switch to popup and close it else do nothing because there 
 				 * is no popup if user already login
 				 */
-				driver.switchTo().frame(0);
-				Comman.wait.until(ExpectedConditions.visibilityOf(loginPopupCloseButton));
+				if(iframe.size()>0)
+				{
+					driver.switchTo().frame(iframe.get(0));
+					Comman.wait.until(ExpectedConditions.visibilityOf(loginPopupCloseButton));
 		
-				Comman.jsExecuter.executeScript("arguments[0].click();", loginPopupCloseButton);
-				LogWriter.logger.info("Login Popup Closed ");
-				driver.switchTo().defaultContent();
-				Thread.sleep(1400);	
+					Comman.jsExecuter.executeScript("arguments[0].click();", loginPopupCloseButton);
+					LogWriter.logger.info("Login Popup Closed ");
+					driver.switchTo().defaultContent();
+					Thread.sleep(1400);
+				}
 			}
 			catch(Exception e)
 			{

@@ -51,7 +51,7 @@ public class DriverSetup
 						driver.manage().window().maximize();
 						driver.get(TestDataComman.baseURL);
 						LogWriter.logger.info("Navigated To Site.....");
-						driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
+						driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 						TakeScreenshot.takeScreen("hello", true);
 						
 					break;
@@ -117,11 +117,11 @@ public class DriverSetup
 		
 	}
 	
-	@AfterSuite
+/*	@AfterSuite
 	public void tearDown()
 	{
 		driver.quit();
-	}
+	}*/
 	
 	public WebDriver getDriver()
 	{

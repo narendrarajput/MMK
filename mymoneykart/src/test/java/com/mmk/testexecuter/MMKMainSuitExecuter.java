@@ -21,7 +21,7 @@ public class MMKMainSuitExecuter extends DriverSetup
 	
 	//WebDriver driver = new DriverSetup().getDriver();
 
-	// @Test(priority=2)
+	 @Test(priority=2)
 	public  void submitFeedback() throws InterruptedException
 	{
 		
@@ -44,7 +44,7 @@ public class MMKMainSuitExecuter extends DriverSetup
 		
 	}
 	
-	// @Test(dependsOnMethods={"login"})
+	 @Test(dependsOnMethods={"login"})
 	public void inviteFriend()
 	{
 		InviteFriends invitefriend = new InviteFriends(driver);
@@ -52,14 +52,14 @@ public class MMKMainSuitExecuter extends DriverSetup
 			
 	}
 	
-//	@Test(dependsOnMethods={"login"})
+	@Test(dependsOnMethods={"login"})
 	public void changePassword()
 	{
 		UserChangePassword changep = new UserChangePassword(driver);
 		changep.changePassword(TestDataComman.oldPass, TestDataComman.newPass);			
 	}
 	
-	@Test(priority=3)
+	@Test(enabled=false)
 	public void walletTransactionHistory()
 	{
 		WalletTransactionHistoryPage history = new WalletTransactionHistoryPage(driver);
