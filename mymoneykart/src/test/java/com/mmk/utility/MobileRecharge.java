@@ -20,6 +20,9 @@ import com.mmk.reader.LogWriter;
 
 public class MobileRecharge 
 {
+	@FindBy(id = "ResultBox")
+	WebElement NotificationMessage;
+	
 	@FindBy(id = "divLoader")
 	public WebElement loader;
 	
@@ -131,9 +134,15 @@ public class MobileRecharge
 			LogWriter.logger.info(e.toString());
 		}
 		
-
-		Comman.wait.until(ExpectedConditions.visibilityOf(walletAmount));
-		if(driver.getCurrentUrl().contains("Payment?TransactionID"))
+		try
+		{
+			Comman.wait.until(ExpectedConditions.visibilityOf(walletAmount));
+		}
+		catch(Exception e)
+		{
+			LogWriter.logger.info(NotificationMessage.getText());
+		}
+			if(driver.getCurrentUrl().contains("Payment?TransactionID"))
 		{
 			LogWriter.logger.info("On Wallet Page");
 		}
