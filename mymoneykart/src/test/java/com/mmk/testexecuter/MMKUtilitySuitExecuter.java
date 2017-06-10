@@ -10,6 +10,7 @@ import com.mmk.driversetup.DriverSetup;
 import com.mmk.utility.DTHRecharge;
 import com.mmk.utility.MobileRecharge;
 import com.mmk.utility.RechargeThankyouPage;
+import com.mmk.utility.UtilityCheckUserLogin;
 
 public class MMKUtilitySuitExecuter extends DriverSetup 
 {
@@ -17,13 +18,16 @@ public class MMKUtilitySuitExecuter extends DriverSetup
 	RechargeThankyouPage thankyou;
 	WalletCheckOutPage wallet;
 	DTHRecharge dth;
+	UtilityCheckUserLogin login;
 	
 	@Test
 	public void prepaidMobileRecharge() throws InterruptedException
 	{
 		recharge = new MobileRecharge(driver);
 		recharge.prepaidRecharge(UtilitySiteTestData.preMobileNumber, UtilitySiteTestData.preOperator, UtilitySiteTestData.preCircle, UtilitySiteTestData.preRechargeAmount);
-		recharge.checkUserLogin();
+				
+		login = new UtilityCheckUserLogin(driver);
+		login.checkUserLogin();
 		
 		wallet = new WalletCheckOutPage(driver);
 		wallet.doCheckout();
@@ -39,7 +43,8 @@ public class MMKUtilitySuitExecuter extends DriverSetup
 		recharge = new MobileRecharge(driver);
 		recharge.postpaidRecharge(UtilitySiteTestData.postMobileNumber, UtilitySiteTestData.postOperator, UtilitySiteTestData.postCircle, UtilitySiteTestData.postRechargeAmount);
 		
-		recharge.checkUserLogin();
+		login = new UtilityCheckUserLogin(driver);
+		login.checkUserLogin();	
 		
 		wallet = new WalletCheckOutPage(driver);
 		wallet.doCheckout();
@@ -53,8 +58,9 @@ public class MMKUtilitySuitExecuter extends DriverSetup
 	{
 		dth = new DTHRecharge(driver);
 		dth.dthRecharge(UtilitySiteTestData.dthSubscriberID, UtilitySiteTestData.dthOperator,  UtilitySiteTestData.dthRechargeAmount);
-		recharge = new MobileRecharge(driver);
-		recharge.checkUserLogin();
+		
+		login = new UtilityCheckUserLogin(driver);
+		login.checkUserLogin();
 		
 		wallet = new WalletCheckOutPage(driver);
 		wallet.doCheckout();

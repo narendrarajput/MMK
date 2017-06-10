@@ -113,42 +113,4 @@ public class MobileRecharge
 			LogWriter.logger.info(e.toString());
 		}
 	}
-	
-	public void checkUserLogin() throws InterruptedException
-	{
-		try
-		{					
-			if(usersname.size()>0)
-			{
-				LogWriter.logger.info("User is already Logged in the system");
-		
-			}
-			else
-			{
-				new UserLogin(driver).doLogin(TestDataComman.username, TestDataComman.password);
-				LogWriter.logger.info("Login Method called from Utility");
-			}
-		}
-		catch(Exception e)
-		{
-			LogWriter.logger.info(e.toString());
-		}
-		
-		try
-		{
-			Comman.wait.until(ExpectedConditions.visibilityOf(walletAmount));
-		}
-		catch(Exception e)
-		{
-			LogWriter.logger.info(NotificationMessage.getText());
-		}
-			if(driver.getCurrentUrl().contains("Payment?TransactionID"))
-		{
-			LogWriter.logger.info("On Wallet Page");
-		}
-		else
-		{
-			LogWriter.logger.info("Some thing went wrong in payment Proceeding ");
-		}
-	}
 }
