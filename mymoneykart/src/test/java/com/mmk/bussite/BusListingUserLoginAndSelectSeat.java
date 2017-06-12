@@ -73,7 +73,7 @@ public class BusListingUserLoginAndSelectSeat
 		try
 		{
 		Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
-		 
+		Comman.wait.until(ExpectedConditions.visibilityOfAllElements(seats));
 		for(WebElement e:seats)
 		{
 			if(e.findElement(By.tagName("div")).getAttribute("class").equals("available seat"))

@@ -177,6 +177,7 @@ public class BusBookingThankyouPage
 			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
 			LogWriter.logger.info("Skip Link Clicked");
 			Comman.wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(iframe));
+			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
 			LogWriter.logger.info("On Rating Popup");
 			skipRatingButton.click();
 			LogWriter.logger.info("Rating Skipped");
