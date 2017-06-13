@@ -99,7 +99,7 @@ public class MobileRecharge
 			{
 				postpaidServiceProvider.click();
 			}
-			LogWriter.logger.info("Filling Prepaid recharge details..");
+			LogWriter.logger.info("Filling Postpaid recharge details..");
 			prepaidMobileNumber.sendKeys(mobile);
 			new Select(prepaidCircle).selectByVisibleText(Circle);
 			new Select(prepaidOperator).selectByVisibleText(operator);

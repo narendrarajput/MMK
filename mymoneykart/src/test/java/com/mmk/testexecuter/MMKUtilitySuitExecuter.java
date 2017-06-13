@@ -1,5 +1,7 @@
 package com.mmk.testexecuter;
 
+import mmk.comman.pages.SocialSharing;
+
 import org.testng.annotations.Test;
 
 import com.mmk.bussite.BusSearchFromHomePage;
@@ -35,6 +37,10 @@ public class MMKUtilitySuitExecuter extends DriverSetup
 		thankyou = new RechargeThankyouPage(driver);
 		thankyou.rechargeStatus();
 		
+		SocialSharing ss= new SocialSharing(driver);
+		ss.facebookSharing();
+		ss.twitterSharing();
+		
 	}
 	
 	@Test
@@ -51,6 +57,10 @@ public class MMKUtilitySuitExecuter extends DriverSetup
 		
 		thankyou = new RechargeThankyouPage(driver);
 		thankyou.rechargeStatus();
+		
+		SocialSharing ss= new SocialSharing(driver);
+		ss.facebookSharing();
+		ss.twitterSharing();
 	}
 	
 	@Test
@@ -67,5 +77,9 @@ public class MMKUtilitySuitExecuter extends DriverSetup
 		
 		thankyou = new RechargeThankyouPage(driver);
 		thankyou.rechargeStatus();
+		
+		SocialSharing ss= new SocialSharing(driver);
+		ss.facebookSharing();
+		ss.twitterSharing();
 	}
 }

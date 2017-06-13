@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.remote.CapabilityType;
@@ -17,6 +18,8 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
+import com.gargoylesoftware.htmlunit.BrowserVersion;
+import com.gargoylesoftware.htmlunit.WebClient;
 import com.mmk.commonutils.TakeScreenshot;
 import com.mmk.commonutils.TestDataComman;
 import com.mmk.reader.LogWriter;
@@ -55,7 +58,22 @@ public class DriverSetup
 						TakeScreenshot.takeScreen("hello", true);
 						
 					break;
+					
+					case "htmlunit":
 						
+						System.setProperty("webdriver.chrome.driver","src/test/resources/chromedriver.exe");	
+						LogWriter.logger.info("HTMLUnit browswer Started..");
+						
+						driver = new HtmlUnitDriver();
+						driver = new HtmlUnitDriver(BrowserVersion.CHROME);
+				        ((HtmlUnitDriver) driver).setJavascriptEnabled(true);
+						driver.manage().window().maximize();
+						driver.get(TestDataComman.baseURL);
+						LogWriter.logger.info("Navigated To Site.....");
+						driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+						//TakeScreenshot.takeScreen("hello", true);						
+					break;
+					
 					case "firefox":
 						System.out.println("Starting Firefox........");
 						System.setProperty("webdriver.gecko.driver","src/test/resources/geckodriver.exe");

@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="MyMoneyKart">
-  <parameter name="browser" value="chrome" />
+  <parameter name="browser" value="htmlunit" />
   <listeners>      
        <listener class-name="org.uncommons.reportng.HTMLReporter"/>
        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
@@ -26,9 +26,9 @@
  	 <classes>  	
  	 	<class name="com.mmk.testexecuter.MMKUtilitySuitExecuter">
  	 		<methods>
-        		<exclude name="prepaidMobileRecharge" />
+        		<include name="prepaidMobileRecharge" />
         		<exclude name="postpaidMobileRecharge" />
-        		<include name="dthRecharge" />
+        		<exclude name="dthRecharge" />
       		</methods>
  	 	</class>
      </classes> 
