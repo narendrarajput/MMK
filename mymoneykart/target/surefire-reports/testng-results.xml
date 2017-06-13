@@ -1,58 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="8" passed="8">
+<testng-results skipped="0" failed="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="MyMoneyKart" duration-ms="136214" started-at="2017-05-25T05:24:58Z" finished-at="2017-05-25T05:27:15Z">
+  <suite name="MyMoneyKart" duration-ms="220754" started-at="2017-06-12T06:57:16Z" finished-at="2017-06-12T07:00:56Z">
     <groups>
     </groups>
-    <test name="EndUserLogingEnqueryInvite" duration-ms="136214" started-at="2017-05-25T05:24:58Z" finished-at="2017-05-25T05:27:15Z">
-      <class name="com.executer.ExecuteTest">
-        <test-method status="PASS" signature="login()[pri:0, instance:com.executer.ExecuteTest@192b07fd]" name="login" duration-ms="14107" started-at="2017-05-25T10:55:26Z" finished-at="2017-05-25T10:55:41Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- login -->
-        <test-method status="PASS" signature="submitFeedback()[pri:0, instance:com.executer.ExecuteTest@192b07fd]" name="submitFeedback" duration-ms="14394" started-at="2017-05-25T10:55:41Z" finished-at="2017-05-25T10:55:55Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- submitFeedback -->
-        <test-method status="PASS" signature="inviteFriend()[pri:0, instance:com.executer.ExecuteTest@192b07fd]" name="inviteFriend" duration-ms="2733" started-at="2017-05-25T10:55:55Z" finished-at="2017-05-25T10:55:58Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- inviteFriend -->
-      </class> <!-- com.executer.ExecuteTest -->
-      <class name="com.executer.BusSuitExecuter">
-        <test-method status="PASS" signature="setUp(java.lang.String)[pri:0, instance:com.executer.BusSuitExecuter@5cb9f472]" name="setUp" is-config="true" duration-ms="27924" started-at="2017-05-25T10:54:58Z" finished-at="2017-05-25T10:55:26Z">
+    <test name="MyMoneyKart_Functional_Test" duration-ms="12" started-at="2017-06-12T06:57:16Z" finished-at="2017-06-12T06:57:16Z">
+    </test> <!-- MyMoneyKart_Functional_Test -->
+    <test name="BusBooking_Functional_Test" duration-ms="1" started-at="2017-06-12T06:57:16Z" finished-at="2017-06-12T06:57:16Z">
+    </test> <!-- BusBooking_Functional_Test -->
+    <test name="Utility_Functional_Test" duration-ms="220598" started-at="2017-06-12T06:57:16Z" finished-at="2017-06-12T07:00:56Z">
+      <class name="com.mmk.testexecuter.MMKUtilitySuitExecuter">
+        <test-method status="PASS" signature="setUp(java.lang.String)[pri:0, instance:com.mmk.testexecuter.MMKUtilitySuitExecuter@6d7b4f4c]" name="setUp" is-config="true" duration-ms="72654" started-at="2017-06-12T12:26:03Z" finished-at="2017-06-12T12:27:16Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[chrome]]>
+                <![CDATA[firefox]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="busSearch()[pri:0, instance:com.executer.BusSuitExecuter@5cb9f472]" name="busSearch" duration-ms="23518" started-at="2017-05-25T10:55:58Z" finished-at="2017-05-25T10:56:21Z">
+        <test-method status="PASS" signature="setupLogger()[pri:0, instance:com.mmk.reader.LogWriter@5025a98f]" name="setupLogger" is-config="true" duration-ms="16" started-at="2017-06-12T12:27:16Z" finished-at="2017-06-12T12:27:16Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- busSearch -->
-        <test-method status="PASS" signature="busListPageLogin()[pri:0, instance:com.executer.BusSuitExecuter@5cb9f472]" name="busListPageLogin" duration-ms="1535" started-at="2017-05-25T10:56:21Z" finished-at="2017-05-25T10:56:23Z">
+        </test-method> <!-- setupLogger -->
+        <test-method status="PASS" signature="prepaidMobileRecharge()[pri:0, instance:com.mmk.testexecuter.MMKUtilitySuitExecuter@6d7b4f4c]" name="prepaidMobileRecharge" duration-ms="108727" started-at="2017-06-12T12:27:16Z" finished-at="2017-06-12T12:29:05Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- busListPageLogin -->
-        <test-method status="PASS" signature="selectABusSeat()[pri:0, instance:com.executer.BusSuitExecuter@5cb9f472]" name="selectABusSeat" duration-ms="2695" started-at="2017-05-25T10:56:23Z" finished-at="2017-05-25T10:56:25Z">
+        </test-method> <!-- prepaidMobileRecharge -->
+        <test-method status="PASS" signature="postpaidMobileRecharge()[pri:0, instance:com.mmk.testexecuter.MMKUtilitySuitExecuter@6d7b4f4c]" name="postpaidMobileRecharge" duration-ms="48348" started-at="2017-06-12T12:29:05Z" finished-at="2017-06-12T12:29:53Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- selectABusSeat -->
-        <test-method status="PASS" signature="fillPassangerDetails()[pri:0, instance:com.executer.BusSuitExecuter@5cb9f472]" name="fillPassangerDetails" duration-ms="19460" started-at="2017-05-25T10:56:25Z" finished-at="2017-05-25T10:56:45Z">
+        </test-method> <!-- postpaidMobileRecharge -->
+        <test-method status="PASS" signature="dthRecharge()[pri:0, instance:com.mmk.testexecuter.MMKUtilitySuitExecuter@6d7b4f4c]" name="dthRecharge" duration-ms="63515" started-at="2017-06-12T12:29:53Z" finished-at="2017-06-12T12:30:56Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- fillPassangerDetails -->
-        <test-method status="PASS" signature="enterWalletAndCheckout()[pri:0, instance:com.executer.BusSuitExecuter@5cb9f472]" name="enterWalletAndCheckout" duration-ms="29812" started-at="2017-05-25T10:56:45Z" finished-at="2017-05-25T10:57:15Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- enterWalletAndCheckout -->
-      </class> <!-- com.executer.BusSuitExecuter -->
-    </test> <!-- EndUserLogingEnqueryInvite -->
+        </test-method> <!-- dthRecharge -->
+      </class> <!-- com.mmk.testexecuter.MMKUtilitySuitExecuter -->
+    </test> <!-- Utility_Functional_Test -->
   </suite> <!-- MyMoneyKart -->
 </testng-results>

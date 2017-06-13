@@ -1,4 +1,6 @@
 package com.mmk.mainsite;
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,6 +12,7 @@ import org.testng.AssertJUnit;
 import com.mmk.commonutils.Comman;
 import com.mmk.commonutils.TestDataComman;
 import com.mmk.reader.LogWriter;
+
 
 public class UserLogin 
 {
@@ -32,7 +35,18 @@ public class UserLogin
 		WebElement loader;
 		
 		@FindBy(xpath = ".//*[@id='header']/div/div/div[5]/ul/li[1]/label")
-		WebElement usersname;
+		List<WebElement> usersname;
+		
+		@FindBy(id = "linkshowwallet")
+		WebElement walletButton;		
+		
+		@FindBy(id = "WalletPartialView")
+		WebElement walletPopup;
+		
+		@FindBy(xpath = "//div[@id='WalletPartialView']//li")
+		List<WebElement> walletData;
+		
+		
 		
 		WebDriver driver;
 		
@@ -71,6 +85,20 @@ public class UserLogin
 			catch(Exception e)
 			{
 				LogWriter.logger.info(e.toString());
+			}
+		}
+		
+		public void checkWallet()
+		{
+			if(usersname.size()>0)
+			{
+				Comman.wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("divLoader")));
+				walletButton.click();
+				Comman.wait.until(ExpectedConditions.visibilityOf(walletPopup));
+				for(WebElement e: walletData)
+				{
+					LogWriter.logger.info(e.getText());
+				}
 			}
 		}
 }

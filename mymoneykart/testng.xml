@@ -12,13 +12,31 @@
  	<classes>  	
  		<class name="com.mmk.reader.LogWriter"/>
  		<class name="com.mmk.driversetup.DriverSetup"/>	 		
-	 	<!--   	<class name="com.mmk.testexecuter.MMKMainSuitExecuter"/>   -->
+	 	<class name="com.mmk.testexecuter.MMKMainSuitExecuter">
+	 		<methods>
+        		<include name="login" />
+        		<include name="checkUserWallet" />   		
+        		<include name="submitFeedback" />
+        		<include name="inviteFriend" />
+        		<include name="changePassword" />
+        		<include name="walletTransactionHistory" />
+       		 </methods>
+	 	</class> 
    </classes> 
   </test>
   
-  <test name="BusBooking_Functional_Test">
+     <test name="BusBooking_Functional_Test">
  	 <classes>  	
-	 	<!--   <class name="com.mmk.testexecuter.MMKBusSuitExecuter"/>   -->
+	 	<class name="com.mmk.testexecuter.MMKBusSuitExecuter"> 
+     	 	  <methods>
+        		<include name="busSearch" />
+        		<include name="busListPageLogin" />
+        		<include name="selectABusSeat" />
+        		<include name="fillPassangerDetails" />
+        		<include name="enterWalletAndCheckout" />
+        		<include name="ticketBookingStatus" />
+      		  </methods>    		
+      		</class>
      </classes> 
   </test>
   
@@ -27,11 +45,15 @@
  	 	<class name="com.mmk.testexecuter.MMKUtilitySuitExecuter">
  	 		<methods>
         		<include name="prepaidMobileRecharge" />
+
         		<exclude name="postpaidMobileRecharge" />
         		<exclude name="dthRecharge" />
+
+        		<include name="postpaidMobileRecharge" />
+        		<include name="dthRecharge" />
+
       		</methods>
  	 	</class>
      </classes> 
   </test>
-
 </suite>

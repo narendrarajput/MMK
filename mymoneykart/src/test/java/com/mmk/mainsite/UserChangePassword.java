@@ -15,6 +15,8 @@ import com.mmk.reader.LogWriter;
 public class UserChangePassword 
 {
 	
+	@FindBy(xpath = ".//*[@id='header']/div/div/div[5]/ul/li[1]/label")
+	WebElement usersname;
 	
 	@FindBy(id = "ResultBox")
 	public WebElement notificationMessage;
@@ -55,8 +57,11 @@ public class UserChangePassword
 	{
 		try
 		{
-			driver.navigate().to(TestDataComman.baseURL);
+			Comman.wait.until(ExpectedConditions.visibilityOf(profileLink));
+			
+			driver.navigate().to(TestDataComman.baseURL);			
 			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
+			
 			Actions action = new Actions(driver);
 			action.moveToElement(profileLink).clickAndHold(changePasswordLink).click().build().perform();
 			LogWriter.logger.info("Change Password Link Clicked");

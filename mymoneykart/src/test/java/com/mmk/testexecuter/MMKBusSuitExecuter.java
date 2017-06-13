@@ -14,7 +14,7 @@ public class MMKBusSuitExecuter extends DriverSetup
 {
 	
 	BusListingUserLoginAndSelectSeat buslist;
-	@Test(priority=1)
+	@Test
 	public void busSearch()
 	{
 		BusSearchFromHomePage bussearch = new BusSearchFromHomePage(driver);
@@ -22,33 +22,33 @@ public class MMKBusSuitExecuter extends DriverSetup
 		
 	}
 	
-	@Test(priority=2)
+	@Test
 	public void busListPageLogin() throws InterruptedException
 	{
 		buslist = new BusListingUserLoginAndSelectSeat(driver);
 		buslist.listUserLogin();
 	}
-	@Test(priority=3)
+	@Test
 	public void selectABusSeat() 
 	{
 		buslist.selectSeat();
 	}
 	
-	@Test(priority = 4)
+	@Test
 	public void fillPassangerDetails() 
 	{
 		 PassangerDetailPage pdetails = new PassangerDetailPage(driver);
 		 pdetails.fillPassengerDetailAndProceedToPay(TestDataComman.pFirstName, TestDataComman.pLastName, TestDataComman.pGender, TestDataComman.pAge, TestDataComman.pID, TestDataComman.pIDNumber, TestDataComman.username);
 	}
 	
-	@Test(priority = 5)
+	@Test
 	public void enterWalletAndCheckout() 
 	{
 		WalletCheckOutPage check = new WalletCheckOutPage(driver);
 		check.doCheckout();
 	}
 	
-	@Test(priority = 6)
+	@Test
 	public void ticketBookingStatus() 
 	{
 		BusBookingThankyouPage thankyou = new BusBookingThankyouPage(driver);

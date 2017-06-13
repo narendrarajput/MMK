@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.mmk.commonutils.Comman;
 import com.mmk.commonutils.TakeScreenshot;
 import com.mmk.reader.LogWriter;
 
@@ -42,6 +43,11 @@ public class ContactUsPage
 	@FindBy(id = "ResultBox")
 	public WebElement NotificationMessage;
 	
+	@FindBy(id = "loginModal")
+	public WebElement loginmodel;
+	
+	
+	
 	WebDriver driver;
 	
 	public ContactUsPage(WebDriver driver)
@@ -52,6 +58,12 @@ public class ContactUsPage
 	
 	public void submitContactUsForm(String name, String email, String mobile, String type, String msg) throws InterruptedException
 	{
+
+			
+		Comman.wait.until(ExpectedConditions.invisibilityOf(loginmodel));
+		Comman.wait.until(ExpectedConditions.invisibilityOf(loader));	
+		contactUsLink.click();
+	
 		LogWriter.logger.info("On Contact Us Page");
 		personName.sendKeys(name);
 		personEmail.sendKeys(email);

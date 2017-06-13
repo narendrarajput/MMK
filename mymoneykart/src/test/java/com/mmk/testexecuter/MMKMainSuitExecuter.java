@@ -21,19 +21,15 @@ public class MMKMainSuitExecuter extends DriverSetup
 	
 	//WebDriver driver = new DriverSetup().getDriver();
 
-	 @Test(priority=2)
+	 @Test
 	public  void submitFeedback() throws InterruptedException
 	{
 		
 		ContactUsPage conpage = new ContactUsPage(driver);
-		
-		WebDriverWait wait = new WebDriverWait(driver, 60);
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("divLoader")));		
-		conpage.contactUsLink.click();
 		conpage.submitContactUsForm(TestDataComman.fName, TestDataComman.fEmail, TestDataComman.fMobile, TestDataComman.fType, TestDataComman.fMessage);
 
 	}
-	@Test(priority = 1)
+	@Test
 	public void login() throws IOException, InterruptedException
 	{
 		UserLogin login = new UserLogin(driver);
@@ -41,6 +37,15 @@ public class MMKMainSuitExecuter extends DriverSetup
 		String uname = read.getCellData(1, 0);
 		String passwd = read.getCellData(1, 1);
 		login.doLogin(uname, passwd);
+		
+	}
+	
+	@Test
+	public void checkUserWallet() throws IOException, InterruptedException
+	{
+		UserLogin login = new UserLogin(driver);
+		
+		login.checkWallet();
 		
 	}
 	
