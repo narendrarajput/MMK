@@ -1,5 +1,7 @@
 package com.mmk.testexecuter;
 
+import mmk.comman.pages.SocialSharing;
+
 import org.testng.annotations.Test;
 
 import com.mmk.bussite.BusBookingThankyouPage;
@@ -14,6 +16,7 @@ public class MMKBusSuitExecuter extends DriverSetup
 {
 	
 	BusListingUserLoginAndSelectSeat buslist;
+	
 	@Test
 	public void busSearch()
 	{
@@ -57,8 +60,13 @@ public class MMKBusSuitExecuter extends DriverSetup
 		{
 			thankyou.checkSMS();
 			thankyou.checkEmail();
-			thankyou.facebookSharingPage();
-			thankyou.twitterShareingPage();
+			
+			
+			SocialSharing ss= new SocialSharing(driver);
+			
+			ss.facebookSharing();
+			ss.twitterSharing();
+			
 			thankyou.ratingOption();
 		}
 	}

@@ -117,57 +117,7 @@ public class BusBookingThankyouPage
 			LogWriter.logger.info(e.toString());
 		}
 	}
-	
-	public void facebookSharingPage()	
-	{
-		try
-		{
-			fbShareButton.click();
-			LogWriter.logger.info("Facebook Sharing Button Clicked");
-			String parentWindow = driver.getWindowHandle();
-			for (String winHandle : driver.getWindowHandles()) 
-			{
- 
-				driver.switchTo().window(winHandle);
-			    LogWriter.logger.info("Switched in newly Opened window");
-			}
-			LogWriter.logger.info(driver.getCurrentUrl());
-			
-			driver.close();
-			LogWriter.logger.info("New Window Close");
-			driver.switchTo().window(parentWindow);		
-			LogWriter.logger.info("Come Back In parent window");
-		}
-		catch(Exception e)
-		{
-			LogWriter.logger.info(e.toString());
-		}
-	}
-	public void twitterShareingPage()	
-	{
-		try
-		{
-			twitterShareButton.click();
-			
-			String parentWindow = driver.getWindowHandle();
-			for (String winHandle : driver.getWindowHandles()) 
-			{
-			    driver.switchTo().window(winHandle);
-			    LogWriter.logger.info("Switched in newly Opened window");
-			}
-			LogWriter.logger.info(driver.getCurrentUrl());
-			
-			driver.close();
-			LogWriter.logger.info("New Window Close");
-			driver.switchTo().window(parentWindow);		
-			LogWriter.logger.info("Come Back In parent window");
-		}
-		catch(Exception e)
-		{
-			LogWriter.logger.info(e.toString());
-		}
-	}
-	
+		
 	public void ratingOption()
 	{
 		try

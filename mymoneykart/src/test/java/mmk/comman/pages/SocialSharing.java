@@ -1,12 +1,11 @@
 package mmk.comman.pages;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import com.mmk.commonutils.Comman;
 import com.mmk.reader.LogWriter;
 
 public class SocialSharing 
@@ -19,10 +18,10 @@ public class SocialSharing
 	WebElement loader;
 	
 	@FindBy(id = "shareBtn")
-	WebElement fbShareButton;
+	List<WebElement> fbShareButton;
 	
 	@FindBy(xpath = "//a[@title='Share']")
-	WebElement twitterShareButton;
+	List<WebElement> twitterShareButton;
 	
 	@FindBy(id = "ResultBox")
 	WebElement NotificationMessage;
@@ -38,22 +37,28 @@ public class SocialSharing
 	{
 		try
 		{
-			Comman.wait.until(ExpectedConditions.visibilityOf(fbShareButton));
-			fbShareButton.click();
-			LogWriter.logger.info("Facebook Sharing Button Clicked");
-			String parentWindow = driver.getWindowHandle();
-			for (String winHandle : driver.getWindowHandles()) 
+			if(fbShareButton.size()>0)
 			{
- 
-				driver.switchTo().window(winHandle);
-			    LogWriter.logger.info("Switched to Facebook window");
+				fbShareButton.get(0).click();
+				LogWriter.logger.info("Facebook Sharing Button Clicked");
+				String parentWindow = driver.getWindowHandle();
+				for (String winHandle : driver.getWindowHandles()) 
+				{
+	 
+					driver.switchTo().window(winHandle);
+				    LogWriter.logger.info("Switched to Facebook window");
+				}
+				LogWriter.logger.info(driver.getCurrentUrl());
+				
+				driver.close();
+				LogWriter.logger.info("Window get closed");
+				driver.switchTo().window(parentWindow);		
+				LogWriter.logger.info("Back on parent window");
 			}
-			LogWriter.logger.info(driver.getCurrentUrl());
-			
-			driver.close();
-			LogWriter.logger.info("Window get closed");
-			driver.switchTo().window(parentWindow);		
-			LogWriter.logger.info("Back on parent window");
+			else
+			{
+				LogWriter.logger.info("Transaction migh not successfull So there is no Facebook sharing option");
+			}
 		}
 		catch(Exception e)
 		{
@@ -65,21 +70,27 @@ public class SocialSharing
 	{
 		try
 		{
-			Comman.wait.until(ExpectedConditions.visibilityOf(twitterShareButton));
-			twitterShareButton.click();
-			
-			String parentWindow = driver.getWindowHandle();
-			for (String winHandle : driver.getWindowHandles()) 
+			if(twitterShareButton.size()>0)
 			{
-			    driver.switchTo().window(winHandle);
-			    LogWriter.logger.info("Switched to Twitter window");
+				twitterShareButton.get(0).click();
+				
+				String parentWindow = driver.getWindowHandle();
+				for (String winHandle : driver.getWindowHandles()) 
+				{
+				    driver.switchTo().window(winHandle);
+				    LogWriter.logger.info("Switched to Twitter window");
+				}
+				LogWriter.logger.info(driver.getCurrentUrl());
+				
+				driver.close();
+				LogWriter.logger.info("Window get closed");
+				driver.switchTo().window(parentWindow);		
+				LogWriter.logger.info("Back on parent window");
 			}
-			LogWriter.logger.info(driver.getCurrentUrl());
-			
-			driver.close();
-			LogWriter.logger.info("Window get closed");
-			driver.switchTo().window(parentWindow);		
-			LogWriter.logger.info("Back on parent window");
+			else
+			{
+				LogWriter.logger.info("Transaction migh not successfull So there is no Twitter sharing option");
+			}
 		}
 		catch(Exception e)
 		{

@@ -11,6 +11,7 @@ import com.mmk.commonutils.TestDataComman;
 import com.mmk.driversetup.DriverSetup;
 import com.mmk.mainsite.ContactUsPage;
 import com.mmk.mainsite.InviteFriends;
+import com.mmk.mainsite.MMKUserKYCDetails;
 import com.mmk.mainsite.UserChangePassword;
 import com.mmk.mainsite.UserLogin;
 import com.mmk.mainsite.WalletTransactionHistoryPage;
@@ -34,8 +35,8 @@ public class MMKMainSuitExecuter extends DriverSetup
 	{
 		UserLogin login = new UserLogin(driver);
 		ReadExcel read = new ReadExcel();
-		String uname = read.getCellData(1, 0);
-		String passwd = read.getCellData(1, 1);
+		String uname = read.getCellData(2, 0);
+		String passwd = read.getCellData(2, 1);
 		login.doLogin(uname, passwd);
 		
 	}
@@ -69,6 +70,20 @@ public class MMKMainSuitExecuter extends DriverSetup
 	{
 		WalletTransactionHistoryPage history = new WalletTransactionHistoryPage(driver);
 		history.getWalletUsageData();
+	}
+	
+	@Test(dependsOnMethods={"login"})
+	public void getUserKYCDetails()
+	{
+		MMKUserKYCDetails kyc= new MMKUserKYCDetails(driver);
+		kyc.getUserKYCDetails();
+	}
+	
+	@Test(dependsOnMethods={"getUserKYCDetails"})
+	public void checkMissingKYCDetails()
+	{
+		MMKUserKYCDetails kyc= new MMKUserKYCDetails(driver);
+		kyc.checkMissingKYCInfo();
 	}
 	
 }
