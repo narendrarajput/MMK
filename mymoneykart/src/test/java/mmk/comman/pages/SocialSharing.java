@@ -35,8 +35,7 @@ public class SocialSharing
 	}
 	public void facebookSharing()
 	{
-		try
-		{
+
 			if(fbShareButton.size()>0)
 			{
 				fbShareButton.get(0).click();
@@ -59,17 +58,11 @@ public class SocialSharing
 			{
 				LogWriter.logger.info("Transaction migh not successfull So there is no Facebook sharing option");
 			}
-		}
-		catch(Exception e)
-		{
-			LogWriter.logger.info(e.toString());
-		}
+
 	}
 	
 	public void twitterSharing()
 	{
-		try
-		{
 			if(twitterShareButton.size()>0)
 			{
 				twitterShareButton.get(0).click();
@@ -91,10 +84,6 @@ public class SocialSharing
 			{
 				LogWriter.logger.info("Transaction migh not successfull So there is no Twitter sharing option");
 			}
-		}
-		catch(Exception e)
-		{
-			LogWriter.logger.info(e.toString());
-		}
+
 	}
 }

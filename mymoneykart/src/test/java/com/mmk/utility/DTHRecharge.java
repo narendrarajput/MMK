@@ -1,5 +1,7 @@
 package com.mmk.utility;
 
+import java.io.IOException;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,6 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import com.mmk.commonutils.Comman;
+import com.mmk.commonutils.TakeScreenshot;
 import com.mmk.commonutils.UtilitySiteTestData;
 import com.mmk.reader.LogWriter;
 
@@ -42,30 +45,26 @@ public class DTHRecharge
 	}
 	
 	
-	public void dthRecharge(String subscriberNo, String dthoperator, String amount)
+	public void dthRecharge(String subscriberNo, String dthoperator, String amount) throws IOException
 	{
-		try
-		{
 			LogWriter.logger.info("Navigating to.."+UtilitySiteTestData.utilitySiteUrl);
 			driver.navigate().to(UtilitySiteTestData.utilitySiteUrl);
+			TakeScreenshot.passedScreenShot();
 			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
 			
 			dthLink.click();
-			
+			TakeScreenshot.passedScreenShot();
 			subscriberID.sendKeys(subscriberNo);
 			
 			//Comman.wait.until(ExpectedConditions.elementToBeClickable(operatorCode));
 			new Select(operatorCode).selectByVisibleText(dthoperator);
 			dthRechargeAmount.sendKeys(amount);
+			TakeScreenshot.passedScreenShot();
 			dthRechargeProceedButton.click();
 			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
+			TakeScreenshot.passedScreenShot();
 			LogWriter.logger.info("Proceed To pay Clicked");	
-			
-		}
-		catch(Exception e)
-		{
-			LogWriter.logger.info(e.toString());
-		}
+
 	}
 	
 }

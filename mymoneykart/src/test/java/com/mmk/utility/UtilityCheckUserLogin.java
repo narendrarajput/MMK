@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.mmk.commonutils.Comman;
+import com.mmk.commonutils.TakeScreenshot;
 import com.mmk.commonutils.TestDataComman;
 import com.mmk.mainsite.UserLogin;
 import com.mmk.reader.LogWriter;
@@ -46,7 +47,9 @@ public class UtilityCheckUserLogin
 			}
 			else
 			{
+				TakeScreenshot.passedScreenShot();
 				new UserLogin(driver).doLogin(TestDataComman.username, TestDataComman.password);
+				TakeScreenshot.passedScreenShot();
 				LogWriter.logger.info("Login Method called from Utility");
 			}
 		}
@@ -58,6 +61,7 @@ public class UtilityCheckUserLogin
 		try
 		{
 			Comman.wait.until(ExpectedConditions.visibilityOf(walletAmount));
+			TakeScreenshot.passedScreenShot();
 			if(driver.getCurrentUrl().contains("Payment?TransactionID"))
 			{
 				LogWriter.logger.info("On Wallet Page");

@@ -1,11 +1,17 @@
 package com.mmk.testexecuter;
 
+import java.io.IOException;
+
+import mmk.comman.pages.CheckoutUsingWallet;
 import mmk.comman.pages.SocialSharing;
 
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 import com.mmk.bussite.BusSearchFromHomePage;
 import com.mmk.bussite.WalletCheckOutPage;
+import com.mmk.commonutils.TakeScreenshot;
 import com.mmk.commonutils.TestDataComman;
 import com.mmk.commonutils.UtilitySiteTestData;
 import com.mmk.driversetup.DriverSetup;
@@ -18,12 +24,12 @@ public class MMKUtilitySuitExecuter extends DriverSetup
 {
 	MobileRecharge recharge ;
 	RechargeThankyouPage thankyou;
-	WalletCheckOutPage wallet;
+	CheckoutUsingWallet wallet;
 	DTHRecharge dth;
 	UtilityCheckUserLogin login;
 	
 	@Test
-	public void prepaidMobileRecharge() throws InterruptedException
+	public void prepaidMobileRecharge() throws InterruptedException, IOException
 	{
 		recharge = new MobileRecharge(driver);
 		recharge.prepaidRecharge(UtilitySiteTestData.preMobileNumber, UtilitySiteTestData.preOperator, UtilitySiteTestData.preCircle, UtilitySiteTestData.preRechargeAmount);
@@ -31,7 +37,7 @@ public class MMKUtilitySuitExecuter extends DriverSetup
 		login = new UtilityCheckUserLogin(driver);
 		login.checkUserLogin();
 		
-		wallet = new WalletCheckOutPage(driver);
+		wallet = new CheckoutUsingWallet(driver);
 		wallet.doCheckout();
 		
 		thankyou = new RechargeThankyouPage(driver);
@@ -44,7 +50,7 @@ public class MMKUtilitySuitExecuter extends DriverSetup
 	}
 	
 	@Test
-	public void postpaidMobileRecharge() throws InterruptedException
+	public void postpaidMobileRecharge() throws InterruptedException, IOException
 	{
 		recharge = new MobileRecharge(driver);
 		recharge.postpaidRecharge(UtilitySiteTestData.postMobileNumber, UtilitySiteTestData.postOperator, UtilitySiteTestData.postCircle, UtilitySiteTestData.postRechargeAmount);
@@ -52,7 +58,7 @@ public class MMKUtilitySuitExecuter extends DriverSetup
 		login = new UtilityCheckUserLogin(driver);
 		login.checkUserLogin();	
 		
-		wallet = new WalletCheckOutPage(driver);
+		wallet = new CheckoutUsingWallet(driver);
 		wallet.doCheckout();
 		
 		thankyou = new RechargeThankyouPage(driver);
@@ -64,7 +70,7 @@ public class MMKUtilitySuitExecuter extends DriverSetup
 	}
 	
 	@Test
-	public void dthRecharge() throws InterruptedException
+	public void dthRecharge() throws InterruptedException, IOException
 	{
 		dth = new DTHRecharge(driver);
 		dth.dthRecharge(UtilitySiteTestData.dthSubscriberID, UtilitySiteTestData.dthOperator,  UtilitySiteTestData.dthRechargeAmount);
@@ -72,7 +78,7 @@ public class MMKUtilitySuitExecuter extends DriverSetup
 		login = new UtilityCheckUserLogin(driver);
 		login.checkUserLogin();
 		
-		wallet = new WalletCheckOutPage(driver);
+		wallet = new CheckoutUsingWallet(driver);
 		wallet.doCheckout();
 		
 		thankyou = new RechargeThankyouPage(driver);
@@ -81,5 +87,22 @@ public class MMKUtilitySuitExecuter extends DriverSetup
 		SocialSharing ss= new SocialSharing(driver);
 		ss.facebookSharing();
 		ss.twitterSharing();
+	}
+	
+	@AfterMethod
+	public void tearDown(ITestResult result)
+	{
+		if(ITestResult.FAILURE==result.getStatus())
+		{
+			try 
+			{
+				TakeScreenshot.failedScreenShot();
+			} 
+			catch (Exception e)
+			{
+				
+				System.out.println("Exception while taking screenshot "+e.getMessage());
+			} 
+		}
 	}
 }

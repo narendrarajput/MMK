@@ -35,8 +35,8 @@ public class MMKMainSuitExecuter extends DriverSetup
 	{
 		UserLogin login = new UserLogin(driver);
 		ReadExcel read = new ReadExcel();
-		String uname = read.getCellData(2, 0);
-		String passwd = read.getCellData(2, 1);
+		String uname = read.getCellData(1, 0);
+		String passwd = read.getCellData(1, 1);
 		login.doLogin(uname, passwd);
 		
 	}

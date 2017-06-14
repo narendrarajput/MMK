@@ -52,10 +52,9 @@ public class BusSearchFromHomePage
 			this.driver=driver;
 		}
 	
-		public void doBusSearch(String sourcecityName, String destinationcityName, String date)
+		public void doBusSearch(String sourcecityName, String destinationcityName, String date) throws InterruptedException
 		{	
-			try
-			{
+
 				driver.navigate().to(TestDataComman.baseURL);
 				LogWriter.logger.info("Navigated To Main MMK Site");
 				Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
@@ -74,11 +73,7 @@ public class BusSearchFromHomePage
 					driver.switchTo().defaultContent();
 					Thread.sleep(1400);
 				}
-			}
-			catch(Exception e)
-			{
-				LogWriter.logger.info(e.toString());
-			}
+
 			
 			sourceCity.sendKeys(sourcecityName);
 			destinationCity.sendKeys(destinationcityName);

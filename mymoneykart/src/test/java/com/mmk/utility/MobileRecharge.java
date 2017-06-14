@@ -1,5 +1,6 @@
 package com.mmk.utility;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.JavascriptExecutor;
@@ -13,6 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.gargoylesoftware.htmlunit.javascript.background.JavaScriptExecutor;
 import com.mmk.commonutils.Comman;
+import com.mmk.commonutils.TakeScreenshot;
 import com.mmk.commonutils.TestDataComman;
 import com.mmk.commonutils.UtilitySiteTestData;
 import com.mmk.mainsite.UserLogin;
@@ -62,12 +64,13 @@ public class MobileRecharge
 	}
 	
 	
-	public void prepaidRecharge(String mobile, String operator, String Circle, String amount)
+	public void prepaidRecharge(String mobile, String operator, String Circle, String amount) throws IOException
 	{
-		try
-		{
+
+			
 			LogWriter.logger.info("Navigating to.."+UtilitySiteTestData.utilitySiteUrl);
 			driver.navigate().to(UtilitySiteTestData.utilitySiteUrl);
+			TakeScreenshot.passedScreenShot();
 			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
 			if(!(prepaidServiceProvider.isSelected()))
 			{
@@ -78,22 +81,20 @@ public class MobileRecharge
 			new Select(prepaidCircle).selectByVisibleText(Circle);
 			new Select(prepaidOperator).selectByVisibleText(operator);
 			prepaidAmount.sendKeys(amount);
+			TakeScreenshot.passedScreenShot();
 			proceedToPayButton.click();
 			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
+			TakeScreenshot.passedScreenShot();
 			LogWriter.logger.info("Proceed To pay Clicked");	
-		}
-		catch(Exception e)
-		{
-			LogWriter.logger.info(e.toString());
-		}
+
 	}
 	
-	public void postpaidRecharge(String mobile, String operator, String Circle, String amount)
+	public void postpaidRecharge(String mobile, String operator, String Circle, String amount) throws IOException
 	{
-		try
-		{
+
 			LogWriter.logger.info("Navigating to.."+UtilitySiteTestData.utilitySiteUrl);
 			driver.navigate().to(UtilitySiteTestData.utilitySiteUrl);
+			TakeScreenshot.passedScreenShot();
 			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
 			if(!(postpaidServiceProvider.isSelected()))
 			{
@@ -104,13 +105,11 @@ public class MobileRecharge
 			new Select(prepaidCircle).selectByVisibleText(Circle);
 			new Select(prepaidOperator).selectByVisibleText(operator);
 			prepaidAmount.sendKeys(amount);
+			TakeScreenshot.passedScreenShot();
 			proceedToPayButton.click();
 			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
+			TakeScreenshot.passedScreenShot();
 			LogWriter.logger.info("Proceed To pay Clicked");	
-		}
-		catch(Exception e)
-		{
-			LogWriter.logger.info(e.toString());
-		}
+
 	}
 }

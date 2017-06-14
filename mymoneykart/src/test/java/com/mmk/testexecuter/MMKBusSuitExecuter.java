@@ -1,7 +1,13 @@
 package com.mmk.testexecuter;
 
+import java.io.IOException;
+
+import mmk.comman.pages.CheckoutUsingWallet;
 import mmk.comman.pages.SocialSharing;
 
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 import com.mmk.bussite.BusBookingThankyouPage;
@@ -9,6 +15,7 @@ import com.mmk.bussite.BusListingUserLoginAndSelectSeat;
 import com.mmk.bussite.BusSearchFromHomePage;
 import com.mmk.bussite.PassangerDetailPage;
 import com.mmk.bussite.WalletCheckOutPage;
+import com.mmk.commonutils.TakeScreenshot;
 import com.mmk.commonutils.TestDataComman;
 import com.mmk.driversetup.DriverSetup;
 
@@ -18,7 +25,7 @@ public class MMKBusSuitExecuter extends DriverSetup
 	BusListingUserLoginAndSelectSeat buslist;
 	
 	@Test
-	public void busSearch()
+	public void busSearch() throws InterruptedException
 	{
 		BusSearchFromHomePage bussearch = new BusSearchFromHomePage(driver);
 		bussearch.doBusSearch(TestDataComman.sourceCity, TestDataComman.destinationCity, TestDataComman.journecyDate);
@@ -45,9 +52,9 @@ public class MMKBusSuitExecuter extends DriverSetup
 	}
 	
 	@Test
-	public void enterWalletAndCheckout() 
+	public void walletCheckout() throws IOException 
 	{
-		WalletCheckOutPage check = new WalletCheckOutPage(driver);
+		CheckoutUsingWallet check = new CheckoutUsingWallet(driver);
 		check.doCheckout();
 	}
 	
@@ -68,6 +75,22 @@ public class MMKBusSuitExecuter extends DriverSetup
 			ss.twitterSharing();
 			
 			thankyou.ratingOption();
+		}
+	}
+	@AfterMethod
+	public void tearDown(ITestResult result)
+	{
+		if(ITestResult.FAILURE==result.getStatus())
+		{
+			try 
+			{
+				TakeScreenshot.failedScreenShot();
+			} 
+			catch (Exception e)
+			{
+				
+				System.out.println("Exception while taking screenshot "+e.getMessage());
+			} 
 		}
 	}
 }
