@@ -1,5 +1,6 @@
 package com.mmk.driversetup;
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -27,7 +28,7 @@ import com.mmk.reader.LogWriter;
 public class DriverSetup 
 {
 	public static WebDriver driver;
-	
+	Method method;
 	@BeforeSuite
 	@Parameters("browser")
 	public void setUp( @Optional String browser) throws IOException
@@ -42,7 +43,7 @@ public class DriverSetup
 						LogWriter.logger.info("Chrome Browser Started..");
 						ChromeOptions options = new ChromeOptions(); 
 						
-						// To disable  "chrome controlled by automates software" infor bar
+						// To disable  "Chrome controlled by automates software" info bar
 						options.addArguments("disable-infobars"); 
 						
 						// To hide "save password dislog"
@@ -55,7 +56,7 @@ public class DriverSetup
 						driver.get(TestDataComman.baseURL);
 						LogWriter.logger.info("Navigated To Site.....");
 						driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-						TakeScreenshot.takeScreen("hello", true);
+						TakeScreenshot.passedScreenShot();
 						
 					break;
 					
@@ -129,8 +130,8 @@ public class DriverSetup
 		catch(Exception e)
 		{
 			LogWriter.logger.info("Exception In : "+Thread.currentThread().getStackTrace()[1].getClassName()+"-->"+Thread.currentThread().getStackTrace()[1].getMethodName()+" "+e);
-			TakeScreenshot.takeScreen("hello", true);		
-			System.out.println(e);
+			
+			TakeScreenshot.failedScreenShot(method.getName());		
 		}
 		
 	}

@@ -1,5 +1,7 @@
 package com.mmk.mainsite;
 
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -56,25 +58,27 @@ public class ContactUsPage
 		this.driver=driver;
 	}
 	
-	public void submitContactUsForm(String name, String email, String mobile, String type, String msg) throws InterruptedException
+	public void submitContactUsForm(String name, String email, String mobile, String type, String msg) throws InterruptedException, IOException
 	{
 
 			
 		Comman.wait.until(ExpectedConditions.invisibilityOf(loginmodel));
 		Comman.wait.until(ExpectedConditions.invisibilityOf(loader));	
 		contactUsLink.click();
-	
+		Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
 		LogWriter.logger.info("On Contact Us Page");
+		TakeScreenshot.passedScreenShot();
 		personName.sendKeys(name);
 		personEmail.sendKeys(email);
 		personMobileNo.sendKeys(mobile);
 		new Select(FeedbackType).selectByVisibleText(type);
 		message.sendKeys(msg);
 		Thread.sleep(2000);
+		TakeScreenshot.passedScreenShot();
 		sendButton.click();
 		LogWriter.logger.info("Contact Form Detail Filled and Submit clicked");
 		new WebDriverWait(driver, 60).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='result-content']/i")));		
 		LogWriter.logger.info(NotificationMessage.getText());
-		TakeScreenshot.takeScreen("hello", true);
+		TakeScreenshot.passedScreenShot();
 	}
 }

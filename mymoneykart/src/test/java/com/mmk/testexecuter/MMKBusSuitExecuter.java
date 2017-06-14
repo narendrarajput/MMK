@@ -14,7 +14,6 @@ import com.mmk.bussite.BusBookingThankyouPage;
 import com.mmk.bussite.BusListingUserLoginAndSelectSeat;
 import com.mmk.bussite.BusSearchFromHomePage;
 import com.mmk.bussite.PassangerDetailPage;
-import com.mmk.bussite.WalletCheckOutPage;
 import com.mmk.commonutils.TakeScreenshot;
 import com.mmk.commonutils.TestDataComman;
 import com.mmk.driversetup.DriverSetup;
@@ -25,7 +24,7 @@ public class MMKBusSuitExecuter extends DriverSetup
 	BusListingUserLoginAndSelectSeat buslist;
 	
 	@Test
-	public void busSearch() throws InterruptedException
+	public void busSearch() throws InterruptedException, IOException
 	{
 		BusSearchFromHomePage bussearch = new BusSearchFromHomePage(driver);
 		bussearch.doBusSearch(TestDataComman.sourceCity, TestDataComman.destinationCity, TestDataComman.journecyDate);
@@ -33,19 +32,19 @@ public class MMKBusSuitExecuter extends DriverSetup
 	}
 	
 	@Test
-	public void busListPageLogin() throws InterruptedException
+	public void busListPageLogin() throws InterruptedException, IOException
 	{
 		buslist = new BusListingUserLoginAndSelectSeat(driver);
 		buslist.listUserLogin();
 	}
 	@Test
-	public void selectABusSeat() 
+	public void selectABusSeat() throws IOException 
 	{
 		buslist.selectSeat();
 	}
 	
 	@Test
-	public void fillPassangerDetails() 
+	public void fillPassangerDetails() throws IOException 
 	{
 		 PassangerDetailPage pdetails = new PassangerDetailPage(driver);
 		 pdetails.fillPassengerDetailAndProceedToPay(TestDataComman.pFirstName, TestDataComman.pLastName, TestDataComman.pGender, TestDataComman.pAge, TestDataComman.pID, TestDataComman.pIDNumber, TestDataComman.username);
@@ -59,13 +58,13 @@ public class MMKBusSuitExecuter extends DriverSetup
 	}
 	
 	@Test
-	public void ticketBookingStatus() 
+	public void ticketBookingStatus() throws IOException 
 	{
 		BusBookingThankyouPage thankyou = new BusBookingThankyouPage(driver);
 		Boolean result = thankyou.checkBooking();
 		if(result==true)
 		{
-			thankyou.checkSMS();
+			//thankyou.checkSMS();
 			thankyou.checkEmail();
 			
 			
@@ -84,7 +83,7 @@ public class MMKBusSuitExecuter extends DriverSetup
 		{
 			try 
 			{
-				TakeScreenshot.failedScreenShot();
+				TakeScreenshot.failedScreenShot(result.getMethod().getMethodName());
 			} 
 			catch (Exception e)
 			{

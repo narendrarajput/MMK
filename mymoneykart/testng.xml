@@ -12,7 +12,7 @@
  	<classes>  	
  		<class name="com.mmk.reader.LogWriter"/>
  		<class name="com.mmk.driversetup.DriverSetup"/>	 		
-  	 	 <class name="com.mmk.testexecuter.MMKMainSuitExecuter">
+	 	 <class name="com.mmk.testexecuter.MMKMainSuitExecuter">
 	 		<methods>
         		<include name="login" />
         		<include name="checkUserWallet" />   		
@@ -27,7 +27,7 @@
    </classes> 
   </test>
   
-      <test name="BusBooking_Functional_Test">
+   <test name="BusBooking_Functional_Test">
  	 <classes>  	
 	 	<class name="com.mmk.testexecuter.MMKBusSuitExecuter"> 
      	 	  <methods>
@@ -42,7 +42,7 @@
      </classes> 
   </test>  
   
-  <test name="Utility_Functional_Test">
+ <test name="Utility_Functional_Test">
  	 <classes>  	
  	 	<class name="com.mmk.testexecuter.MMKUtilitySuitExecuter">
  	 		<methods>

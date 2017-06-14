@@ -1,5 +1,6 @@
 package com.mmk.mainsite;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.WebDriver;
@@ -11,6 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import com.mmk.commonutils.Comman;
+import com.mmk.commonutils.TakeScreenshot;
 import com.mmk.commonutils.TestDataComman;
 import com.mmk.reader.LogWriter;
 
@@ -71,20 +73,18 @@ public class MMKUserKYCDetails
 		this.driver=driver;
 	}
 	
-	public void getUserKYCDetails()
+	public void getUserKYCDetails() throws IOException
 	{
-		try
-		{
 			if(profileLink.size()>0)
 			{
 				driver.navigate().to(TestDataComman.baseURL);			
 				Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
-				
+				TakeScreenshot.passedScreenShot();
 				Actions action = new Actions(driver);
 				action.moveToElement(profileLink.get(0)).clickAndHold(kycDetailsLink).click().build().perform();
 				LogWriter.logger.info("KYC Details Page Link Clicked");
 				Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
-				
+				TakeScreenshot.passedScreenShot();
 				if(driver.getCurrentUrl().contains("CompleteProfile"))
 				{
 					LogWriter.logger.info("User's All Details are missing");
@@ -115,30 +115,25 @@ public class MMKUserKYCDetails
 				else
 				{
 					LogWriter.logger.info("-----Not On Expected Page-----");
-				}				
-			
+				}					
 		}
-		catch(Exception e)
-		{
-			LogWriter.logger.info(e.toString());
-		}
-		
-	}
 	
-		public void checkMissingKYCInfo()
+		public void checkMissingKYCInfo() throws IOException
 		{
-			kycSubmitButton.click();
-			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
+				kycSubmitButton.click();
+				Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
 				if(validationMessages.size()>0)
 				{
 					for(WebElement e:validationMessages)
 					{
 						LogWriter.logger.info(e.getText());
+						TakeScreenshot.passedScreenShot();
 					}
 				}
 				else
 				{
 					LogWriter.logger.info("All info Up to Date :" + notificationMessage.getText());
+					TakeScreenshot.passedScreenShot();
 				}
 
 		}

@@ -1,11 +1,14 @@
 package mmk.comman.pages;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import com.mmk.commonutils.TakeScreenshot;
 import com.mmk.reader.LogWriter;
 
 public class SocialSharing 
@@ -33,11 +36,12 @@ public class SocialSharing
 		PageFactory.initElements(driver, this);
 		this.driver=driver;
 	}
-	public void facebookSharing()
+	public void facebookSharing() throws IOException
 	{
 
 			if(fbShareButton.size()>0)
 			{
+				TakeScreenshot.passedScreenShot();
 				fbShareButton.get(0).click();
 				LogWriter.logger.info("Facebook Sharing Button Clicked");
 				String parentWindow = driver.getWindowHandle();
@@ -46,13 +50,15 @@ public class SocialSharing
 	 
 					driver.switchTo().window(winHandle);
 				    LogWriter.logger.info("Switched to Facebook window");
+				    TakeScreenshot.passedScreenShot();
 				}
 				LogWriter.logger.info(driver.getCurrentUrl());
-				
+				TakeScreenshot.passedScreenShot();
 				driver.close();
 				LogWriter.logger.info("Window get closed");
 				driver.switchTo().window(parentWindow);		
 				LogWriter.logger.info("Back on parent window");
+				TakeScreenshot.passedScreenShot();
 			}
 			else
 			{
@@ -61,10 +67,11 @@ public class SocialSharing
 
 	}
 	
-	public void twitterSharing()
+	public void twitterSharing() throws IOException
 	{
 			if(twitterShareButton.size()>0)
 			{
+				TakeScreenshot.passedScreenShot();
 				twitterShareButton.get(0).click();
 				
 				String parentWindow = driver.getWindowHandle();
@@ -72,13 +79,15 @@ public class SocialSharing
 				{
 				    driver.switchTo().window(winHandle);
 				    LogWriter.logger.info("Switched to Twitter window");
+				    TakeScreenshot.passedScreenShot();
 				}
 				LogWriter.logger.info(driver.getCurrentUrl());
-				
+				TakeScreenshot.passedScreenShot();
 				driver.close();
 				LogWriter.logger.info("Window get closed");
 				driver.switchTo().window(parentWindow);		
 				LogWriter.logger.info("Back on parent window");
+				TakeScreenshot.passedScreenShot();
 			}
 			else
 			{

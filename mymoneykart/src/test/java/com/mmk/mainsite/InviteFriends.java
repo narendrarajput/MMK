@@ -1,5 +1,6 @@
 package com.mmk.mainsite;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -12,6 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 import com.mmk.commonutils.Comman;
+import com.mmk.commonutils.TakeScreenshot;
 import com.mmk.reader.LogWriter;
 
 public class InviteFriends 
@@ -42,29 +44,26 @@ public class InviteFriends
 		this.driver=driver;
 	}
 
-	public void inviteFriend(String []friendName, String []friendMobile)
+	public void inviteFriend(String []friendName, String []friendMobile) throws IOException
 	{
-		try
-		{
 			// The link is directly not clickable so need to click using javascriptExecuter
 			JavascriptExecutor js = (JavascriptExecutor)driver;
 			js.executeScript("arguments[0].click();", inviteFriendsLink);
 			LogWriter.logger.info("Invite Friend Tab Link Clicked");
 			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
+			TakeScreenshot.passedScreenShot();
 			for(int i=1;i<=3;i++)
 			{
 				driver.findElement(By.xpath("//input[@name='lstInviteFriendsModel["+i+"].FriendName']")).sendKeys(friendName[i-1]);
 				driver.findElement(By.xpath("//input[@name='lstInviteFriendsModel["+i+"].FriendMobile']")).sendKeys(friendMobile[i-1]);			
 			}
 			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
+			TakeScreenshot.passedScreenShot();
 			inviteButton.click();
 			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
 			LogWriter.logger.info(notificationMessage.getText());
+			TakeScreenshot.passedScreenShot();
 			Assert.assertEquals(notificationMessage.getText(), "Your friends have been invited successfully");
-		}
-		catch(Exception e)
-		{
-			LogWriter.logger.info(e.toString());
-		}
+
 	}			
 }

@@ -10,7 +10,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 import com.mmk.bussite.BusSearchFromHomePage;
-import com.mmk.bussite.WalletCheckOutPage;
 import com.mmk.commonutils.TakeScreenshot;
 import com.mmk.commonutils.TestDataComman;
 import com.mmk.commonutils.UtilitySiteTestData;
@@ -96,7 +95,7 @@ public class MMKUtilitySuitExecuter extends DriverSetup
 		{
 			try 
 			{
-				TakeScreenshot.failedScreenShot();
+				TakeScreenshot.failedScreenShot(result.getMethod().getMethodName());
 			} 
 			catch (Exception e)
 			{

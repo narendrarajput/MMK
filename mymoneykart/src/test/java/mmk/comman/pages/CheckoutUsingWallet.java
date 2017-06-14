@@ -57,9 +57,9 @@ public class CheckoutUsingWallet {
 			payButton.click();
 			LogWriter.logger.info("Wallet Payment Started.........");
 			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
-			TakeScreenshot.passedScreenShot();
 			LogWriter.logger.info(NotificationMessage.getText());
 			LogWriter.logger.info("Payment Done.");
+			TakeScreenshot.passedScreenShot();
 
 	}
 	

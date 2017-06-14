@@ -1,4 +1,5 @@
 package com.mmk.mainsite;
+import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -10,6 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.AssertJUnit;
 
 import com.mmk.commonutils.Comman;
+import com.mmk.commonutils.TakeScreenshot;
 import com.mmk.commonutils.TestDataComman;
 import com.mmk.reader.LogWriter;
 
@@ -56,14 +58,13 @@ public class UserLogin
 			this.driver=driver;
 		}
 		
-		public void doLogin(String username, String pasword) throws InterruptedException
+		public void doLogin(String username, String pasword) throws InterruptedException, IOException
 		{
-			try
-			{
 				//	WebDriverWait wait = new WebDriverWait(driver, 60);
 				// Switch into popup opens in iframe and do login
 				Comman.wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(iframe));
 				LogWriter.logger.info("On User Login Popup");
+				TakeScreenshot.passedScreenShot();
 				//Thread.sleep(3000);
 				//driver.switchTo().frame(iframe);
 				mobileNumber.sendKeys(username);
@@ -81,20 +82,17 @@ public class UserLogin
 				//TakeScreenshot.takeScreen("hello", true);
 				//System.out.println("User Log in success");			
 				LogWriter.logger.info("User login success");
-			}
-			catch(Exception e)
-			{
-				LogWriter.logger.info(e.toString());
-			}
+				TakeScreenshot.passedScreenShot();
 		}
 		
-		public void checkWallet()
+		public void checkWallet() throws IOException
 		{
 			if(usersname.size()>0)
 			{
 				Comman.wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("divLoader")));
 				walletButton.click();
 				Comman.wait.until(ExpectedConditions.visibilityOf(walletPopup));
+				TakeScreenshot.passedScreenShot();
 				for(WebElement e: walletData)
 				{
 					LogWriter.logger.info(e.getText());

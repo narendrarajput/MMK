@@ -46,7 +46,7 @@ public class BusListingUserLoginAndSelectSeat
 		this.driver=driver;
 	}
 	
-	public void listUserLogin() throws InterruptedException
+	public void listUserLogin() throws InterruptedException, IOException
 	{
 		try
 		{

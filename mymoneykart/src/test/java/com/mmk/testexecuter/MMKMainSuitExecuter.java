@@ -5,8 +5,11 @@ import java.io.IOException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
+import com.mmk.commonutils.TakeScreenshot;
 import com.mmk.commonutils.TestDataComman;
 import com.mmk.driversetup.DriverSetup;
 import com.mmk.mainsite.ContactUsPage;
@@ -23,7 +26,7 @@ public class MMKMainSuitExecuter extends DriverSetup
 	//WebDriver driver = new DriverSetup().getDriver();
 
 	 @Test
-	public  void submitFeedback() throws InterruptedException
+	public  void submitFeedback() throws InterruptedException, IOException
 	{
 		
 		ContactUsPage conpage = new ContactUsPage(driver);
@@ -51,7 +54,7 @@ public class MMKMainSuitExecuter extends DriverSetup
 	}
 	
 	 @Test(dependsOnMethods={"login"})
-	public void inviteFriend()
+	public void inviteFriend() throws IOException
 	{
 		InviteFriends invitefriend = new InviteFriends(driver);
 		invitefriend.inviteFriend(TestDataComman.friendName,TestDataComman.friendNumber);
@@ -59,31 +62,46 @@ public class MMKMainSuitExecuter extends DriverSetup
 	}
 	
 	@Test(dependsOnMethods={"login"})
-	public void changePassword()
+	public void changePassword() throws IOException
 	{
 		UserChangePassword changep = new UserChangePassword(driver);
 		changep.changePassword(TestDataComman.oldPass, TestDataComman.newPass);			
 	}
 	
-	@Test(enabled=false)
-	public void walletTransactionHistory()
+	@Test()
+	public void walletTransactionHistory() throws IOException
 	{
 		WalletTransactionHistoryPage history = new WalletTransactionHistoryPage(driver);
 		history.getWalletUsageData();
 	}
 	
 	@Test(dependsOnMethods={"login"})
-	public void getUserKYCDetails()
+	public void getUserKYCDetails() throws IOException
 	{
 		MMKUserKYCDetails kyc= new MMKUserKYCDetails(driver);
 		kyc.getUserKYCDetails();
 	}
 	
 	@Test(dependsOnMethods={"getUserKYCDetails"})
-	public void checkMissingKYCDetails()
+	public void checkMissingKYCDetails() throws IOException
 	{
 		MMKUserKYCDetails kyc= new MMKUserKYCDetails(driver);
 		kyc.checkMissingKYCInfo();
 	}
-	
+	@AfterMethod
+	public void tearDown(ITestResult result)
+	{
+		if(ITestResult.FAILURE==result.getStatus())
+		{
+			try 
+			{
+				TakeScreenshot.failedScreenShot(result.getMethod().getMethodName());
+			} 
+			catch (Exception e)
+			{
+				
+				System.out.println("Exception while taking screenshot "+e.getMessage());
+			} 
+		}
+	}
 }

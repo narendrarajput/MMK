@@ -16,7 +16,7 @@ import com.mmk.commonutils.Comman;
 
 public class BusSearchFromHomePage 
 {
-	@FindBy(id = "divLoader")
+	/*@FindBy(id = "divLoader")
 	WebElement loader;
 	
 	@FindBy(id = "ResultBox")
@@ -98,5 +98,5 @@ public class BusSearchFromHomePage
 			{
 				System.out.println(Comman.notificationMessage.getText());
 			}		
-		}
+		}*/
 }

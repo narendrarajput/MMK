@@ -20,7 +20,7 @@ public class LogWriter
     	try {  
 
 	        // This block configure the logger with handler and formatter  
-	        fh = new FileHandler("src/test/resources/MMK_Project_Log.log");  
+	        fh = new FileHandler("surefire-reports/logfile/projectflow.log");  
 	        
 	        logger.addHandler(fh);
 	        SimpleFormatter formatter = new SimpleFormatter();  
