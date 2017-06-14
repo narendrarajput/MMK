@@ -1,5 +1,7 @@
 package com.mmk.bussite;
 
+import java.io.IOException;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,6 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import com.mmk.commonutils.Comman;
+import com.mmk.commonutils.TakeScreenshot;
 import com.mmk.reader.LogWriter;
 
 public class PassangerDetailPage 
@@ -51,11 +54,10 @@ public class PassangerDetailPage
 		this.driver=driver;
 	}
 	
-	public void fillPassengerDetailAndProceedToPay(String pFirstName, String pLastName, String pGender, String pAge, String pID, String pIDNo, String emgNo)
+	public void fillPassengerDetailAndProceedToPay(String pFirstName, String pLastName, String pGender, String pAge, String pID, String pIDNo, String emgNo) throws IOException
 	{
-		try
-		{
 			Comman.wait.until(ExpectedConditions.visibilityOf(psgFirstName));
+			TakeScreenshot.passedScreenShot();
 			psgFirstName.sendKeys(pFirstName);
 			psgLastName.sendKeys(pLastName);
 			new Select(psgGender).selectByVisibleText(pGender);
@@ -64,15 +66,13 @@ public class PassangerDetailPage
 			psgIdProffnumber.sendKeys(pIDNo);
 			emergencyNumber.sendKeys(emgNo);
 			LogWriter.logger.info("Passanger Details has been filled");
+			TakeScreenshot.passedScreenShot();
 			proceedButton.click();
 			Comman.wait.until(ExpectedConditions.visibilityOf(confirmation));
+			TakeScreenshot.passedScreenShot();
 			confirmation.click();
 			LogWriter.logger.info("Confirmation accepted");
 			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
-		}
-		catch(Exception e)
-		{
-			LogWriter.logger.info(e.toString());
-		}
+			TakeScreenshot.passedScreenShot();
 	}
 }

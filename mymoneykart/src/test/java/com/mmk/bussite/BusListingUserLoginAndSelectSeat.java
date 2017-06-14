@@ -1,4 +1,5 @@
 package com.mmk.bussite;
+import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -10,6 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import com.mmk.commonutils.Comman;
+import com.mmk.commonutils.TakeScreenshot;
 import com.mmk.commonutils.TestDataComman;
 import com.mmk.mainsite.UserLogin;
 import com.mmk.reader.LogWriter;
@@ -52,6 +54,7 @@ public class BusListingUserLoginAndSelectSeat
 			/* Click select seat button */		
 			SelectSeatButton.click();		
 			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
+			TakeScreenshot.passedScreenShot();
 			LogWriter.logger.info("Select Seat button option selected");
 			
 			if(usersname.isDisplayed())
@@ -68,11 +71,10 @@ public class BusListingUserLoginAndSelectSeat
 		}
 	}
 
-	public void selectSeat()
+	public void selectSeat() throws IOException
 	{
-		try
-		{
 		Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
+		TakeScreenshot.passedScreenShot();
 		Comman.wait.until(ExpectedConditions.visibilityOfAllElements(seats));
 		for(WebElement e:seats)
 		{
@@ -85,22 +87,20 @@ public class BusListingUserLoginAndSelectSeat
 				catch(Exception err)
 				{
 					
-				}
+				}				
 				//Comman.jsExecuter.executeScript("arguments[0].click();", e);
 				e.click();
+				TakeScreenshot.passedScreenShot();
 				LogWriter.logger.info("Available Seat Has been Selected");
 				break;
 			}
+			
 		}
 			new Select(boardingPoint).selectByIndex(1);
 			LogWriter.logger.info("Boarding Point has been Selected");
+			TakeScreenshot.passedScreenShot();
 			proceedButton.click();
 			LogWriter.logger.info("Proceed Button Clicked");
-		}
-		catch(Exception e)
-		{
-			LogWriter.logger.info(e.toString());
-		}
 	}
 
 }

@@ -1,5 +1,6 @@
 package com.mmk.bussite;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.WebDriver;
@@ -9,6 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.mmk.commonutils.Comman;
+import com.mmk.commonutils.TakeScreenshot;
 import com.mmk.commonutils.TestDataComman;
 import com.mmk.reader.LogWriter;
 
@@ -52,13 +54,13 @@ public class BusSearchFromHomePage
 			this.driver=driver;
 		}
 	
-		public void doBusSearch(String sourcecityName, String destinationcityName, String date) throws InterruptedException
+		public void doBusSearch(String sourcecityName, String destinationcityName, String date) throws InterruptedException, IOException
 		{	
 
 				driver.navigate().to(TestDataComman.baseURL);
-				LogWriter.logger.info("Navigated To Main MMK Site");
+				LogWriter.logger.info("Navigated To Main MMK Site");				
 				Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
-				
+				TakeScreenshot.passedScreenShot();
 				/* If user  not log in then it opens login popup default below code will check	
 				 * If popup available then switch to popup and close it else do nothing because there 
 				 * is no popup if user already login
@@ -72,12 +74,14 @@ public class BusSearchFromHomePage
 					LogWriter.logger.info("Login Popup Closed ");
 					driver.switchTo().defaultContent();
 					Thread.sleep(1400);
+					TakeScreenshot.passedScreenShot();
 				}
 
 			
 			sourceCity.sendKeys(sourcecityName);
 			destinationCity.sendKeys(destinationcityName);
 			journeyDate.sendKeys(date);
+			TakeScreenshot.passedScreenShot();
 			searchButton.click();
 			
 			LogWriter.logger.info("Search Data entered and Search Buttom clicked from MMK HomePage");
@@ -94,7 +98,7 @@ public class BusSearchFromHomePage
 				String currentURL = driver.getCurrentUrl();
 				if(currentURL.contains("bus.mymoneykart.com"))
 				{
-					
+					TakeScreenshot.passedScreenShot();
 					LogWriter.logger.info("There are total : "+busList.size()+" : buses Found");
 					for(WebElement e : busList)
 					{

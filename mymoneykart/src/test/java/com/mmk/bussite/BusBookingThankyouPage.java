@@ -1,5 +1,6 @@
 package com.mmk.bussite;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -10,6 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.mmk.commonutils.Comman;
+import com.mmk.commonutils.TakeScreenshot;
 import com.mmk.reader.LogWriter;
 
 public class BusBookingThankyouPage 
@@ -63,7 +65,7 @@ public class BusBookingThankyouPage
 		{
 			if(driver.getCurrentUrl().contains("http://bus.mymoneykart.com/BusBooking"))
 			{
-				
+				TakeScreenshot.passedScreenShot();
 				List<WebElement> ticketDetails = driver.findElements(By.tagName("h3"));
 				for(WebElement element : ticketDetails)
 				{
@@ -73,6 +75,7 @@ public class BusBookingThankyouPage
 			}
 			else
 			{
+				TakeScreenshot.passedScreenShot();
 				LogWriter.logger.info("There is some issue during payment");
 				result =  false;
 			}
@@ -85,59 +88,46 @@ public class BusBookingThankyouPage
 		}
 		return result;
 	}
-	public void checkSMS()	
+	public void checkSMS() throws IOException	
 	{
-		try
-		{
 			smsCheckBox.click();
 			LogWriter.logger.info("SMS option Checked");
 			smsAndEmalSendButton.click();
 			LogWriter.logger.info("Send Ticket Button Clicked");
 			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
 			LogWriter.logger.info(NotificationMessage.getText());
-		}
-		catch(Exception e)
-		{
-			LogWriter.logger.info(e.toString());
-		}
+			TakeScreenshot.passedScreenShot();
 	}
-	public void checkEmail()	
+	public void checkEmail() throws IOException	
 	{
-		try
-		{
+
 			emailCheckBox.click();
 			LogWriter.logger.info("Email Option Checked");
 			smsAndEmalSendButton.click();
 			LogWriter.logger.info("Send Ticket Button Clicked");
 			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
 			LogWriter.logger.info(NotificationMessage.getText());
-		}
-		catch(Exception e)
-		{
-			LogWriter.logger.info(e.toString());
-		}
+			TakeScreenshot.passedScreenShot();
 	}
 		
-	public void ratingOption()
+	public void ratingOption() throws IOException
 	{
-		try
-		{
 			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
+			TakeScreenshot.passedScreenShot();
 			skipLink.click();
 			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
 			LogWriter.logger.info("Skip Link Clicked");
 			Comman.wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(iframe));
 			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
+			TakeScreenshot.passedScreenShot();
 			LogWriter.logger.info("On Rating Popup");
+			Comman.wait.until(ExpectedConditions.visibilityOf(skipRatingButton));
 			skipRatingButton.click();
 			LogWriter.logger.info("Rating Skipped");
 			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
+			TakeScreenshot.passedScreenShot();
 			LogWriter.logger.info("Ticket Booking Success");
-		}
-		catch(Exception e)
-		{
-			LogWriter.logger.info(e.toString());
-		}
+
 	}
 	
 }
