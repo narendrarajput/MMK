@@ -16,6 +16,7 @@ import com.mmk.mainsite.AccountSubscription;
 import com.mmk.mainsite.ContactUsPage;
 import com.mmk.mainsite.InviteFriends;
 import com.mmk.mainsite.MMKUserKYCDetails;
+import com.mmk.mainsite.MMKUserProfileDetails;
 import com.mmk.mainsite.UserChangePassword;
 import com.mmk.mainsite.UserLogin;
 import com.mmk.mainsite.WalletTransactionHistoryPage;
@@ -39,8 +40,8 @@ public class MMKMainSuitExecuter extends DriverSetup
 	{
 		UserLogin login = new UserLogin(driver);
 		ReadExcel read = new ReadExcel();
-		String uname = read.getCellData(2, 0);
-		String passwd = read.getCellData(2, 1);
+		String uname = read.getCellData(1, 0);
+		String passwd = read.getCellData(1, 1);
 		login.doLogin(uname, passwd);
 		
 	}
@@ -95,6 +96,13 @@ public class MMKMainSuitExecuter extends DriverSetup
 	{
 		AccountSubscription ac= new AccountSubscription(driver);
 		ac.checkAccountScbscriptionStatus();
+	}
+	
+	@Test(dependsOnMethods={"login"})
+	public void getUserProfileDetails() throws IOException
+	{
+		MMKUserProfileDetails up= new MMKUserProfileDetails(driver);
+		up.getUserProfileDetails();
 	}
 	
 	

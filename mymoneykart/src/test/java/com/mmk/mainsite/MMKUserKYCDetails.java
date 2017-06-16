@@ -30,18 +30,6 @@ public class MMKUserKYCDetails
 	@FindBy(xpath = "//ul[@class='sub-menu']/li/a[contains(.,'KYC Details')]")
 	public WebElement kycDetailsLink;
 	
-	@FindBy(id = "oldPassword")
-	public WebElement usroldPassword;
-	
-	@FindBy(id = "NewPassword")
-	public WebElement usrnewPassword;
-	
-	@FindBy(id = "confirmPassword")
-	public WebElement usrconfirmPassword;
-	
-	@FindBy(id = "btnSubmit")
-	public WebElement submitButton;
-	
 	@FindBy(id = "divLoader")
 	public WebElement loader;
 	
