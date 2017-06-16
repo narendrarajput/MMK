@@ -12,6 +12,7 @@ import org.testng.annotations.Test;
 import com.mmk.commonutils.TakeScreenshot;
 import com.mmk.commonutils.TestDataComman;
 import com.mmk.driversetup.DriverSetup;
+import com.mmk.mainsite.AccountSubscription;
 import com.mmk.mainsite.ContactUsPage;
 import com.mmk.mainsite.InviteFriends;
 import com.mmk.mainsite.MMKUserKYCDetails;
@@ -38,8 +39,8 @@ public class MMKMainSuitExecuter extends DriverSetup
 	{
 		UserLogin login = new UserLogin(driver);
 		ReadExcel read = new ReadExcel();
-		String uname = read.getCellData(1, 0);
-		String passwd = read.getCellData(1, 1);
+		String uname = read.getCellData(2, 0);
+		String passwd = read.getCellData(2, 1);
 		login.doLogin(uname, passwd);
 		
 	}
@@ -88,6 +89,15 @@ public class MMKMainSuitExecuter extends DriverSetup
 		MMKUserKYCDetails kyc= new MMKUserKYCDetails(driver);
 		kyc.checkMissingKYCInfo();
 	}
+	
+	@Test(dependsOnMethods={"login"})
+	public void getSubscriptionFeePaymentStatus() throws IOException
+	{
+		AccountSubscription ac= new AccountSubscription(driver);
+		ac.checkAccountScbscriptionStatus();
+	}
+	
+	
 	@AfterMethod
 	public void tearDown(ITestResult result)
 	{

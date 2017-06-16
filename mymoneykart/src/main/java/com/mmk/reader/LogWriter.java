@@ -1,9 +1,12 @@
 package com.mmk.reader;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
+import org.apache.commons.io.FileUtils;
 import org.testng.annotations.BeforeSuite;
 
 public class LogWriter 
@@ -17,8 +20,7 @@ public class LogWriter
     @BeforeSuite
     public void setupLogger()
     {
-    	try {  
-
+    	try { 		
 	        // This block configure the logger with handler and formatter  
 	        fh = new FileHandler("surefire-reports/logfile/projectflow.log");  
 	        

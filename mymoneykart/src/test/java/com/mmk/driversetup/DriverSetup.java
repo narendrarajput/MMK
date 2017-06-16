@@ -136,11 +136,11 @@ public class DriverSetup
 		
 	}
 	
-/*	@AfterSuite
+	@AfterSuite
 	public void tearDown()
 	{
 		driver.quit();
-	}*/
+	}
 	
 	public WebDriver getDriver()
 	{

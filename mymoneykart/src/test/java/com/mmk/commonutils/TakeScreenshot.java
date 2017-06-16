@@ -64,7 +64,7 @@ public class TakeScreenshot
 		
         File scrFile = ((TakesScreenshot) DriverSetup.driver).getScreenshotAs(OutputType.FILE);
         DateFormat dateFormat = new SimpleDateFormat("dd_MMM_yyyy__hh_mm_ssaa");
-        String destDir = "./surefire-reports/screenshots/PassedTest";
+        String destDir = "./target/surefire-reports/screenshots/PassedTest";
         new File(destDir).mkdirs();
         String destFile = "mmk" + "_" + "test" + "_"  + dateFormat.format(new Date())+ ".png";
  
@@ -89,7 +89,7 @@ public class TakeScreenshot
 		
         File scrFile = ((TakesScreenshot) DriverSetup.driver).getScreenshotAs(OutputType.FILE);
         DateFormat dateFormat = new SimpleDateFormat("dd_MMM_yyyy__hh_mm_ssaa");
-        String destDir = "./surefire-reports/screenshots/FailedTest";
+        String destDir = "./target/surefire-reports/screenshots/FailedTest";
         new File(destDir).mkdirs();
         String destFile = "mmk" + "_" + "test" + "_"  + dateFormat.format(new Date())+ ".png";
  
