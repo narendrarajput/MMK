@@ -34,7 +34,7 @@ public class MMKUserProfileDetails {
 	@FindBy(id = "divLoader")
 	public WebElement loader;
 	
-	@FindBy(xpath = "//input[not(@id='fuPanCardFilePath')][not(@type='hidden')][not(@id='fuIDProofFilePath' or @id='txtChangePhone' or @id='txtOTP' )]")
+	@FindBy(xpath = "//input[not(@type='hidden')][not(@id='txtChangePhone' or @id='txtOTP')]")
 	public List<WebElement> allTextFieldsDetails;
 	
 	
@@ -73,14 +73,14 @@ public class MMKUserProfileDetails {
 				LogWriter.logger.info("--User's details are----");
 				for(WebElement e : allTextFieldsDetails)
 				{
-					try
-					{
-					LogWriter.logger.info(e.findElement(By.xpath("preceding-sibling::label")).getText() +" --- "+e.getAttribute("value"));
-					}
+/*					try
+					{*/
+					LogWriter.logger.info(e.findElement(By.xpath("preceding::label[1]")).getText() +" --- "+e.getAttribute("value"));
+/*					}
 					catch(Exception err)
 					{
 						LogWriter.logger.info(e.findElement(By.xpath("../preceding-sibling::label")).getText() +" --- "+e.getAttribute("value"));
-					}
+					}*/
 					
 				}
 				

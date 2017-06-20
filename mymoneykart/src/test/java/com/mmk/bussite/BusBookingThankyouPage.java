@@ -26,10 +26,10 @@ public class BusBookingThankyouPage
 	WebElement ticketBookedMessage;
 	
 	@FindBy(id = "chkIsSMS")
-	WebElement smsCheckBox;
+	List<WebElement> smsCheckBox;
 	
 	@FindBy(id = "chkIsEmail")
-	WebElement emailCheckBox;
+	List<WebElement> emailCheckBox;
 	
 	@FindBy(id = "btnsend")
 	WebElement smsAndEmalSendButton;
@@ -58,13 +58,12 @@ public class BusBookingThankyouPage
 		this.driver=driver;
 	}
 	
-	public boolean checkBooking()
+	public boolean checkBooking() throws IOException
 	{
 		Boolean result = false;
-		try
+			
+		if(driver.getCurrentUrl().contains("http://bus.mymoneykart.com/BusBooking"))
 		{
-			if(driver.getCurrentUrl().contains("http://bus.mymoneykart.com/BusBooking"))
-			{
 				TakeScreenshot.passedScreenShot();
 				List<WebElement> ticketDetails = driver.findElements(By.tagName("h3"));
 				for(WebElement element : ticketDetails)
@@ -76,38 +75,44 @@ public class BusBookingThankyouPage
 			else
 			{
 				TakeScreenshot.passedScreenShot();
-				LogWriter.logger.info("There is some issue during payment");
+				LogWriter.logger.info("There Might be some issue Occurred during payment. You are not on thankyou page");
 				result =  false;
 			}
-			
-		}
-		catch(Exception e)
-		{
-			LogWriter.logger.info(e.toString());
-			result=false;
-		}
 		return result;
 	}
 	public void checkSMS() throws IOException	
 	{
-			smsCheckBox.click();
+		if(smsCheckBox.size()>0)
+		{
+			smsCheckBox.get(0).click();
 			LogWriter.logger.info("SMS option Checked");
 			smsAndEmalSendButton.click();
 			LogWriter.logger.info("Send Ticket Button Clicked");
 			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
 			LogWriter.logger.info(NotificationMessage.getText());
 			TakeScreenshot.passedScreenShot();
+		}
+		else
+		{
+			LogWriter.logger.info("There is no SMS option available");
+		}
 	}
 	public void checkEmail() throws IOException	
 	{
-
-			emailCheckBox.click();
+		if(emailCheckBox.size()>0)
+		{
+			emailCheckBox.get(0).click();
 			LogWriter.logger.info("Email Option Checked");
 			smsAndEmalSendButton.click();
 			LogWriter.logger.info("Send Ticket Button Clicked");
 			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
 			LogWriter.logger.info(NotificationMessage.getText());
 			TakeScreenshot.passedScreenShot();
+		}
+		else
+		{
+			LogWriter.logger.info("There is no Email option available");
+		}
 	}
 		
 	public void ratingOption() throws IOException

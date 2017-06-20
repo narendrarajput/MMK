@@ -22,12 +22,13 @@
         		<include name="walletTransactionHistory" />
         		<include name="getUserKYCDetails" />
         		<include name="checkMissingKYCDetails" />
+        		<include name="getSubscriptionFeePaymentStatus" />
+        		<include name="getUserProfileDetails" />    		
        		 </methods>
-	 	</class>  
+	 	</class>   
    </classes> 
-  </test>
-  
-   <test name="BusBooking_Functional_Test">
+  </test> 
+     <test name="BusBooking_Functional_Test">
  	 <classes>  	
 	 	<class name="com.mmk.testexecuter.MMKBusSuitExecuter"> 
      	 	  <methods>
@@ -37,6 +38,14 @@
         		<include name="fillPassangerDetails" />
         		<include name="walletCheckout" />
         		<include name="ticketBookingStatus" />
+        		<include name="checkSocialSharingAndSkipToHomePage" />
+        		<include name="userLoginFromBusHomePage" />           		
+        		<include name="getUserReacentSearchHistory" />    
+        		<include name="getUserPreferredCity" /> 
+        		<include name="setUserPreferredCity" /> 
+        		<include name="getBusOperatorRating" /> 
+        		<include name="submitBusOperatorRating" />        		
+        		<include name="busSearchFromBusHomePage" />       		
       		  </methods>    		
       		</class>
      </classes> 
@@ -52,5 +61,5 @@
       		</methods>
  	 	</class>
      </classes> 
-  </test> 
+  </test>  
 </suite>
