@@ -19,13 +19,13 @@ import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class ReadExcel 
+public class ExcelFileReader 
 {
 		FileInputStream fis;
 		XSSFWorkbook workbook;
 		XSSFSheet sheet;
 		
-		public ReadExcel() throws IOException
+		public ExcelFileReader() throws IOException
 		{
 			// Read Excel File
 			fis = new FileInputStream(new File("src/test/resources/SiteTestData.xlsx"));
@@ -40,5 +40,6 @@ public class ReadExcel
 		{
 			return sheet.getRow(rowNum).getCell(colNum).getStringCellValue();
 		}
+		
 }
 
