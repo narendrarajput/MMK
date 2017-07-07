@@ -2,8 +2,8 @@ package com.mmk.testexecuter;
 
 import java.io.IOException;
 
-import mmk.comman.pages.CheckoutUsingWallet;
-import mmk.comman.pages.SocialSharing;
+import mmk.common.pages.CheckoutUsingWallet;
+import mmk.common.pages.SocialSharing;
 
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
