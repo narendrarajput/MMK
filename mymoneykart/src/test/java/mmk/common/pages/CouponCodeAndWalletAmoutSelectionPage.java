@@ -1,7 +1,9 @@
 package mmk.common.pages;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -86,6 +88,7 @@ public class CouponCodeAndWalletAmoutSelectionPage {
 	}
 	public void proceedCheckout() throws IOException
 	{
+		Common.wait.until(ExpectedConditions.invisibilityOf(loader));
 		payButton.click();
 		LogWriter.logger.info("Wallet Payment Started.........");
 		Common.wait.until(ExpectedConditions.invisibilityOf(loader));
@@ -93,6 +96,20 @@ public class CouponCodeAndWalletAmoutSelectionPage {
 		LogWriter.logger.info("Payment Done.");
 		TakeScreenshot.passedScreenShot();
 	}
+	
+	public void verifyCheckoutPage()
+	{
+		Common.wait.until(ExpectedConditions.invisibilityOf(loader));	
+		if(driver.getCurrentUrl().contains("ThankYou"))
+		{
+			LogWriter.logger.info("Moved To Thankyou page");
+		}
+		else
+		{
+			LogWriter.logger.info("Not On Thankyou page");
+		}
+	}
+	
 	public void applyCoupon(String couponCode)
 	{
 		Common.wait.until(ExpectedConditions.invisibilityOf(loader));		
@@ -118,6 +135,28 @@ public class CouponCodeAndWalletAmoutSelectionPage {
 		else
 		{
 			LogWriter.logger.info("You are not On Coupon Page");
+		}
+	}
+	
+	public boolean isLandingPageIsWalletSelectionPage()
+	{
+		try
+		{
+			Common.wait.until(ExpectedConditions.visibilityOf(walletAmount));
+		}
+		catch(Exception e)
+		{
+			LogWriter.logger.info("Message"+NotificationMessage.getText());
+		}
+		if(driver.getCurrentUrl().contains("Payment"))
+		{
+			LogWriter.logger.info("You are On Coupon Page URL : "+driver.getCurrentUrl());
+			return true;
+		}
+		else
+		{
+			LogWriter.logger.info("You are not on Coupon Page URL : "+driver.getCurrentUrl());
+			return false;
 		}
 	}
 }
