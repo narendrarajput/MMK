@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 import com.busproject.pages.BusHomePage;
 import com.busproject.pages.BusListingPage;
-import com.busproject.pages.BusThankyouPage;
+import mmk.common.pages.TransactionThankyouPage;
 import com.busproject.pages.PassangerDetailsPage;
 import com.mmk.driversetup.DriverSetup;
 import com.mmk.reader.PropertyFileReader;
@@ -260,7 +260,7 @@ public class MMKBusSiteTestCases  extends DriverSetup
 		boolean result = bustlist.isUserAlreadyLogin();
 		
 		CouponCodeAndWalletAmoutSelectionPage wallet = new CouponCodeAndWalletAmoutSelectionPage(driver);
-		BusThankyouPage thankyou = new  BusThankyouPage(driver);
+		TransactionThankyouPage thankyou = new  TransactionThankyouPage(driver);
 		if(result)
 		{
 			bustlist.selectSeat();			
