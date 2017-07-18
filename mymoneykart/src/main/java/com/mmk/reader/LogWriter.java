@@ -17,7 +17,7 @@ public class LogWriter
 	//public static final String Logger = null;  
     static FileHandler  fh;  
     
-    @BeforeSuite
+    //@BeforeSuite
     public void setupLogger()
     {
     	try { 		
