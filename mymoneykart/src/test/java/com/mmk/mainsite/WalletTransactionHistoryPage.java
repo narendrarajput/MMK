@@ -11,7 +11,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import com.mmk.commonutils.Comman;
+import com.mmk.commonutils.Common;
 import com.mmk.commonutils.TakeScreenshot;
 import com.mmk.commonutils.TestDataComman;
 
@@ -49,11 +49,11 @@ public class WalletTransactionHistoryPage
 	public void getWalletUsageData() throws IOException
 	{
 		driver.navigate().to(TestDataComman.baseURL);
-		Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
+		Common.wait.until(ExpectedConditions.invisibilityOf(loader));
 		TakeScreenshot.passedScreenShot();
 		Actions action = new Actions(driver);
 		action.moveToElement(transactionList).clickAndHold(walletUsage).click().build().perform();
-		Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
+		Common.wait.until(ExpectedConditions.invisibilityOf(loader));
 		
 		
 		do

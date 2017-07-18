@@ -85,10 +85,11 @@ public class TransactionThankyouPage {
 		return result;
 	}
 	
-	public boolean verifyRechargeStatus()
+	public boolean verifyRechargeStatus() throws IOException
 	{
 		if(driver.getCurrentUrl().contains("ThankYou"))
 		{
+			TakeScreenshot.passedScreenShot();
 			for(WebElement e:rechargeStatus)
 			{
 				LogWriter.logger.info(e.getText());

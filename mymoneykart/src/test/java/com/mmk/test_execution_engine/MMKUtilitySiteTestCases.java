@@ -6,9 +6,11 @@ import mmk.common.pages.CouponCodeAndWalletAmoutSelectionPage;
 
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import mmk.common.pages.TransactionThankyouPage;
+
 import com.mmk.commonutils.TakeScreenshot;
 import com.mmk.driversetup.DriverSetup;
 import com.mmk.reader.LogWriter;
@@ -17,13 +19,14 @@ import com.mmkproject.pages.MyMoneyKartHomePage;
 import com.utilityproject.pages.RechargeHomePage;
 import com.utilityproject.pages.RechargeThankyouPage;
 
+@Listeners( com.mmk.customlisteners.TestNGListeners.class)
 public class MMKUtilitySiteTestCases extends DriverSetup 
 {
 	RechargeHomePage rechargeHome;
 	Boolean result;
 	
 	@Test
-	public void navigateAndValidateUtilitySiteAndValidateHomePage() throws InterruptedException, IOException
+	public void navigateToUtilitySiteAndVerifyCorrectLandingHomePage() throws InterruptedException, IOException
 	{
 		 rechargeHome = new RechargeHomePage(driver);
 		 rechargeHome.navigateToUtilitySiteHomePage(PropertyFileReader.getProperty("utilitySiteURL"));
@@ -69,8 +72,8 @@ public class MMKUtilitySiteTestCases extends DriverSetup
 		 {
 			 LogWriter.logger.info("Unable to navigate on Utility site");
 		 }
-		 	rechargeHome.fillMobileRechargeDetails(PropertyFileReader.getProperty("prepaidRecharge"), "9422307801", PropertyFileReader.getProperty("operator"), PropertyFileReader.getProperty("circle"), PropertyFileReader.getProperty("amount"), PropertyFileReader.getProperty("utilitySiteURL"));
-		 	rechargeHome.proceedRecharge();
+		 	rechargeHome.fillMobileRechargeDetails(PropertyFileReader.getProperty("prepaidRecharge"), PropertyFileReader.getProperty("preMobileNumber"), PropertyFileReader.getProperty("preOperator"), PropertyFileReader.getProperty("preCircle"), PropertyFileReader.getProperty("preAmount"), PropertyFileReader.getProperty("utilitySiteURL"));
+		 	rechargeHome.proceedRecharge("mobile");
 		 	result =rechargeHome.verifyUserLoginInSystem();
 		 	if(!(result))
 		 	{
@@ -92,7 +95,7 @@ public class MMKUtilitySiteTestCases extends DriverSetup
 		 	}
 	}
 	@Test
-	public void proceedWithPrepaidMobilerecharge() throws InterruptedException, IOException
+	public void proceedPrepaidMobilerechargeAndVerifyLandingPageAfterFillRechargeDetails() throws InterruptedException, IOException
 	{
 		 rechargeHome = new RechargeHomePage(driver);
 		 rechargeHome.navigateToUtilitySiteHomePage(PropertyFileReader.getProperty("utilitySiteURL"));
@@ -105,8 +108,8 @@ public class MMKUtilitySiteTestCases extends DriverSetup
 		 {
 			 LogWriter.logger.info("Unable to navigate on Utility site");
 		 }
-		 	rechargeHome.fillMobileRechargeDetails(PropertyFileReader.getProperty("prepaidRecharge"), PropertyFileReader.getProperty("mobileNumber"), PropertyFileReader.getProperty("operator"), PropertyFileReader.getProperty("circle"), PropertyFileReader.getProperty("amount"), PropertyFileReader.getProperty("utilitySiteURL"));
-		 	rechargeHome.proceedRecharge();
+		    rechargeHome.fillMobileRechargeDetails(PropertyFileReader.getProperty("prepaidRecharge"), PropertyFileReader.getProperty("preMobileNumber"), PropertyFileReader.getProperty("preOperator"), PropertyFileReader.getProperty("preCircle"), PropertyFileReader.getProperty("preAmount"), PropertyFileReader.getProperty("utilitySiteURL"));
+		 	rechargeHome.proceedRecharge("mobile");
 		 	result =rechargeHome.verifyUserLoginInSystem();
 		 	if(!(result))
 		 	{
@@ -129,7 +132,7 @@ public class MMKUtilitySiteTestCases extends DriverSetup
 	}
 	
 	@Test
-	public void proceedRechargeAndApplyCoupon() throws InterruptedException, IOException
+	public void proceedPrepaidMobileRechargeAndApplyCoupon() throws InterruptedException, IOException
 	{
 		 rechargeHome = new RechargeHomePage(driver);
 		 rechargeHome.navigateToUtilitySiteHomePage(PropertyFileReader.getProperty("utilitySiteURL"));
@@ -142,8 +145,8 @@ public class MMKUtilitySiteTestCases extends DriverSetup
 		 {
 			 LogWriter.logger.info("Unable to navigate on Utility site");
 		 }
-		 	rechargeHome.fillMobileRechargeDetails(PropertyFileReader.getProperty("prepaidRecharge"), PropertyFileReader.getProperty("mobileNumber"), PropertyFileReader.getProperty("operator"), PropertyFileReader.getProperty("circle"), PropertyFileReader.getProperty("amount"), PropertyFileReader.getProperty("utilitySiteURL"));
-		 	rechargeHome.proceedRecharge();
+		 	rechargeHome.fillMobileRechargeDetails(PropertyFileReader.getProperty("prepaidRecharge"), PropertyFileReader.getProperty("preMobileNumber"), PropertyFileReader.getProperty("preOperator"), PropertyFileReader.getProperty("preCircle"), PropertyFileReader.getProperty("preAmount"), PropertyFileReader.getProperty("utilitySiteURL"));
+		 	rechargeHome.proceedRecharge("mobile");
 		 	result =rechargeHome.verifyUserLoginInSystem();
 		 	if(!(result))
 		 	{
@@ -167,7 +170,7 @@ public class MMKUtilitySiteTestCases extends DriverSetup
 	}
 	
 	@Test
-	public void proceedPrepaidMobileRecharge() throws InterruptedException, IOException
+	public void proceedPrepaidMobileRechargeAndVeriyLandingPageAfterWalletPay() throws InterruptedException, IOException
 	{
 		 rechargeHome = new RechargeHomePage(driver);
 		 rechargeHome.navigateToUtilitySiteHomePage(PropertyFileReader.getProperty("utilitySiteURL"));
@@ -180,8 +183,8 @@ public class MMKUtilitySiteTestCases extends DriverSetup
 		 {
 			 LogWriter.logger.info("Unable to navigate on Utility site");
 		 }
-		 	rechargeHome.fillMobileRechargeDetails(PropertyFileReader.getProperty("prepaidRecharge"), PropertyFileReader.getProperty("mobileNumber"), PropertyFileReader.getProperty("operator"), PropertyFileReader.getProperty("circle"), PropertyFileReader.getProperty("amount"), PropertyFileReader.getProperty("utilitySiteURL"));
-		 	rechargeHome.proceedRecharge();
+		 	rechargeHome.fillMobileRechargeDetails(PropertyFileReader.getProperty("prepaidRecharge"), PropertyFileReader.getProperty("preMobileNumber"), PropertyFileReader.getProperty("preOperator"), PropertyFileReader.getProperty("preCircle"), PropertyFileReader.getProperty("preAmount"), PropertyFileReader.getProperty("utilitySiteURL"));
+		 	rechargeHome.proceedRecharge("mobile");
 		 	result =rechargeHome.verifyUserLoginInSystem();
 		 	if(!(result))
 		 	{
@@ -207,7 +210,7 @@ public class MMKUtilitySiteTestCases extends DriverSetup
 	}
 	
 	@Test
-	public void checkRechargeStatusOnRechargeThankyouPage() throws InterruptedException, IOException
+	public void proceedPrepaidMobileRechargeAndVerifyStatusOnThankyouPage() throws InterruptedException, IOException
 	{
 		 rechargeHome = new RechargeHomePage(driver);
 		 rechargeHome.navigateToUtilitySiteHomePage(PropertyFileReader.getProperty("utilitySiteURL"));
@@ -220,8 +223,8 @@ public class MMKUtilitySiteTestCases extends DriverSetup
 		 {
 			 LogWriter.logger.info("Unable to navigate on Utility site");
 		 }
-		 	rechargeHome.fillMobileRechargeDetails(PropertyFileReader.getProperty("prepaidRecharge"), PropertyFileReader.getProperty("mobileNumber"), PropertyFileReader.getProperty("operator"), PropertyFileReader.getProperty("circle"), PropertyFileReader.getProperty("amount"), PropertyFileReader.getProperty("utilitySiteURL"));
-		 	rechargeHome.proceedRecharge();
+		 	rechargeHome.fillMobileRechargeDetails(PropertyFileReader.getProperty("prepaidRecharge"), PropertyFileReader.getProperty("preMobileNumber"), PropertyFileReader.getProperty("preOperator"), PropertyFileReader.getProperty("preCircle"), PropertyFileReader.getProperty("preAmount"), PropertyFileReader.getProperty("utilitySiteURL"));
+		 	rechargeHome.proceedRecharge("mobile");
 		 	result =rechargeHome.verifyUserLoginInSystem();
 		 	if(!(result))
 		 	{
@@ -242,6 +245,86 @@ public class MMKUtilitySiteTestCases extends DriverSetup
 		 		TransactionThankyouPage thank = new TransactionThankyouPage(driver);
 		 		thank.verifyRechargeStatus();
 		 		
+		 	}
+		 	else
+		 	{
+		 		 LogWriter.logger.info("There is some issue for proceed further..");
+		 	}
+	}
+	
+	@Test
+	public void proceedPostpaidMobileRechargeAndVerifyStatusOnThankyouPage() throws InterruptedException, IOException
+	{
+		 rechargeHome = new RechargeHomePage(driver);
+		 rechargeHome.navigateToUtilitySiteHomePage(PropertyFileReader.getProperty("utilitySiteURL"));
+		 result = rechargeHome.verifyHomePageNavigation(PropertyFileReader.getProperty("utilitySiteURL"));
+		 if(result)			 
+		 {
+			 LogWriter.logger.info("Navigating to correct Utility HomePage");
+		 }
+		 else
+		 {
+			 LogWriter.logger.info("Unable to navigate on Utility site");
+		 }
+		 	rechargeHome.fillMobileRechargeDetails(PropertyFileReader.getProperty("postpaidRecharge"), PropertyFileReader.getProperty("postMobileNumber"), PropertyFileReader.getProperty("postOperator"), PropertyFileReader.getProperty("postCircle"), PropertyFileReader.getProperty("postAmount"), PropertyFileReader.getProperty("utilitySiteURL"));
+		 	rechargeHome.proceedRecharge("mobile");
+		 	result =rechargeHome.verifyUserLoginInSystem();
+		 	if(!(result))
+		 	{
+		 		MyMoneyKartHomePage mmkhome = new MyMoneyKartHomePage(driver);
+		 		mmkhome.doUserLogin(PropertyFileReader.getProperty("username"), PropertyFileReader.getProperty("password"));
+		 	}
+		 	else
+		 	{
+		 		 LogWriter.logger.info("User already loggedin in the system");
+		 	}
+		 	CouponCodeAndWalletAmoutSelectionPage cppage = new CouponCodeAndWalletAmoutSelectionPage(driver);
+		 	if(cppage.isLandingPageIsWalletSelectionPage())
+		 	{
+		 		cppage.getAvailableWalletAmount();
+		 		cppage.selectWalletAmount();
+		 		cppage.proceedCheckout();
+		 		cppage.verifyCheckoutPage();
+		 		TransactionThankyouPage thank = new TransactionThankyouPage(driver);
+		 		thank.verifyRechargeStatus();
+		 		
+		 	}
+		 	else
+		 	{
+		 		 LogWriter.logger.info("There is some issue for proceed further..");
+		 	}
+	}
+	
+	@Test
+	public void navigateToUtilitySiteAndswitchTodthRecharge() throws InterruptedException, IOException
+	{
+		 rechargeHome = new RechargeHomePage(driver);
+		 rechargeHome.navigateToUtilitySiteHomePage(PropertyFileReader.getProperty("utilitySiteURL"));
+		 rechargeHome.selectDTHRechargeOption();
+	}
+	
+	@Test
+	public void proceedDTHRechargeAndVerifyLandingPage() throws InterruptedException, IOException
+	{
+		 rechargeHome = new RechargeHomePage(driver);
+		 rechargeHome.navigateToUtilitySiteHomePage(PropertyFileReader.getProperty("utilitySiteURL"));
+		 rechargeHome.selectDTHRechargeOption();
+		 rechargeHome.fillDTHRechargeDetails(PropertyFileReader.getProperty("dthSubscriberID"), PropertyFileReader.getProperty("dthOperator"), PropertyFileReader.getProperty("dthRechargeAmount"));
+		 rechargeHome.proceedRecharge("dth");
+		 result =rechargeHome.verifyUserLoginInSystem();
+		 	if(!(result))
+		 	{
+		 		MyMoneyKartHomePage mmkhome = new MyMoneyKartHomePage(driver);
+		 		mmkhome.doUserLogin(PropertyFileReader.getProperty("username"), PropertyFileReader.getProperty("password"));
+		 	}
+		 	else
+		 	{
+		 		 LogWriter.logger.info("User already loggedin in the system");
+		 	}
+		 	CouponCodeAndWalletAmoutSelectionPage cppage = new CouponCodeAndWalletAmoutSelectionPage(driver);
+		 	if(cppage.isLandingPageIsWalletSelectionPage())
+		 	{
+		 		cppage.getAvailableWalletAmount();
 		 	}
 		 	else
 		 	{

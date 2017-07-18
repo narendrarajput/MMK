@@ -12,7 +12,6 @@ import org.openqa.selenium.TakesScreenshot;
 import org.testng.Reporter;
 
 import com.mmk.driversetup.DriverSetup;
-import com.mmk.testexecuter.MMKMainSuitExecuter;
 
 
 public class TakeScreenshot 

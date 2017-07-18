@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import com.mmk.commonutils.Comman;
+import com.mmk.commonutils.Common;
 import com.mmk.commonutils.TestDataComman;
 import com.mmk.reader.LogWriter;
 
@@ -50,7 +50,7 @@ public class AccountSubscription
 	public void checkAccountScbscriptionStatus()
 	{
 		driver.navigate().to(TestDataComman.baseURL);
-		Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
+		Common.wait.until(ExpectedConditions.invisibilityOf(loader));
 		if(profileLink.size()>0)
 		{
 			Actions action = new Actions(driver);

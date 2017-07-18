@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.mmk.commonutils.Comman;
+import com.mmk.commonutils.Common;
 import com.mmk.commonutils.TakeScreenshot;
 import com.mmk.reader.LogWriter;
 
@@ -62,10 +62,10 @@ public class ContactUsPage
 	{
 
 			
-		Comman.wait.until(ExpectedConditions.invisibilityOf(loginmodel));
-		Comman.wait.until(ExpectedConditions.invisibilityOf(loader));	
+		Common.wait.until(ExpectedConditions.invisibilityOf(loginmodel));
+		Common.wait.until(ExpectedConditions.invisibilityOf(loader));	
 		contactUsLink.click();
-		Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
+		Common.wait.until(ExpectedConditions.invisibilityOf(loader));
 		LogWriter.logger.info("On Contact Us Page");
 		TakeScreenshot.passedScreenShot();
 		personName.sendKeys(name);

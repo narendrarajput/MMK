@@ -11,7 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
-import com.mmk.commonutils.Comman;
+import com.mmk.commonutils.Common;
 import com.mmk.commonutils.TakeScreenshot;
 import com.mmk.commonutils.TestDataComman;
 import com.mmk.reader.LogWriter;
@@ -62,17 +62,17 @@ public class UserChangePassword
 	{
 
 		
-			Comman.wait.until(ExpectedConditions.visibilityOf(profileLink));
+			Common.wait.until(ExpectedConditions.visibilityOf(profileLink));
 			
 			driver.navigate().to(TestDataComman.baseURL);			
-			Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
+			Common.wait.until(ExpectedConditions.invisibilityOf(loader));
 			if(usersname.size()>0)
 			{
 				TakeScreenshot.passedScreenShot();
 				Actions action = new Actions(driver);
 				action.moveToElement(profileLink).clickAndHold(changePasswordLink).click().build().perform();
 				LogWriter.logger.info("Change Password Link Clicked");
-				Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
+				Common.wait.until(ExpectedConditions.invisibilityOf(loader));
 				TakeScreenshot.passedScreenShot();
 				
 				usroldPassword.sendKeys(oldPassword);
@@ -84,7 +84,7 @@ public class UserChangePassword
 				submitButton.click();
 				
 				LogWriter.logger.info(" submit button clicked ");
-				Comman.wait.until(ExpectedConditions.invisibilityOf(loader));
+				Common.wait.until(ExpectedConditions.invisibilityOf(loader));
 				
 				Assert.assertEquals(notificationMessage.getText(), "Password changed successfully");
 				LogWriter.logger.info(notificationMessage.getText());

@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.AssertJUnit;
 
-import com.mmk.commonutils.Comman;
+import com.mmk.commonutils.Common;
 import com.mmk.commonutils.TakeScreenshot;
 import com.mmk.commonutils.TestDataComman;
 import com.mmk.reader.LogWriter;
@@ -62,22 +62,22 @@ public class UserLogin
 		{
 				//	WebDriverWait wait = new WebDriverWait(driver, 60);
 				// Switch into popup opens in iframe and do login
-				Comman.wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(iframe));
+				Common.wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(iframe));
 				LogWriter.logger.info("On User Login Popup");
 				TakeScreenshot.passedScreenShot();
 				//Thread.sleep(3000);
 				//driver.switchTo().frame(iframe);
 				mobileNumber.sendKeys(username);
-				Comman.wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("divLoader")));
+				Common.wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("divLoader")));
 				loginButton.click();
 				LogWriter.logger.info("Username Entered");
-				Comman.wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("divLoader")));
+				Common.wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("divLoader")));
 				password.sendKeys(pasword);
 				LogWriter.logger.info("Password Entered");
 				submitButton.click();	
 				LogWriter.logger.info("Login processing...");
 				driver.switchTo().defaultContent();
-				Comman.wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("divLoader")));
+				Common.wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("divLoader")));
 				//AssertJUnit.assertEquals(TestDataComman.usersname, usersname.getText());
 				//TakeScreenshot.takeScreen("hello", true);
 				//System.out.println("User Log in success");			
@@ -89,9 +89,9 @@ public class UserLogin
 		{
 			if(usersname.size()>0)
 			{
-				Comman.wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("divLoader")));
+				Common.wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("divLoader")));
 				walletButton.click();
-				Comman.wait.until(ExpectedConditions.visibilityOf(walletPopup));
+				Common.wait.until(ExpectedConditions.visibilityOf(walletPopup));
 				TakeScreenshot.passedScreenShot();
 				for(WebElement e: walletData)
 				{

@@ -89,6 +89,7 @@ public class CouponCodeAndWalletAmoutSelectionPage {
 	public void proceedCheckout() throws IOException
 	{
 		Common.wait.until(ExpectedConditions.invisibilityOf(loader));
+		TakeScreenshot.passedScreenShot();
 		payButton.click();
 		LogWriter.logger.info("Wallet Payment Started.........");
 		Common.wait.until(ExpectedConditions.invisibilityOf(loader));
@@ -97,38 +98,44 @@ public class CouponCodeAndWalletAmoutSelectionPage {
 		TakeScreenshot.passedScreenShot();
 	}
 	
-	public void verifyCheckoutPage()
+	public void verifyCheckoutPage() throws IOException
 	{
 		Common.wait.until(ExpectedConditions.invisibilityOf(loader));	
 		if(driver.getCurrentUrl().contains("ThankYou"))
 		{
 			LogWriter.logger.info("Moved To Thankyou page");
+			TakeScreenshot.passedScreenShot();
 		}
 		else
 		{
 			LogWriter.logger.info("Not On Thankyou page");
+			TakeScreenshot.passedScreenShot();
 		}
 	}
 	
-	public void applyCoupon(String couponCode)
+	public void applyCoupon(String couponCode) throws IOException
 	{
 		Common.wait.until(ExpectedConditions.invisibilityOf(loader));		
 		if(driver.getCurrentUrl().contains("Payment"))
 		{
+			TakeScreenshot.passedScreenShot();
 			couponcode.sendKeys(couponCode);
 			applyCouponButton.click();
 			Common.wait.until(ExpectedConditions.invisibilityOf(spinner));
 			if(NotificationMessage.getText().length()>0)
 			{
 				LogWriter.logger.info(NotificationMessage.getText());
+				TakeScreenshot.passedScreenShot();
 			}
 			else if(removeCouponButton.isDisplayed())
 			{
 				LogWriter.logger.info("Coupon code Applied");
+				TakeScreenshot.passedScreenShot();
 			}
 			else if(validationMessage.getText().length()>0)
 			{
 				LogWriter.logger.info(validationMessage.getText());
+				TakeScreenshot.passedScreenShot();
 			}	
 			
 		}
@@ -138,7 +145,7 @@ public class CouponCodeAndWalletAmoutSelectionPage {
 		}
 	}
 	
-	public boolean isLandingPageIsWalletSelectionPage()
+	public boolean isLandingPageIsWalletSelectionPage() throws IOException
 	{
 		try
 		{
@@ -147,11 +154,14 @@ public class CouponCodeAndWalletAmoutSelectionPage {
 		catch(Exception e)
 		{
 			LogWriter.logger.info("Message"+NotificationMessage.getText());
+			TakeScreenshot.passedScreenShot();
 		}
 		if(driver.getCurrentUrl().contains("Payment"))
 		{
 			LogWriter.logger.info("You are On Coupon Page URL : "+driver.getCurrentUrl());
+			TakeScreenshot.passedScreenShot();
 			return true;
+			
 		}
 		else
 		{

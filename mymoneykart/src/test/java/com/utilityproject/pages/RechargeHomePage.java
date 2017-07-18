@@ -50,6 +50,25 @@ public class RechargeHomePage
 	@FindBy(xpath = ".//*[@id='header']/div/div/div[5]/ul/li[1]/label")
 	List<WebElement> usersname;
 	
+	
+	@FindBy(id = "dthlink")
+	public WebElement dthLink; 	
+	
+	
+	@FindBy(id = "Subscriber")
+	public WebElement dthSubscriberID; 	
+	
+	@FindBy(xpath = "//form[@id='frmDTHSubmit']//select[@id='OperatorCode']")
+	public WebElement dthOperatorCode; 	
+	
+	@FindBy(id = "dthAmount")
+	public WebElement dthRechargeAmount; 
+	
+	
+	@FindBy(id = "btnDTHSubmit")
+	public WebElement dthRechargeProceedButton; 
+ 
+	
 	WebDriver driver;
 	
 	public RechargeHomePage(WebDriver driver)
@@ -79,7 +98,7 @@ public class RechargeHomePage
 		}
 	}
 	
-	public boolean verifyUserLoginInSystem()
+	public boolean verifyUserLoginInSystem() throws IOException
 	{
 		if(!(usersname.size()>0))
 		{
@@ -89,6 +108,7 @@ public class RechargeHomePage
 		else
 		{
 			LogWriter.logger.info("User is already login in system and username is "+ usersname.get(0).getText());
+			TakeScreenshot.passedScreenShot();
 			return true;
 		}
 	}
@@ -117,7 +137,7 @@ public class RechargeHomePage
 				postpaidServiceProvider.click();
 			}
 		}
-		
+		TakeScreenshot.passedScreenShot();
 		LogWriter.logger.info("Filling Prepaid recharge details..");
 		prepaidMobileNumber.sendKeys(mobile);
 		new Select(prepaidCircle).selectByVisibleText(Circle);
@@ -128,12 +148,43 @@ public class RechargeHomePage
 		
 	}
 
-	public void proceedRecharge() throws IOException
+	public void proceedRecharge(String rechargeType) throws IOException
 	{
-		proceedToPayButton.click();
-		Common.wait.until(ExpectedConditions.invisibilityOf(loader));
+		if(rechargeType.equalsIgnoreCase("dth"))
+		{
+			dthRechargeProceedButton.click();
+			Common.wait.until(ExpectedConditions.invisibilityOf(loader));
+			TakeScreenshot.passedScreenShot();
+			LogWriter.logger.info("Proceed To pay Clicked");	
+		}
+		else
+		{
+			proceedToPayButton.click();
+			Common.wait.until(ExpectedConditions.invisibilityOf(loader));
+			TakeScreenshot.passedScreenShot();
+			LogWriter.logger.info("Proceed To pay Clicked");	
+		}
+	}
+	
+	public void selectDTHRechargeOption()
+	{
+		dthLink.click();
+		if(dthSubscriberID.isDisplayed())
+		{
+			LogWriter.logger.info("Switched to DTH Option");
+		}
+		else
+		{
+			LogWriter.logger.info("Unable to switch on  DTH Option");
+		}
+	}
+	
+	public void fillDTHRechargeDetails(String subscriberID, String dthOperator, String dthRechargeAmt) throws IOException
+	{
+		dthSubscriberID.sendKeys(subscriberID);
+		new Select(dthOperatorCode).selectByVisibleText(dthOperator);
+		dthRechargeAmount.sendKeys(dthRechargeAmt);
 		TakeScreenshot.passedScreenShot();
-		LogWriter.logger.info("Proceed To pay Clicked");	
 	}
 	
 }

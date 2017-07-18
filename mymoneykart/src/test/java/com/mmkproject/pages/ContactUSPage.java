@@ -87,8 +87,9 @@ public class ContactUSPage
 		LogWriter.logger.info("Feedback type selected..");
 		TakeScreenshot.passedScreenShot();
 	}
-	public void clickSubmitButton()
+	public void clickSubmitButton() throws InterruptedException
 	{
+		Thread.sleep(1200);
 		sendButton.click();
 		LogWriter.logger.info("Contact submitting......");
 		try{

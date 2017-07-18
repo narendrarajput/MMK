@@ -6,60 +6,81 @@
   <listeners>      
        <listener class-name="org.uncommons.reportng.HTMLReporter"/>
        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+       
   </listeners>
 
-  <test name="MyMoneyKart_Functional_Test">
- 	<classes>  	
- 		<class name="com.mmk.reader.LogWriter"/>
- 		<class name="com.mmk.driversetup.DriverSetup"/>	 		
-	 	 <class name="com.mmk.testexecuter.MMKMainSuitExecuter">
-	 		<methods>
-        		<include name="login" />
-        		<include name="checkUserWallet" />   		
-        		<include name="submitFeedback" />
-        		<include name="inviteFriend" />
-        		<include name="changePassword" />
-        		<include name="walletTransactionHistory" />
-        		<include name="getUserKYCDetails" />
-        		<include name="checkMissingKYCDetails" />
-        		<include name="getSubscriptionFeePaymentStatus" />
-        		<include name="getUserProfileDetails" />    		
-       		 </methods>
-	 	</class>   
+<!--   <test name="MyMoneyKart_Functional_Test">
+ 	<classes>	 
+	 	  <class name="com.mmk.test_execution_engine.MMKMainSiteTestCases">
+	 			<methods>
+        			<include name="userLogin" />
+        			<include name="userWalletDetails" />
+        			<include name="busSearchFromMMKHomePageWithUserLogin" />
+        			<include name="navigateOnContactUsPage" />       			
+        			<include name="submitContactByEndUser" />
+        			<include name="checkContactUsPageValidations" /> 
+        			<include name="navigateOnInviteFriend" />
+        			<include name="inviteFriends" />
+        			<include name="navigateToUserAccountScbscriptionLink" />
+        			<include name="navigateToUserAccountScbscriptionLinkAndCheckScbscriptionStatus" />
+        			<include name="failSubscriptionFeePaymentFromPG" />	
+        			<include name="navigateToKycDetailsPageAndVerifyCorrectRedirect" />	
+        			<include name="navigateKYCPageAndGetDetails" />	
+        			<include name="navigateKYCPageAndCheckMissingKYCDetails" /> 
+        			<include name="navigateKYCPageAndTransferTheKYC" />
+        			<include name="navigateKYCPageAndCancelClick" /> 
+        			<include name="verifyPancardAndIdProffDocOnKycForm" />      			
+        			<include name="navigateToChangePasswordPage" /> 
+        			<include name="navigateToChangePasswordPageAndCheckBlankFieldValidation" />	      			
+        			<include name="navigateToChangePasswordPageAndCheckCancelRedirect" />	
+        			<include name="navigateToChangePasswordPageAnddoChangePassword" />	
+        			<include name="navigateToUserProfile" />
+        			<include name="navigateToUserProfileAndCheckValidRedirect" />
+        			<include name="navigateToUserProfileAndGetProfileDetails" />      			  			       			
+        		</methods>
+	 	</class>  
    </classes> 
   </test> 
-     <test name="BusBooking_Functional_Test">
+     <test name="BusBookingSite_Functional_Test">
  	 <classes>  	
-	 	<class name="com.mmk.testexecuter.MMKBusSuitExecuter"> 
-     	 	  <methods>
-        		<include name="busSearch" />
-        		<include name="busListPageLogin" />
-        		<include name="selectABusSeat" />
-        		<include name="fillPassangerDetails" />
-        		<include name="walletCheckout" />
-        		<include name="ticketBookingStatus" />
-        		<include name="checkSocialSharingAndSkipToHomePage" />
-        		<include name="userLoginFromBusHomePage" />           		
-        		<include name="getUserReacentSearchHistory" />    
-        		<include name="getUserPreferredCity" /> 
-        		<include name="setUserPreferredCity" /> 
-        		<include name="getBusOperatorRating" /> 
-        		<include name="submitBusOperatorRating" />        		
-        		<include name="busSearchFromBusHomePage" />       		
-      		  </methods>    		
-      		</class>
+		<class name="com.mmk.test_execution_engine.MMKBusSiteTestCases">
+	 			<methods>
+        			<include name="navigateToBusHomePage" />
+        			<include name="userLoginCheckAndLoginIfNot" />
+        			<include name="getSelectedPreferredCity" />
+        			<include name="setPreferredCity" />
+        			<include name="checkBusRatingOptionAvailability" />
+        			<include name="rateABusIfRatingOptionAvailable" />
+        			<include name="getRecentSearches" />
+        			<include name="doBusSearch" />
+        			<include name="modifySearchCheck" />
+        			<include name="selectSeatAndProceed" />
+        			<include name="isSelfFunctionalityCheck" />
+        			<include name="fillPassangerDetailsAndProceedFurther" /> 
+        			<include name="applyCouponCode" /> 
+        			<include name="applyWalletAmountAndCheckout" /> 
+        			<include name="completeBusBookingAndOrderCheckout" />
+        		</methods>
+		</class>
      </classes> 
   </test>  
-  
- <test name="Utility_Functional_Test">
+   -->
+  <test name="Utility_Functional_Test">
  	 <classes>  	
- 	 	<class name="com.mmk.testexecuter.MMKUtilitySuitExecuter">
+ 	 	<class name="com.mmk.test_execution_engine.MMKUtilitySiteTestCases">
  	 		<methods>
-        		<include name="prepaidMobileRecharge" />
-        		<include name="postpaidMobileRecharge" />
-        		<include name="dthRecharge" />
+        		<exclude name="navigateToUtilitySiteAndVerifyCorrectLandingHomePage" /> 
+        		<exclude name="navigateToUtilityHomePageAndCheckWeatherUserIsLogigedIn" /> 
+        		<exclude name="proceedPrepaidMobilerechargeAndVerifyLandingPageAfterFillRechargeDetails" />        		
+        		<exclude name="proceedPrepaidMobileRechargeAndApplyCoupon" />
+        		<exclude name="proceedPrepaidMobileRechargeAndVeriyLandingPageAfterWalletPay" />    
+        		<exclude name="proceedPrepaidMobileRechargeAndVerifyStatusOnThankyouPage" />  
+        		<exclude name="proceedPostpaidMobileRechargeAndVerifyStatusOnThankyouPage" />	
+        		<exclude name="navigateToUtilitySiteAndswitchTodthRecharge" />	
+        		<include name="proceedDTHRechargeAndVerifyLandingPage" />	
+        			
       		</methods>
  	 	</class>
      </classes> 
-  </test>  
+  </test>   
 </suite>

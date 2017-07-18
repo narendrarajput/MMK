@@ -16,9 +16,9 @@ public class TestDataComman
 	public static String baseURL = "http://www.mymoneykart.com/mmkweb/";
 	
 	// User credential Details
-	public static String username = "8866691628";
+	public static String username = "9422307801";
 	public static String password = "123456";
-	public static String usersname = "Jainish Kapadia";
+	public static String usersname = "Narendra Rajput";
 	// Feedback Form 
 	
 	public static String fName = "dummy User";

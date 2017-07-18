@@ -27,6 +27,9 @@ import com.mmk.reader.LogWriter;
 
 public class DriverSetup 
 {
+ 
+		
+ 
 	public static WebDriver driver;
 	Method method;
 	@BeforeSuite
@@ -40,7 +43,7 @@ public class DriverSetup
 					case "chrome":
 					
 						System.setProperty("webdriver.chrome.driver","src/test/resources/chromedriver.exe");	
-						LogWriter.logger.info("Chrome Browser Started..");
+						LogWriter.logger.info("Chrome Browser Started........");
 						ChromeOptions options = new ChromeOptions(); 
 						
 						// To disable  "Chrome controlled by automates software" info bar
@@ -54,8 +57,10 @@ public class DriverSetup
 						driver = new ChromeDriver(options);	
 						driver.manage().window().maximize();
 						driver.get(TestDataComman.baseURL);
-						LogWriter.logger.info("Navigated To Site.....");
+						//new LogWriter().setupLogger();
+						LogWriter.logger.info("Navigating To provided URL");
 						driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+						LogWriter.logger.info("Navigated To URL"+ driver.getCurrentUrl());
 						TakeScreenshot.passedScreenShot();
 						
 					break;
@@ -136,7 +141,7 @@ public class DriverSetup
 		
 	}
 	
-	@AfterSuite
+	//@AfterSuite
 	public void tearDown()
 	{
 		driver.quit();
