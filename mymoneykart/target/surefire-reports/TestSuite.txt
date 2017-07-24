@@ -1,4 +1,448 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 295.824 sec
+Tests run: 49, Failures: 20, Errors: 0, Skipped: 0, Time elapsed: 1,041.46 sec <<< FAILURE!
+navigateOnContactUsPage(com.mmk.test_execution_engine.MMKMainSiteTestCases)  Time elapsed: 45.662 sec  <<< FAILURE!
+org.openqa.selenium.InvalidArgumentException: Could not find webelement key
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'TSS167', ip: '192.168.1.167', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_51'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{moz:profile=C:\Users\NAREND~1.RAJ\AppData\Local\Temp\rust_mozprofile.N4yg1ywWgtwa, rotatable=false, timeouts={implicit=0.0, page load=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=52.0.2, platformVersion=6.3, moz:processID=1360.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: 0215aa8f-cade-4264-91fd-3c58a5fd1fb0
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:150)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:115)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)
+	at org.openqa.selenium.remote.RemoteWebDriver.perform(RemoteWebDriver.java:703)
+	at org.openqa.selenium.interactions.Actions$BuiltAction.perform(Actions.java:631)
+	at com.mmkproject.pages.MyMoneyKartHomePage.navigateToContactUsPage(MyMoneyKartHomePage.java:235)
+	at com.mmk.test_execution_engine.MMKMainSiteTestCases.navigateOnContactUsPage(MMKMainSiteTestCases.java:71)
+
+submitContactByEndUser(com.mmk.test_execution_engine.MMKMainSiteTestCases)  Time elapsed: 45.597 sec  <<< FAILURE!
+org.openqa.selenium.InvalidArgumentException: Could not find webelement key
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'TSS167', ip: '192.168.1.167', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_51'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{moz:profile=C:\Users\NAREND~1.RAJ\AppData\Local\Temp\rust_mozprofile.N4yg1ywWgtwa, rotatable=false, timeouts={implicit=0.0, page load=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=52.0.2, platformVersion=6.3, moz:processID=1360.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: 0215aa8f-cade-4264-91fd-3c58a5fd1fb0
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:150)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:115)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)
+	at org.openqa.selenium.remote.RemoteWebDriver.perform(RemoteWebDriver.java:703)
+	at org.openqa.selenium.interactions.Actions$BuiltAction.perform(Actions.java:631)
+	at com.mmkproject.pages.MyMoneyKartHomePage.navigateToContactUsPage(MyMoneyKartHomePage.java:235)
+	at com.mmk.test_execution_engine.MMKMainSiteTestCases.submitContactByEndUser(MMKMainSiteTestCases.java:87)
+
+checkContactUsPageValidations(com.mmk.test_execution_engine.MMKMainSiteTestCases)  Time elapsed: 45.573 sec  <<< FAILURE!
+org.openqa.selenium.InvalidArgumentException: Could not find webelement key
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'TSS167', ip: '192.168.1.167', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_51'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{moz:profile=C:\Users\NAREND~1.RAJ\AppData\Local\Temp\rust_mozprofile.N4yg1ywWgtwa, rotatable=false, timeouts={implicit=0.0, page load=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=52.0.2, platformVersion=6.3, moz:processID=1360.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: 0215aa8f-cade-4264-91fd-3c58a5fd1fb0
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:150)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:115)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)
+	at org.openqa.selenium.remote.RemoteWebDriver.perform(RemoteWebDriver.java:703)
+	at org.openqa.selenium.interactions.Actions$BuiltAction.perform(Actions.java:631)
+	at com.mmkproject.pages.MyMoneyKartHomePage.navigateToContactUsPage(MyMoneyKartHomePage.java:235)
+	at com.mmk.test_execution_engine.MMKMainSiteTestCases.checkContactUsPageValidations(MMKMainSiteTestCases.java:100)
+
+navigateToUserAccountScbscriptionLink(com.mmk.test_execution_engine.MMKMainSiteTestCases)  Time elapsed: 0.357 sec  <<< FAILURE!
+org.openqa.selenium.InvalidArgumentException: Could not find webelement key
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'TSS167', ip: '192.168.1.167', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_51'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{moz:profile=C:\Users\NAREND~1.RAJ\AppData\Local\Temp\rust_mozprofile.N4yg1ywWgtwa, rotatable=false, timeouts={implicit=0.0, page load=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=52.0.2, platformVersion=6.3, moz:processID=1360.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: 0215aa8f-cade-4264-91fd-3c58a5fd1fb0
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:150)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:115)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)
+	at org.openqa.selenium.remote.RemoteWebDriver.perform(RemoteWebDriver.java:703)
+	at org.openqa.selenium.interactions.Actions$BuiltAction.perform(Actions.java:631)
+	at com.mmkproject.pages.MyMoneyKartHomePage.navigateAccountSubscription(MyMoneyKartHomePage.java:336)
+	at com.mmk.test_execution_engine.MMKMainSiteTestCases.navigateToUserAccountScbscriptionLink(MMKMainSiteTestCases.java:127)
+
+navigateToUserAccountScbscriptionLinkAndCheckScbscriptionStatus(com.mmk.test_execution_engine.MMKMainSiteTestCases)  Time elapsed: 0.156 sec  <<< FAILURE!
+org.openqa.selenium.InvalidArgumentException: Could not find webelement key
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'TSS167', ip: '192.168.1.167', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_51'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{moz:profile=C:\Users\NAREND~1.RAJ\AppData\Local\Temp\rust_mozprofile.N4yg1ywWgtwa, rotatable=false, timeouts={implicit=0.0, page load=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=52.0.2, platformVersion=6.3, moz:processID=1360.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: 0215aa8f-cade-4264-91fd-3c58a5fd1fb0
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:150)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:115)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)
+	at org.openqa.selenium.remote.RemoteWebDriver.perform(RemoteWebDriver.java:703)
+	at org.openqa.selenium.interactions.Actions$BuiltAction.perform(Actions.java:631)
+	at com.mmkproject.pages.MyMoneyKartHomePage.navigateAccountSubscription(MyMoneyKartHomePage.java:336)
+	at com.mmk.test_execution_engine.MMKMainSiteTestCases.navigateToUserAccountScbscriptionLinkAndCheckScbscriptionStatus(MMKMainSiteTestCases.java:134)
+
+failSubscriptionFeePaymentFromPG(com.mmk.test_execution_engine.MMKMainSiteTestCases)  Time elapsed: 0.155 sec  <<< FAILURE!
+org.openqa.selenium.InvalidArgumentException: Could not find webelement key
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'TSS167', ip: '192.168.1.167', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_51'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{moz:profile=C:\Users\NAREND~1.RAJ\AppData\Local\Temp\rust_mozprofile.N4yg1ywWgtwa, rotatable=false, timeouts={implicit=0.0, page load=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=52.0.2, platformVersion=6.3, moz:processID=1360.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: 0215aa8f-cade-4264-91fd-3c58a5fd1fb0
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:150)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:115)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)
+	at org.openqa.selenium.remote.RemoteWebDriver.perform(RemoteWebDriver.java:703)
+	at org.openqa.selenium.interactions.Actions$BuiltAction.perform(Actions.java:631)
+	at com.mmkproject.pages.MyMoneyKartHomePage.navigateAccountSubscription(MyMoneyKartHomePage.java:336)
+	at com.mmk.test_execution_engine.MMKMainSiteTestCases.failSubscriptionFeePaymentFromPG(MMKMainSiteTestCases.java:143)
+
+navigateToKycDetailsPageAndVerifyCorrectRedirect(com.mmk.test_execution_engine.MMKMainSiteTestCases)  Time elapsed: 0.164 sec  <<< FAILURE!
+org.openqa.selenium.InvalidArgumentException: Could not find webelement key
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'TSS167', ip: '192.168.1.167', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_51'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{moz:profile=C:\Users\NAREND~1.RAJ\AppData\Local\Temp\rust_mozprofile.N4yg1ywWgtwa, rotatable=false, timeouts={implicit=0.0, page load=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=52.0.2, platformVersion=6.3, moz:processID=1360.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: 0215aa8f-cade-4264-91fd-3c58a5fd1fb0
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:150)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:115)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)
+	at org.openqa.selenium.remote.RemoteWebDriver.perform(RemoteWebDriver.java:703)
+	at org.openqa.selenium.interactions.Actions$BuiltAction.perform(Actions.java:631)
+	at com.mmkproject.pages.MyMoneyKartHomePage.navigateToKYCDetails(MyMoneyKartHomePage.java:378)
+	at com.mmk.test_execution_engine.MMKMainSiteTestCases.navigateToKycDetailsPageAndVerifyCorrectRedirect(MMKMainSiteTestCases.java:154)
+
+navigateKYCPageAndGetDetails(com.mmk.test_execution_engine.MMKMainSiteTestCases)  Time elapsed: 0.157 sec  <<< FAILURE!
+org.openqa.selenium.InvalidArgumentException: Could not find webelement key
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'TSS167', ip: '192.168.1.167', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_51'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{moz:profile=C:\Users\NAREND~1.RAJ\AppData\Local\Temp\rust_mozprofile.N4yg1ywWgtwa, rotatable=false, timeouts={implicit=0.0, page load=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=52.0.2, platformVersion=6.3, moz:processID=1360.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: 0215aa8f-cade-4264-91fd-3c58a5fd1fb0
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:150)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:115)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)
+	at org.openqa.selenium.remote.RemoteWebDriver.perform(RemoteWebDriver.java:703)
+	at org.openqa.selenium.interactions.Actions$BuiltAction.perform(Actions.java:631)
+	at com.mmkproject.pages.MyMoneyKartHomePage.navigateToKYCDetails(MyMoneyKartHomePage.java:378)
+	at com.mmk.test_execution_engine.MMKMainSiteTestCases.navigateKYCPageAndGetDetails(MMKMainSiteTestCases.java:163)
+
+navigateKYCPageAndCheckMissingKYCDetails(com.mmk.test_execution_engine.MMKMainSiteTestCases)  Time elapsed: 0.163 sec  <<< FAILURE!
+org.openqa.selenium.InvalidArgumentException: Could not find webelement key
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'TSS167', ip: '192.168.1.167', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_51'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{moz:profile=C:\Users\NAREND~1.RAJ\AppData\Local\Temp\rust_mozprofile.N4yg1ywWgtwa, rotatable=false, timeouts={implicit=0.0, page load=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=52.0.2, platformVersion=6.3, moz:processID=1360.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: 0215aa8f-cade-4264-91fd-3c58a5fd1fb0
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:150)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:115)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)
+	at org.openqa.selenium.remote.RemoteWebDriver.perform(RemoteWebDriver.java:703)
+	at org.openqa.selenium.interactions.Actions$BuiltAction.perform(Actions.java:631)
+	at com.mmkproject.pages.MyMoneyKartHomePage.navigateToKYCDetails(MyMoneyKartHomePage.java:378)
+	at com.mmk.test_execution_engine.MMKMainSiteTestCases.navigateKYCPageAndCheckMissingKYCDetails(MMKMainSiteTestCases.java:181)
+
+navigateKYCPageAndTransferTheKYC(com.mmk.test_execution_engine.MMKMainSiteTestCases)  Time elapsed: 0.152 sec  <<< FAILURE!
+org.openqa.selenium.InvalidArgumentException: Could not find webelement key
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'TSS167', ip: '192.168.1.167', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_51'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{moz:profile=C:\Users\NAREND~1.RAJ\AppData\Local\Temp\rust_mozprofile.N4yg1ywWgtwa, rotatable=false, timeouts={implicit=0.0, page load=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=52.0.2, platformVersion=6.3, moz:processID=1360.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: 0215aa8f-cade-4264-91fd-3c58a5fd1fb0
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:150)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:115)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)
+	at org.openqa.selenium.remote.RemoteWebDriver.perform(RemoteWebDriver.java:703)
+	at org.openqa.selenium.interactions.Actions$BuiltAction.perform(Actions.java:631)
+	at com.mmkproject.pages.MyMoneyKartHomePage.navigateToKYCDetails(MyMoneyKartHomePage.java:378)
+	at com.mmk.test_execution_engine.MMKMainSiteTestCases.navigateKYCPageAndTransferTheKYC(MMKMainSiteTestCases.java:190)
+
+navigateKYCPageAndCancelClick(com.mmk.test_execution_engine.MMKMainSiteTestCases)  Time elapsed: 0.2 sec  <<< FAILURE!
+org.openqa.selenium.InvalidArgumentException: Could not find webelement key
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'TSS167', ip: '192.168.1.167', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_51'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{moz:profile=C:\Users\NAREND~1.RAJ\AppData\Local\Temp\rust_mozprofile.N4yg1ywWgtwa, rotatable=false, timeouts={implicit=0.0, page load=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=52.0.2, platformVersion=6.3, moz:processID=1360.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: 0215aa8f-cade-4264-91fd-3c58a5fd1fb0
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:150)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:115)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)
+	at org.openqa.selenium.remote.RemoteWebDriver.perform(RemoteWebDriver.java:703)
+	at org.openqa.selenium.interactions.Actions$BuiltAction.perform(Actions.java:631)
+	at com.mmkproject.pages.MyMoneyKartHomePage.navigateToKYCDetails(MyMoneyKartHomePage.java:378)
+	at com.mmk.test_execution_engine.MMKMainSiteTestCases.navigateKYCPageAndCancelClick(MMKMainSiteTestCases.java:199)
+
+verifyPancardAndIdProffDocOnKycForm(com.mmk.test_execution_engine.MMKMainSiteTestCases)  Time elapsed: 0.147 sec  <<< FAILURE!
+org.openqa.selenium.InvalidArgumentException: Could not find webelement key
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'TSS167', ip: '192.168.1.167', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_51'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{moz:profile=C:\Users\NAREND~1.RAJ\AppData\Local\Temp\rust_mozprofile.N4yg1ywWgtwa, rotatable=false, timeouts={implicit=0.0, page load=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=52.0.2, platformVersion=6.3, moz:processID=1360.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: 0215aa8f-cade-4264-91fd-3c58a5fd1fb0
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:150)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:115)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)
+	at org.openqa.selenium.remote.RemoteWebDriver.perform(RemoteWebDriver.java:703)
+	at org.openqa.selenium.interactions.Actions$BuiltAction.perform(Actions.java:631)
+	at com.mmkproject.pages.MyMoneyKartHomePage.navigateToKYCDetails(MyMoneyKartHomePage.java:378)
+	at com.mmk.test_execution_engine.MMKMainSiteTestCases.verifyPancardAndIdProffDocOnKycForm(MMKMainSiteTestCases.java:172)
+
+navigateToChangePasswordPage(com.mmk.test_execution_engine.MMKMainSiteTestCases)  Time elapsed: 0.178 sec  <<< FAILURE!
+org.openqa.selenium.InvalidArgumentException: Could not find webelement key
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'TSS167', ip: '192.168.1.167', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_51'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{moz:profile=C:\Users\NAREND~1.RAJ\AppData\Local\Temp\rust_mozprofile.N4yg1ywWgtwa, rotatable=false, timeouts={implicit=0.0, page load=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=52.0.2, platformVersion=6.3, moz:processID=1360.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: 0215aa8f-cade-4264-91fd-3c58a5fd1fb0
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:150)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:115)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)
+	at org.openqa.selenium.remote.RemoteWebDriver.perform(RemoteWebDriver.java:703)
+	at org.openqa.selenium.interactions.Actions$BuiltAction.perform(Actions.java:631)
+	at com.mmkproject.pages.MyMoneyKartHomePage.navigateToChangePassword(MyMoneyKartHomePage.java:419)
+	at com.mmk.test_execution_engine.MMKMainSiteTestCases.navigateToChangePasswordPage(MMKMainSiteTestCases.java:208)
+
+navigateToChangePasswordPageAndCheckBlankFieldValidation(com.mmk.test_execution_engine.MMKMainSiteTestCases)  Time elapsed: 0.152 sec  <<< FAILURE!
+org.openqa.selenium.InvalidArgumentException: Could not find webelement key
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'TSS167', ip: '192.168.1.167', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_51'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{moz:profile=C:\Users\NAREND~1.RAJ\AppData\Local\Temp\rust_mozprofile.N4yg1ywWgtwa, rotatable=false, timeouts={implicit=0.0, page load=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=52.0.2, platformVersion=6.3, moz:processID=1360.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: 0215aa8f-cade-4264-91fd-3c58a5fd1fb0
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:150)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:115)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)
+	at org.openqa.selenium.remote.RemoteWebDriver.perform(RemoteWebDriver.java:703)
+	at org.openqa.selenium.interactions.Actions$BuiltAction.perform(Actions.java:631)
+	at com.mmkproject.pages.MyMoneyKartHomePage.navigateToChangePassword(MyMoneyKartHomePage.java:419)
+	at com.mmk.test_execution_engine.MMKMainSiteTestCases.navigateToChangePasswordPageAndCheckBlankFieldValidation(MMKMainSiteTestCases.java:216)
+
+navigateToChangePasswordPageAndCheckCancelRedirect(com.mmk.test_execution_engine.MMKMainSiteTestCases)  Time elapsed: 0.147 sec  <<< FAILURE!
+org.openqa.selenium.InvalidArgumentException: Could not find webelement key
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'TSS167', ip: '192.168.1.167', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_51'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{moz:profile=C:\Users\NAREND~1.RAJ\AppData\Local\Temp\rust_mozprofile.N4yg1ywWgtwa, rotatable=false, timeouts={implicit=0.0, page load=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=52.0.2, platformVersion=6.3, moz:processID=1360.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: 0215aa8f-cade-4264-91fd-3c58a5fd1fb0
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:150)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:115)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)
+	at org.openqa.selenium.remote.RemoteWebDriver.perform(RemoteWebDriver.java:703)
+	at org.openqa.selenium.interactions.Actions$BuiltAction.perform(Actions.java:631)
+	at com.mmkproject.pages.MyMoneyKartHomePage.navigateToChangePassword(MyMoneyKartHomePage.java:419)
+	at com.mmk.test_execution_engine.MMKMainSiteTestCases.navigateToChangePasswordPageAndCheckCancelRedirect(MMKMainSiteTestCases.java:234)
+
+navigateToChangePasswordPageAnddoChangePassword(com.mmk.test_execution_engine.MMKMainSiteTestCases)  Time elapsed: 0.143 sec  <<< FAILURE!
+org.openqa.selenium.InvalidArgumentException: Could not find webelement key
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'TSS167', ip: '192.168.1.167', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_51'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{moz:profile=C:\Users\NAREND~1.RAJ\AppData\Local\Temp\rust_mozprofile.N4yg1ywWgtwa, rotatable=false, timeouts={implicit=0.0, page load=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=52.0.2, platformVersion=6.3, moz:processID=1360.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: 0215aa8f-cade-4264-91fd-3c58a5fd1fb0
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:150)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:115)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)
+	at org.openqa.selenium.remote.RemoteWebDriver.perform(RemoteWebDriver.java:703)
+	at org.openqa.selenium.interactions.Actions$BuiltAction.perform(Actions.java:631)
+	at com.mmkproject.pages.MyMoneyKartHomePage.navigateToChangePassword(MyMoneyKartHomePage.java:419)
+	at com.mmk.test_execution_engine.MMKMainSiteTestCases.navigateToChangePasswordPageAnddoChangePassword(MMKMainSiteTestCases.java:225)
+
+navigateToUserProfile(com.mmk.test_execution_engine.MMKMainSiteTestCases)  Time elapsed: 0.151 sec  <<< FAILURE!
+org.openqa.selenium.InvalidArgumentException: Could not find webelement key
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'TSS167', ip: '192.168.1.167', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_51'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{moz:profile=C:\Users\NAREND~1.RAJ\AppData\Local\Temp\rust_mozprofile.N4yg1ywWgtwa, rotatable=false, timeouts={implicit=0.0, page load=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=52.0.2, platformVersion=6.3, moz:processID=1360.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: 0215aa8f-cade-4264-91fd-3c58a5fd1fb0
+	at sun.reflect.GeneratedConstructorAccessor13.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:150)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:115)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)
+	at org.openqa.selenium.remote.RemoteWebDriver.perform(RemoteWebDriver.java:703)
+	at org.openqa.selenium.interactions.Actions$BuiltAction.perform(Actions.java:631)
+	at com.mmkproject.pages.MyMoneyKartHomePage.navigateToUserProfile(MyMoneyKartHomePage.java:461)
+	at com.mmk.test_execution_engine.MMKMainSiteTestCases.navigateToUserProfile(MMKMainSiteTestCases.java:243)
+
+navigateToUserProfileAndCheckValidRedirect(com.mmk.test_execution_engine.MMKMainSiteTestCases)  Time elapsed: 0.163 sec  <<< FAILURE!
+org.openqa.selenium.InvalidArgumentException: Could not find webelement key
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'TSS167', ip: '192.168.1.167', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_51'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{moz:profile=C:\Users\NAREND~1.RAJ\AppData\Local\Temp\rust_mozprofile.N4yg1ywWgtwa, rotatable=false, timeouts={implicit=0.0, page load=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=52.0.2, platformVersion=6.3, moz:processID=1360.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: 0215aa8f-cade-4264-91fd-3c58a5fd1fb0
+	at sun.reflect.GeneratedConstructorAccessor13.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:150)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:115)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)
+	at org.openqa.selenium.remote.RemoteWebDriver.perform(RemoteWebDriver.java:703)
+	at org.openqa.selenium.interactions.Actions$BuiltAction.perform(Actions.java:631)
+	at com.mmkproject.pages.MyMoneyKartHomePage.navigateToUserProfile(MyMoneyKartHomePage.java:461)
+	at com.mmk.test_execution_engine.MMKMainSiteTestCases.navigateToUserProfileAndCheckValidRedirect(MMKMainSiteTestCases.java:250)
+
+navigateToUserProfileAndGetProfileDetails(com.mmk.test_execution_engine.MMKMainSiteTestCases)  Time elapsed: 0.17 sec  <<< FAILURE!
+org.openqa.selenium.InvalidArgumentException: Could not find webelement key
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'TSS167', ip: '192.168.1.167', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_51'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{moz:profile=C:\Users\NAREND~1.RAJ\AppData\Local\Temp\rust_mozprofile.N4yg1ywWgtwa, rotatable=false, timeouts={implicit=0.0, page load=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=52.0.2, platformVersion=6.3, moz:processID=1360.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: 0215aa8f-cade-4264-91fd-3c58a5fd1fb0
+	at sun.reflect.GeneratedConstructorAccessor13.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:150)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:115)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)
+	at org.openqa.selenium.remote.RemoteWebDriver.perform(RemoteWebDriver.java:703)
+	at org.openqa.selenium.interactions.Actions$BuiltAction.perform(Actions.java:631)
+	at com.mmkproject.pages.MyMoneyKartHomePage.navigateToUserProfile(MyMoneyKartHomePage.java:461)
+	at com.mmk.test_execution_engine.MMKMainSiteTestCases.navigateToUserProfileAndGetProfileDetails(MMKMainSiteTestCases.java:261)
+
+modifySearchCheck(com.mmk.test_execution_engine.MMKBusSiteTestCases)  Time elapsed: 71.797 sec  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: Unable to locate element: //input[@id='hdDate']
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'TSS167', ip: '192.168.1.167', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_51'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{moz:profile=C:\Users\NAREND~1.RAJ\AppData\Local\Temp\rust_mozprofile.N4yg1ywWgtwa, rotatable=false, timeouts={implicit=0.0, page load=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=52.0.2, platformVersion=6.3, moz:processID=1360.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: 0215aa8f-cade-4264-91fd-3c58a5fd1fb0
+*** Element info: {Using=xpath, value=//input[@id='hdDate']}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:150)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:115)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:637)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:410)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:509)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:402)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy8.getAttribute(Unknown Source)
+	at com.busproject.pages.BusListingPage.modifySearch(BusListingPage.java:94)
+	at com.mmk.test_execution_engine.MMKBusSiteTestCases.modifySearchCheck(MMKBusSiteTestCases.java:123)
+

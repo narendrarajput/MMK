@@ -17,7 +17,6 @@ import com.mmk.reader.LogWriter;
 import com.mmk.reader.PropertyFileReader;
 import com.mmkproject.pages.MyMoneyKartHomePage;
 import com.utilityproject.pages.RechargeHomePage;
-import com.utilityproject.pages.RechargeThankyouPage;
 
 @Listeners( com.mmk.customlisteners.TestNGListeners.class)
 public class MMKUtilitySiteTestCases extends DriverSetup 
@@ -300,7 +299,7 @@ public class MMKUtilitySiteTestCases extends DriverSetup
 	{
 		 rechargeHome = new RechargeHomePage(driver);
 		 rechargeHome.navigateToUtilitySiteHomePage(PropertyFileReader.getProperty("utilitySiteURL"));
-		 rechargeHome.selectDTHRechargeOption();
+		 rechargeHome.selectDTHRechargeOption(PropertyFileReader.getProperty("utilitySiteURL"));
 	}
 	
 	@Test
@@ -308,7 +307,7 @@ public class MMKUtilitySiteTestCases extends DriverSetup
 	{
 		 rechargeHome = new RechargeHomePage(driver);
 		 rechargeHome.navigateToUtilitySiteHomePage(PropertyFileReader.getProperty("utilitySiteURL"));
-		 rechargeHome.selectDTHRechargeOption();
+		 rechargeHome.selectDTHRechargeOption(PropertyFileReader.getProperty("utilitySiteURL"));
 		 rechargeHome.fillDTHRechargeDetails(PropertyFileReader.getProperty("dthSubscriberID"), PropertyFileReader.getProperty("dthOperator"), PropertyFileReader.getProperty("dthRechargeAmount"));
 		 rechargeHome.proceedRecharge("dth");
 		 result =rechargeHome.verifyUserLoginInSystem();
@@ -331,7 +330,40 @@ public class MMKUtilitySiteTestCases extends DriverSetup
 		 		 LogWriter.logger.info("There is some issue for proceed further..");
 		 	}
 	}
-	
+	@Test
+	public void proceedDTHRechargeAndVerifyStatusOnThankyouPage() throws InterruptedException, IOException
+	{
+		 rechargeHome = new RechargeHomePage(driver);
+		 rechargeHome.navigateToUtilitySiteHomePage(PropertyFileReader.getProperty("utilitySiteURL"));
+		 rechargeHome.selectDTHRechargeOption(PropertyFileReader.getProperty("utilitySiteURL"));
+		 rechargeHome.fillDTHRechargeDetails(PropertyFileReader.getProperty("dthSubscriberID"), PropertyFileReader.getProperty("dthOperator"), PropertyFileReader.getProperty("dthRechargeAmount"));
+		 rechargeHome.proceedRecharge("dth");
+		 result =rechargeHome.verifyUserLoginInSystem();
+		 	if(!(result))
+		 	{
+		 		MyMoneyKartHomePage mmkhome = new MyMoneyKartHomePage(driver);
+		 		mmkhome.doUserLogin(PropertyFileReader.getProperty("username"), PropertyFileReader.getProperty("password"));
+		 	}
+		 	else
+		 	{
+		 		 LogWriter.logger.info("User already loggedin in the system");
+		 	}
+		 	CouponCodeAndWalletAmoutSelectionPage cppage = new CouponCodeAndWalletAmoutSelectionPage(driver);
+		 	if(cppage.isLandingPageIsWalletSelectionPage())
+		 	{
+		 		cppage.getAvailableWalletAmount();
+		 		cppage.selectWalletAmount();
+		 		cppage.proceedCheckout();
+		 		cppage.verifyCheckoutPage();
+		 		TransactionThankyouPage thank = new TransactionThankyouPage(driver);
+		 		thank.verifyRechargeStatus();
+		 		
+		 	}
+		 	else
+		 	{
+		 		 LogWriter.logger.info("There is some issue for proceed further..");
+		 	}
+	}
 	@AfterMethod
 	public void tearDown(ITestResult result)
 	{

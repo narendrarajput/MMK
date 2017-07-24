@@ -166,8 +166,16 @@ public class RechargeHomePage
 		}
 	}
 	
-	public void selectDTHRechargeOption()
+	public void selectDTHRechargeOption(String url) throws IOException
 	{
+		if(!(driver.getCurrentUrl().equals(url)))
+		{
+			LogWriter.logger.info("Navigating to.." +url);
+			driver.navigate().to(url);
+			TakeScreenshot.passedScreenShot();
+			Common.wait.until(ExpectedConditions.invisibilityOf(loader));
+		}
+		
 		dthLink.click();
 		if(dthSubscriberID.isDisplayed())
 		{

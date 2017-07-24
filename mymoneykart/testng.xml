@@ -9,7 +9,7 @@
        
   </listeners>
 
-<!--   <test name="MyMoneyKart_Functional_Test">
+   <test name="MyMoneyKart_Functional_Test">
  	<classes>	 
 	 	  <class name="com.mmk.test_execution_engine.MMKMainSiteTestCases">
 	 			<methods>
@@ -64,21 +64,21 @@
 		</class>
      </classes> 
   </test>  
-   -->
+
   <test name="Utility_Functional_Test">
  	 <classes>  	
  	 	<class name="com.mmk.test_execution_engine.MMKUtilitySiteTestCases">
  	 		<methods>
-        		<exclude name="navigateToUtilitySiteAndVerifyCorrectLandingHomePage" /> 
-        		<exclude name="navigateToUtilityHomePageAndCheckWeatherUserIsLogigedIn" /> 
-        		<exclude name="proceedPrepaidMobilerechargeAndVerifyLandingPageAfterFillRechargeDetails" />        		
-        		<exclude name="proceedPrepaidMobileRechargeAndApplyCoupon" />
-        		<exclude name="proceedPrepaidMobileRechargeAndVeriyLandingPageAfterWalletPay" />    
-        		<exclude name="proceedPrepaidMobileRechargeAndVerifyStatusOnThankyouPage" />  
-        		<exclude name="proceedPostpaidMobileRechargeAndVerifyStatusOnThankyouPage" />	
-        		<exclude name="navigateToUtilitySiteAndswitchTodthRecharge" />	
-        		<include name="proceedDTHRechargeAndVerifyLandingPage" />	
-        			
+        		<include name="navigateToUtilitySiteAndVerifyCorrectLandingHomePage" /> 
+        		<include name="navigateToUtilityHomePageAndCheckWeatherUserIsLogigedIn" /> 
+        		<include name="proceedPrepaidMobilerechargeAndVerifyLandingPageAfterFillRechargeDetails" />        		
+        		<include name="proceedPrepaidMobileRechargeAndApplyCoupon" />
+        		<include name="proceedPrepaidMobileRechargeAndVeriyLandingPageAfterWalletPay" />    
+        		<include name="proceedPrepaidMobileRechargeAndVerifyStatusOnThankyouPage" /> 
+        		<include name="proceedPostpaidMobileRechargeAndVerifyStatusOnThankyouPage" />
+        		<include name="navigateToUtilitySiteAndswitchTodthRecharge" />	
+        		<include name="proceedDTHRechargeAndVerifyLandingPage" />
+        		<include name="proceedDTHRechargeAndVerifyStatusOnThankyouPage" />        			
       		</methods>
  	 	</class>
      </classes> 
