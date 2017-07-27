@@ -13,7 +13,7 @@ public class TestDataComman
 	static Date date = new Date(new Date().getTime() + (1000 * 60 * 60 * 24));
 	static String jDate= new SimpleDateFormat("yyyy-MM-dd").format(date);
 	
-	public static String baseURL = "http://www.mymoneykart.com/mmkweb/";
+	public static String baseURL = "http://www.google.com";
 	
 	// User credential Details
 	public static String username = "9422307801";
@@ -48,6 +48,6 @@ public class TestDataComman
 	
 	//Password Details
 	
-	public static String oldPass = "123456";
-	public static String newPass = "123456";
+	public static String oldPass = "1234556";
+	public static String newPass = "12344456";
 }
